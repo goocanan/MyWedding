@@ -17,9 +17,8 @@ services:
         generateValue: true
 
   # Frontend Static Site
-  - type: static
+  - type: static_site
     name: wedding-frontend
-    env: static
     buildCommand: npm install && npm run build --workspace=wedding-invitation
     publishDir: apps/wedding-invitation/dist
     envVars:
