@@ -1,0 +1,11 @@
+/* App Layout */
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-main {
+  position: relative;
+  z-index: var(--z-content);
+}

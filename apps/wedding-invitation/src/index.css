@@ -1,0 +1,81 @@
+@import "@wedding/design-system";
+
+/* --- Section Base --- */
+.section {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: var(--z-content);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-content {
+  max-width: var(--content-max-width);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Section Heading --- */
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: var(--gold-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.section-subheading {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: -1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* --- Selection --- */
+::selection {
+  background: rgba(212, 168, 83, 0.3);
+  color: var(--text-primary);
+}
+
+/* --- Responsive --- */
+@media (min-width: 480px) {
+  :root {
+    --section-padding: 100px 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-padding: 120px 48px;
+  }
+
+  .section-heading {
+    font-size: 2.5rem;
+  }
+}

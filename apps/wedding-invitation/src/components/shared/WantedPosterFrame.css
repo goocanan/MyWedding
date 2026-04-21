@@ -1,0 +1,157 @@
+.wanted-poster {
+  background-color: #e6d3af;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.05) 100%),
+    url("https://www.transparenttextures.com/patterns/papyree.png");
+  border: 3px solid #3c2a1a;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  max-width: 320px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #3c2a1a;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 0 60px rgba(139, 107, 60, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.wanted-poster:hover {
+  transform: translateY(-5px) rotate(1deg);
+}
+
+.wanted-poster__header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.wanted-poster__wanted-text {
+  font-size: 3.5rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: #2c1a0e;
+  margin-bottom: -0.25rem;
+}
+
+.wanted-poster__dead-or-alive {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  opacity: 0.7;
+}
+
+.wanted-poster__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  border: 2px solid #2c1a0e;
+  background-color: #d4c4a0;
+  overflow: hidden;
+  position: relative;
+  margin: 0.5rem 0;
+}
+
+.wanted-poster__photo .photo-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.wanted-poster__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.2) contrast(1.1);
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 30%, rgba(60, 42, 26, 0.15) 100%);
+  pointer-events: none;
+}
+
+.wanted-poster__photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: rgba(60, 42, 26, 0.15);
+}
+
+.wanted-poster__info {
+  width: 100%;
+  text-align: center;
+  padding-top: 0.75rem;
+}
+
+.wanted-poster__name {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: #2c1a0e;
+}
+
+.wanted-poster__bounty {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.bounty-currency {
+  font-size: 1.5rem;
+  color: #c0392b; /* Bounty Berry symbol */
+}
+
+.bounty-amount {
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.wanted-poster__label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #c0392b;
+  margin-bottom: 0.25rem;
+}
+
+.wanted-poster__parents {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.3;
+  color: rgba(44, 24, 16, 0.7);
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Corner decor */
+.wanted-poster__corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.tl { top: 0; left: 0; }
+.tr { top: 0; right: 0; }
+.bl { bottom: 0; left: 0; }
+.br { bottom: 0; right: 0; }
+
+@media (max-width: 360px) {
+  .wanted-poster__wanted-text { font-size: 2.8rem; }
+  .wanted-poster__name { font-size: 1.6rem; }
+}

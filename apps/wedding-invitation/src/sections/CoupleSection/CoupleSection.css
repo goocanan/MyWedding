@@ -1,0 +1,32 @@
+.couple-section {
+  background: var(--bg-secondary);
+}
+
+.couple-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.couple-ampersand {
+  font-family: 'Pirata One', cursive;
+  font-size: 2.5rem;
+  color: var(--gold-primary);
+  text-shadow: 0 0 20px rgba(212, 168, 83, 0.3);
+}
+
+@media (min-width: 768px) {
+  .couple-cards {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .couple-ampersand {
+    align-self: center;
+    font-size: 3rem;
+  }
+}

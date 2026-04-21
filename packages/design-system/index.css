@@ -1,0 +1,200 @@
+/* ============================================
+   @wedding/design-system — "Grand Line" Theme
+   One Piece Wedding Invitation — Shared Styles
+   ============================================ */
+
+:root {
+  /* Background Colors */
+  --bg-primary: #0c1b33;
+  --bg-secondary: #132241;
+  --bg-tertiary: #1a2d4a;
+  --bg-glass: rgba(12, 27, 51, 0.7);
+  --bg-glass-light: rgba(19, 34, 65, 0.5);
+
+  /* Gold Palette */
+  --gold-primary: #d4a853;
+  --gold-light: #f0d48a;
+  --gold-dark: #b8922e;
+  --gold-gradient: linear-gradient(135deg, #d4a853 0%, #f0d48a 50%, #d4a853 100%);
+
+  /* Parchment */
+  --parchment: #f5e6c8;
+  --parchment-dark: #d4c4a0;
+  --parchment-bg: rgba(245, 230, 200, 0.08);
+
+  /* Red Accent */
+  --red-accent: #c0392b;
+  --red-dark: #922b21;
+  --red-light: #e74c3c;
+
+  /* Text */
+  --text-primary: #f5f0e8;
+  --text-secondary: #8fa4c4;
+  --text-dark: #2c1810;
+  --text-muted: #5a7094;
+
+  /* Borders & Effects */
+  --border-gold: rgba(212, 168, 83, 0.3);
+  --border-gold-strong: rgba(212, 168, 83, 0.6);
+  --wave-blue: #1e4d8c;
+  --glow-gold: 0 0 20px rgba(212, 168, 83, 0.3);
+  --glow-gold-strong: 0 0 40px rgba(212, 168, 83, 0.4);
+
+  /* Spacing */
+  --section-padding: 80px 24px;
+  --content-max-width: 600px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.8s ease;
+
+  /* Z-Indexes */
+  --z-particles: 1;
+  --z-content: 10;
+  --z-audio: 50;
+  --z-lightbox: 100;
+  --z-toast: 200;
+  --z-cover: 1000;
+}
+
+/* --- Global Reset --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.scroll-locked {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--gold-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--gold-light);
+}
+
+button {
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: 'Outfit', sans-serif;
+  outline: none;
+  background: none;
+  color: inherit;
+}
+
+/* --- Typography Utilities --- */
+.font-pirate { font-family: 'Pirata One', cursive; }
+.font-display { font-family: 'Playfair Display', serif; }
+.font-serif { font-family: 'Cormorant Garamond', serif; }
+.font-body { font-family: 'Outfit', sans-serif; }
+
+/* --- Shared Animations --- */
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer {
+  background: var(--gold-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(212, 168, 83, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(212, 168, 83, 0.5); }
+}
+
+@keyframes compassSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes waveFloat {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-25px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Shared Utilities --- */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--border-radius);
+}
+
+::selection {
+  background: rgba(212, 168, 83, 0.3);
+  color: var(--text-primary);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }

@@ -1,0 +1,169 @@
+.wanted-poster-container {
+  width: 100%;
+  max-width: 320px;
+  perspective: 1000px;
+  margin: 1.5rem auto;
+}
+
+.wanted-poster {
+  background-color: #e6d3af; /* Parchment color */
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.05) 100%),
+    url("https://www.transparenttextures.com/patterns/papyree.png");
+  padding: 1.5rem 1rem;
+  border: 4px solid #3c2a1a;
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 0 40px rgba(0,0,0,0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #3c2a1a;
+}
+
+.wanted-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.wanted-text {
+  font-family: 'Pirata One', cursive;
+  font-size: 4rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  color: #2c1a0e;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.2);
+}
+
+.wanted-subheading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.wanted-photo-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3.2;
+  border: 3px solid #2c1a0e;
+  background-color: #d4c4a0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.2);
+}
+
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.wanted-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.3) contrast(1.1);
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 30%, rgba(60, 42, 26, 0.2) 100%);
+  pointer-events: none;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: rgba(60, 42, 26, 0.15);
+}
+
+.wanted-name-section {
+  width: 100%;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.wanted-name {
+  font-family: 'Pirata One', cursive;
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  color: #2c1a0e;
+}
+
+.wanted-bounty {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.bounty-symbol {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.5rem;
+  color: #c0392b; /* Red accent for the bounty symbol */
+}
+
+.bounty-value {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.wanted-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+/* Corner decor effects */
+.corner-decor {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  border-top: 15px solid transparent;
+  border-left: 15px solid transparent;
+  background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.05) 50%);
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid transparent;
+  background: linear-gradient(-45deg, transparent 50%, rgba(0,0,0,0.05) 50%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 360px) {
+  .wanted-text {
+    font-size: 3rem;
+  }
+  .wanted-name {
+    font-size: 2rem;
+  }
+}

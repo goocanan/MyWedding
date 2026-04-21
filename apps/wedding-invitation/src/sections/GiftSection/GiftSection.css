@@ -1,0 +1,120 @@
+.gift-section {
+  background: var(--bg-secondary);
+}
+
+.gift-intro {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 400px;
+  margin-bottom: 28px;
+}
+
+.gift-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.gift-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+
+.gift-card__icon {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.gift-card__title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--gold-primary);
+  margin-bottom: 16px;
+}
+
+.gift-card__number {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.gift-card__holder {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.gift-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  border-radius: 50px;
+  color: var(--gold-primary);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+}
+
+.gift-copy-btn:hover {
+  background: rgba(212, 168, 83, 0.15);
+  border-color: var(--gold-primary);
+}
+
+.gift-copy-btn--copied {
+  background: rgba(39, 174, 96, 0.15);
+  border-color: #27ae60;
+  color: #27ae60;
+}
+
+.gift-qris {
+  padding: 16px;
+  background: white;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  margin: 8px auto 0;
+}
+
+.gift-qris img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+
+.gift-qris-placeholder {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .gift-cards {
+    flex-direction: row;
+  }
+
+  .gift-card {
+    flex: 1;
+  }
+}

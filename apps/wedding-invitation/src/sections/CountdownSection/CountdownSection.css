@@ -1,0 +1,61 @@
+.countdown-section {
+  background: var(--bg-secondary);
+  min-height: 40vh;
+}
+
+.countdown-grid {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.countdown-item {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--border-radius);
+  padding: 20px 16px;
+  min-width: 72px;
+  text-align: center;
+  box-shadow: var(--glow-gold);
+}
+
+.countdown-number {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+}
+
+.countdown-expired {
+  font-family: 'Pirata One', cursive;
+  font-size: 1.3rem;
+  color: var(--gold-primary);
+  text-align: center;
+  margin-top: 16px;
+}
+
+@media (min-width: 480px) {
+  .countdown-item {
+    min-width: 90px;
+    padding: 24px 20px;
+  }
+
+  .countdown-number {
+    font-size: 2.5rem;
+  }
+}

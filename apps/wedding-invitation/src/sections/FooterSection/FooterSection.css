@@ -1,0 +1,38 @@
+.footer-section {
+  background: var(--bg-primary);
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.footer-closing {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.footer-couple {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  margin-bottom: 8px;
+}
+
+.footer-tagline {
+  font-family: 'Pirata One', cursive;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 24px;
+  opacity: 0.6;
+}
+
+.footer-credits {
+  margin-top: 40px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.5;
+}

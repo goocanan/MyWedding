@@ -1,0 +1,52 @@
+.hero-section {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--bg-primary);
+}
+
+.hero-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  max-width: 480px;
+  opacity: 0.9;
+}
+
+.hero-source {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--gold-primary);
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+
+.hero-theme-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 420px;
+  margin-top: 8px;
+}
+
+.hero-theme-source {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .hero-quote {
+    font-size: 1.35rem;
+  }
+}
