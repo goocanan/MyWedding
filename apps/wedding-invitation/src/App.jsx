@@ -4,7 +4,6 @@ import { useScrollLock } from './hooks/useScrollLock';
 // Shared Components
 import ParticleBackground from './components/animation/ParticleBackground';
 import AudioController from './components/shared/AudioController';
-import WaveDivider from './components/shared/WaveDivider';
 
 // Sections
 import CoverOverlay from './sections/CoverOverlay/CoverOverlay';
@@ -52,45 +51,53 @@ export default function App() {
       <AudioController ref={audioRef} />
 
       {/* Main content sections */}
-      <main className="app-main section-anchor">
-        {/* Animated Corner Ornaments */}
-        <div className="corner-ornament ornament-tl"></div>
-        <div className="corner-ornament ornament-tr"></div>
-        <div className="corner-ornament ornament-bl"></div>
-        <div className="corner-ornament ornament-br"></div>
+      <main className="app-main">
 
-        <HeroSection />
-
-        <div className="nautical-divider">
-          <svg className="nautical-icon" viewBox="0 0 24 24" fill="currentColor">
-             {/* Anchor SVG path */}
-             <path d="M12 2C10.9 2 10 2.9 10 4C10 4.8 10.5 5.5 11.2 5.8L10.3 10.3L6.8 9.3L6.5 10.3L9.6 11.1L8.2 18.2C5.3 16.9 3.1 14.3 2.2 11L4.2 11L4.2 9L0.2 9L0.2 11L1.2 11C2.2 15.6 6 19.3 10.8 20V22L8 22L8 24L16 24L16 22L13.2 22V20C18 19.3 21.8 15.6 22.8 11L23.8 11L23.8 9L19.8 9L19.8 11L21.8 11C20.9 14.3 18.7 16.9 15.8 18.2L14.4 11.1L17.5 10.3L17.2 9.3L13.7 10.3L12.8 5.8C13.5 5.5 14 4.8 14 4C14 2.9 13.1 2 12 2M12 3C12.6 3 13 3.4 13 4C13 4.6 12.6 5 12 5C11.4 5 11 4.6 11 4C11 3.4 11.4 3 12 3Z"/>
-          </svg>
+        {/* Hero — Starry night sky */}
+        <div className="section-bg-stars section-fade-out">
+          <HeroSection />
         </div>
 
-        <WaveDivider color="#132241" />
-        <CoupleSection />
-        <WaveDivider color="#0c1b33" flip />
+        {/* Couple — Navy with gold streaks + anchor watermark */}
+        <div className="section-bg-navy section-fade-in section-fade-out">
+          <CoupleSection />
+        </div>
 
-        <EventSection />
+        {/* Event — Ocean with compass watermark */}
+        <div className="section-bg-ocean section-fade-in section-fade-out">
+          <EventSection />
+        </div>
 
-        <WaveDivider color="#132241" />
-        <CountdownSection />
-        <WaveDivider color="#0c1b33" flip />
+        {/* Countdown — Stars variant */}
+        <div className="section-bg-stars section-fade-in section-fade-out">
+          <CountdownSection />
+        </div>
 
-        <GallerySection />
+        {/* Gallery — Deep abyss with edge glow */}
+        <div className="section-bg-abyss section-fade-in section-fade-out">
+          <GallerySection />
+        </div>
 
-        <WaveDivider color="#132241" />
-        <RSVPSection onNewMessage={handleNewMessage} />
-        <WaveDivider color="#0c1b33" flip />
+        {/* RSVP — Treasure map warm glow */}
+        <div className="section-bg-treasure section-fade-in section-fade-out">
+          <RSVPSection onNewMessage={handleNewMessage} />
+        </div>
 
-        <GuestbookSection newMessages={newMessages} />
+        {/* Guestbook — Navy variant */}
+        <div className="section-bg-navy section-fade-in section-fade-out">
+          <GuestbookSection newMessages={newMessages} />
+        </div>
 
-        <WaveDivider color="#132241" />
-        <GiftSection />
-        <WaveDivider color="#0c1b33" flip />
+        {/* Gift — Ocean variant */}
+        <div className="section-bg-ocean section-fade-in section-fade-out">
+          <GiftSection />
+        </div>
 
-        <FooterSection />
+        {/* Footer — Deep abyss */}
+        <div className="section-bg-abyss section-fade-in">
+          <FooterSection />
+        </div>
+
       </main>
     </div>
   );
