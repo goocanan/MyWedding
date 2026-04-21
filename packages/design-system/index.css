@@ -5,9 +5,9 @@
 
 :root {
   /* Background Colors */
-  --bg-primary: #0c1b33;
-  --bg-secondary: #132241;
-  --bg-tertiary: #1a2d4a;
+  --bg-primary: rgba(12, 27, 51, 0.65);
+  --bg-secondary: rgba(19, 34, 65, 0.65);
+  --bg-tertiary: rgba(26, 45, 74, 0.65);
   --bg-glass: rgba(12, 27, 51, 0.7);
   --bg-glass-light: rgba(19, 34, 65, 0.5);
 
