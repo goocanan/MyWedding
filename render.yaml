@@ -1,0 +1,30 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: wedding-backend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build --workspace=backend
+    startCommand: node apps/backend/dist/index.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: BETTER_AUTH_SECRET
+        generateValue: true
+
+  # Frontend Static Site
+  - type: static
+    name: wedding-frontend
+    env: static
+    buildCommand: npm install && npm run build --workspace=wedding-invitation
+    publishDir: apps/wedding-invitation/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: wedding-backend
+          type: web
+          property: host
