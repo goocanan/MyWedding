@@ -6,7 +6,7 @@ export type CreateRsvpDTO = {
 	name: string;
 	pax: number;
 	attendance: "hadir" | "tidak_hadir" | "ragu";
-	message?: string;
+	message?: string | undefined;
 };
 
 export class RSVPService {
