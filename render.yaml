@@ -2,7 +2,7 @@ services:
   # Backend Web Service
   - type: web
     name: wedding-backend
-    env: node
+    runtime: node
     plan: free
     buildCommand: npm install && npm run build --workspace=backend
     startCommand: node apps/backend/dist/index.js
@@ -17,10 +17,11 @@ services:
         generateValue: true
 
   # Frontend Static Site
-  - type: static_site
+  - type: web
     name: wedding-frontend
+    runtime: static
     buildCommand: npm install && npm run build --workspace=wedding-invitation
-    publishDir: apps/wedding-invitation/dist
+    staticPublishPath: apps/wedding-invitation/dist
     envVars:
       - key: VITE_API_URL
         fromService:
