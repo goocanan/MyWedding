@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // Better Auth handler
-app.all("/api/auth/*", toNodeHandler(auth));
+app.all("/api/auth/*path", toNodeHandler(auth));
 
 // Public Routes
 app.use("/api/rsvp", rsvpRoutes);
