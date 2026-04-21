@@ -7,13 +7,11 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "NodeNext",
-    "target": "ESNext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
+    "allowSyntheticDefaultImports": true,
 
     // Other Outputs
     "sourceMap": true,
@@ -41,8 +39,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
 
-    "moduleResolution": "nodenext",
-    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
   },
   "include": ["src/**/*"],
