@@ -65,7 +65,6 @@ export default function App() {
       {/* Main content sections */}
       <main className="app-main">
         <Swiper
-          enabled={isOpen}
           direction="vertical"
           slidesPerView={1}
           mousewheel={{ enabled: isOpen }}
