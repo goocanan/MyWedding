@@ -16,9 +16,9 @@ export default function CoverOverlay({ isOpen, onOpen }) {
       {!isOpen && (
         <motion.div
           className="cover-overlay"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          exit={{ opacity: 0, scale: 1.5, filter: "blur(10px)" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
             className="cover-content"
