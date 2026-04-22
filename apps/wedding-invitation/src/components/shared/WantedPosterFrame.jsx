@@ -2,51 +2,49 @@ import { motion } from 'framer-motion';
 import './WantedPosterFrame.css';
 
 /**
- * Wanted Poster style photo frame — One Piece Edition.
- * Used in CoupleSection for groom & bride profiles.
+ * Wanted Poster style photo frame — Epic 3D Pirate Edition.
  */
 export default function WantedPosterFrame({ label, name, parents, photo, bounty = "20.07.2026", rotationClass = "" }) {
   return (
-    <div className={`wanted-poster relative p-6 max-w-sm mx-auto flex flex-col items-center bg-wedding-parchment shadow-2xl shadow-black/60 shadow-[inset_0_0_20px_rgba(0,0,0,0.2)] border-2 border-[#b59e5f] ${rotationClass}`}>
-      
-      {/* The Pin/Nail at the top center */}
-      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-gray-600 shadow-md border-2 border-gray-400 z-10 before:content-[''] before:absolute before:inset-[4px] before:rounded-full before:bg-gray-800"></div>
+    <div className={`wanted-poster-container ${rotationClass}`}>
+      <div className="wanted-poster bg-[#F4EBD0] shadow-2xl relative p-8 flex flex-col items-center">
+        
+        {/* The Pin/Nail at the top center */}
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#3C2A1A] shadow-xl z-10 border-2 border-[#1A0F08] flex items-center justify-center">
+           <div className="w-2 h-2 rounded-full bg-[#1A0F08]"></div>
+        </div>
 
-      <div className="wanted-poster__header w-full text-center border-b-2 border-black/20 pb-2 mb-4">
-        <div className="wanted-poster__wanted-text font-pirate text-5xl tracking-widest text-[#4a3525]">WANTED</div>
-        <div className="wanted-poster__dead-or-alive text-sm font-bold tracking-[0.3em] text-[#4a3525] mt-1">DEAD OR ALIVE</div>
-      </div>
+        <div className="wanted-poster__header w-full text-center border-b-2 border-[#3C2A1A]/20 pb-4 mb-6">
+          <div className="font-pirate text-6xl tracking-widest text-[#3C2A1A]">WANTED</div>
+          <div className="text-sm font-bold tracking-[0.4em] text-[#3C2A1A] mt-2 opacity-80">DEAD OR ALIVE</div>
+        </div>
 
-      <div className="wanted-poster__photo">
-        <div className="photo-inner">
+        <div className="wanted-poster__photo w-full aspect-[4/5] border-4 border-[#3C2A1A] overflow-hidden relative shadow-inner">
           {photo ? (
-            <img src={photo} alt={name} loading="lazy" />
+            <img src={photo} alt={name} className="w-full h-full object-cover sepia-[0.3] contrast-[1.1]" loading="lazy" />
           ) : (
-            <div className="wanted-poster__photo-placeholder">
+            <div className="w-full h-full flex items-center justify-center text-6xl bg-[#D4C4A0]/30 text-[#3C2A1A]/20">
               {label.includes('GROOM') ? '⚓' : '🌊'}
             </div>
           )}
-          <div className="photo-overlay"></div>
-        </div>
-      </div>
-
-      <div className="wanted-poster__info">
-        <h3 className="wanted-poster__name font-pirate">{name}</h3>
-        
-        <div className="wanted-poster__bounty">
-          <span className="bounty-currency font-pirate">B</span>
-          <span className="bounty-amount font-pirate">{bounty}</span>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3C2A1A]/40 to-transparent pointer-events-none"></div>
         </div>
 
-        <div className="wanted-poster__label">{label}</div>
-        <div className="wanted-poster__parents">{parents}</div>
-      </div>
+        <div className="wanted-poster__info mt-8 w-full text-center">
+          <h3 className="text-gold-gradient font-pirate text-4xl mb-4 uppercase tracking-tighter drop-shadow-md">{name}</h3>
+          
+          <div className="flex items-baseline justify-center gap-2 mb-4 bg-[#3C2A1A]/5 py-2 rounded">
+            <span className="font-pirate text-2xl text-[#8E1C1C]">B</span>
+            <span className="font-pirate text-3xl text-[#3C2A1A] tracking-widest">{bounty}</span>
+          </div>
 
-      {/* Decorative elements */}
-      <div className="wanted-poster__corner tl"></div>
-      <div className="wanted-poster__corner tr"></div>
-      <div className="wanted-poster__corner bl"></div>
-      <div className="wanted-poster__corner br"></div>
+          <div className="text-[10px] font-bold tracking-[0.2em] text-[#8E1C1C] uppercase mb-1">{label}</div>
+          <div className="font-serif italic text-sm text-[#3C2A1A]/70 leading-tight">{parents}</div>
+        </div>
+
+        {/* Texture overlays */}
+        <div className="absolute inset-0 bg-texture-parchment opacity-20 pointer-events-none"></div>
+      </div>
     </div>
   );
 }

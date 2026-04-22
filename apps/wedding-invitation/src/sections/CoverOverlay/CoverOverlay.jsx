@@ -15,45 +15,50 @@ export default function CoverOverlay({ isOpen, onOpen }) {
     <AnimatePresence>
       {!isOpen && (
         <motion.div
-          className="cover-overlay"
-          initial={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0, scale: 1.5, filter: "blur(10px)" }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="cover-overlay bg-texture-sea"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
+          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
         >
+          {/* Parchment Overlay */}
+          <div className="absolute inset-0 bg-texture-parchment opacity-10 mix-blend-overlay pointer-events-none"></div>
+
           <motion.div
-            className="cover-content"
-            initial={{ opacity: 0, y: 30 }}
+            className="cover-content relative z-20"
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 1.2, delay: 0.5 }}
           >
-            <div className="cover-ornament" aria-hidden="true">⚓ ⚓ ⚓</div>
+            <div className="cover-ornament gold-gradient-text" aria-hidden="true">⚓ ⚓ ⚓</div>
 
-            <div className="cover-jolly" aria-hidden="true">🏴‍☠️</div>
+            <div className="cover-jolly text-6xl mb-6" aria-hidden="true">🏴‍☠️</div>
 
-            <span className="cover-pretitle">Set Sail to Our</span>
+            <span className="cover-pretitle text-gold tracking-[0.4em] uppercase text-sm mb-4">Set Sail to Our</span>
 
-            <h1 className="cover-title">Grand Wedding</h1>
+            <h1 className="cover-title text-gold-gradient text-6xl md:text-8xl mb-8">Grand Wedding</h1>
 
-            <div className="cover-couple-names">
+            <div className="cover-couple-names text-4xl md:text-6xl mb-8 font-display">
               {couple.groom.name}
-              <span className="cover-ampersand">&</span>
+              <span className="text-gold italic mx-6">&</span>
               {couple.bride.name}
             </div>
 
-            <div className="cover-date">Minggu, 20 Juli 2026</div>
+            <div className="cover-date border-y border-gold/30 py-4 mb-12 text-xl tracking-widest uppercase">
+              Minggu, 20 Juli 2026
+            </div>
 
-            <div className="cover-guest-wrapper">
-              <span className="cover-guest-label">── Kepada Yth. ──</span>
-              <span className="cover-guest-name">{guestName}</span>
+            <div className="cover-guest-wrapper mb-12">
+              <span className="block text-sm text-gold/60 uppercase tracking-widest mb-2">Kepada Yth.</span>
+              <span className="block text-3xl font-display text-gold-gradient">{guestName}</span>
             </div>
 
             <button
-              className="cover-btn"
+              className="group relative flex items-center justify-center"
               onClick={onOpen}
               id="open-invitation-btn"
-              aria-label="Buka Undangan"
             >
-              <span>⚓ Buka Undangan</span>
+              <div className="wax-seal group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(142,28,28,0.5)]"></div>
+              <span className="absolute top-full mt-4 text-gold tracking-[0.3em] uppercase text-xs opacity-60 group-hover:opacity-100 transition-opacity">Buka Undangan</span>
             </button>
           </motion.div>
         </motion.div>

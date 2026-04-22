@@ -35,23 +35,23 @@ export default function GuestbookSection({ newMessages = [] }) {
 
 
   return (
-    <section className="section guestbook-section" id="guestbook">
+    <section className="section bg-texture-sea" id="guestbook">
       <ScrollReveal>
-        <h2 className="section-heading">📜 Captain's Log</h2>
-        <p className="section-subheading">Ucapan & Doa</p>
+        <h2 className="section-heading text-gold-gradient">📜 Captain's Log</h2>
+        <p className="section-subheading text-gold tracking-widest text-center mt-[-2rem] mb-16 uppercase text-sm">Wishes from Nakama</p>
       </ScrollReveal>
 
-      <div className="section-content">
+      <div className="section-content w-full max-w-4xl px-4">
         {isLoading ? (
-          <div className="guestbook-loading">Loading Captain's Log... ⚓</div>
+          <div className="text-center font-pirate text-2xl text-gold-gradient animate-pulse">Loading Logs... ⚓</div>
         ) : allMessages.length === 0 ? (
-          <div className="guestbook-empty">
-            Belum ada ucapan. Jadilah yang pertama! 🏴‍☠️
+          <div className="text-center italic text-gold/60">
+            No entries found. Be the first to sign the log! 🏴‍☠️
           </div>
         ) : (
           <>
             <motion.div
-              className="guestbook-list"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
               variants={staggerFast}
               initial="hidden"
               whileInView="visible"
@@ -60,35 +60,47 @@ export default function GuestbookSection({ newMessages = [] }) {
               {visible.map((msg, idx) => (
                 <motion.div
                   key={msg.id}
-                  className={`guestbook-item ${idx < newMessages.length ? 'guestbook-item--new' : ''}`}
+                  className={`aged-scroll p-6 rounded relative border-l-4 border-[#3C2A1A]/20 transition-all duration-500 hover:-translate-y-2
+                    ${idx < newMessages.length ? 'ring-4 ring-[#8E1C1C]/30' : ''}`}
                   variants={fadeInUp}
                 >
-                  <div className="guestbook-header">
-                    <div className="guestbook-avatar">⚓</div>
-                    <span className="guestbook-name">{msg.name}</span>
-                    <span className={`guestbook-badge guestbook-badge--${msg.attendance}`}>
-                      {badgeLabels[msg.attendance] || msg.attendance}
-                    </span>
+                  <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#3C2A1A]/10">
+                    <div className="w-10 h-10 rounded-full bg-[#3C2A1A] flex items-center justify-center text-xl shadow-md">⚓</div>
+                    <div className="flex-1">
+                      <span className="block font-pirate text-xl text-[#3C2A1A] uppercase tracking-wide">{msg.name}</span>
+                      <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded
+                        ${msg.attendance === 'hadir' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                        {badgeLabels[msg.attendance] || msg.attendance}
+                      </span>
+                    </div>
                   </div>
-                  <p className="guestbook-message">{msg.message}</p>
-                  <span className="guestbook-time">🕐 {timeAgo(msg.timestamp || msg.createdAt)}</span>
+                  <p className="font-serif italic text-[#3C2A1A]/90 leading-relaxed text-lg">"{msg.message}"</p>
+                  <div className="mt-4 text-right text-[10px] font-bold text-[#3C2A1A]/40 uppercase tracking-tighter">
+                    🕐 {timeAgo(msg.timestamp || msg.createdAt)}
+                  </div>
+                  
+                  {/* Small scroll rolls */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-[#3C2A1A]/5 -translate-y-1"></div>
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-[#3C2A1A]/5 translate-y-1"></div>
                 </motion.div>
               ))}
             </motion.div>
 
-            <p className="guestbook-count">
-              Showing {visible.length} of {allMessages.length} messages
-            </p>
+            <div className="flex flex-col items-center gap-4">
+              <p className="text-gold/40 text-xs uppercase tracking-widest">
+                Showing {visible.length} of {allMessages.length} entries
+              </p>
 
-            {hasMore && (
-              <button
-                className="guestbook-load-more"
-                onClick={() => setVisibleCount((prev) => prev + INITIAL_SHOW)}
-                id="load-more-messages-btn"
-              >
-                📜 Load More
-              </button>
-            )}
+              {hasMore && (
+                <button
+                  className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-pirate text-xl uppercase tracking-widest hover:bg-[#D4AF37] hover:text-[#0c1b33] transition-all shadow-xl active:scale-95"
+                  onClick={() => setVisibleCount((prev) => prev + INITIAL_SHOW)}
+                  id="load-more-messages-btn"
+                >
+                  📜 Read More Logs
+                </button>
+              )}
+            </div>
           </>
         )}
       </div>

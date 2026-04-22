@@ -22,13 +22,10 @@ export default function RSVPSection({ onNewMessage }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate
     if (!form.name || form.name.trim().length < 2) {
       setErrorMsg('Nama harus diisi minimal 2 karakter');
       return;
     }
-
     setErrorMsg('');
 
     try {
@@ -38,8 +35,6 @@ export default function RSVPSection({ onNewMessage }) {
         attendance: form.attendance,
         message: form.message.trim(),
       });
-
-      // Notify parent about new message
       if (onNewMessage && form.message.trim()) {
         onNewMessage({
           id: result.id,
@@ -56,16 +51,16 @@ export default function RSVPSection({ onNewMessage }) {
 
   if (isSuccess) {
     return (
-      <section className="section rsvp-section" id="rsvp">
+      <section className="section bg-texture-sea" id="rsvp">
         <div className="section-content w-full px-4">
           <ScrollReveal>
-            <div className="rsvp-card bg-[#F9F6EE] text-[#2c1810] rounded-sm p-8 shadow-xl max-w-lg mx-auto relative relative before:content-[''] before:absolute before:inset-0 before:bg-parchment-scroll before:opacity-40 before:pointer-events-none before:z-0 text-center">
+            <div className="aged-scroll max-w-lg mx-auto text-center py-16 px-10 relative border-l-8 border-r-8 border-[#3C2A1A]/10">
               <div className="rsvp-success relative z-10">
-                <div className="rsvp-success__icon text-[#d4a853] text-5xl mb-4">⚓</div>
-                <h3 className="rsvp-success__title text-3xl font-pirate text-[#4a3525] mb-4">Welcome Aboard, Nakama!</h3>
-                <p className="rsvp-success__text text-lg text-[#2c1810]">
-                  Terima kasih atas konfirmasi dan doa-nya. <br />
-                  See you at the Grand Wedding! 🏴‍☠️
+                <div className="text-[#8E1C1C] text-6xl mb-6">⚓</div>
+                <h3 className="text-4xl font-pirate text-[#3C2A1A] mb-6">Welcome Aboard, Nakama!</h3>
+                <p className="font-serif italic text-xl text-[#3C2A1A]/80 leading-relaxed">
+                  Your name has been added to the crew manifest. <br />
+                  See you at the Grand Line! 🏴‍☠️
                 </p>
               </div>
             </div>
@@ -76,118 +71,114 @@ export default function RSVPSection({ onNewMessage }) {
   }
 
   return (
-    <section className="section rsvp-section" id="rsvp">
+    <section className="section bg-texture-sea" id="rsvp">
       <ScrollReveal>
-        <h2 className="section-heading">🏴‍☠️ Join Our Crew!</h2>
-        <p className="section-subheading">Konfirmasi Kehadiran</p>
+        <h2 className="section-heading text-gold-gradient">🏴‍☠️ Crew Manifest</h2>
+        <p className="section-subheading text-gold tracking-widest text-center mt-[-2rem] mb-16 uppercase text-sm">Join the Voyage</p>
       </ScrollReveal>
 
-      <div className="section-content w-full px-4">
+      <div className="section-content w-full px-4 max-w-2xl">
         <ScrollReveal delay={0.2}>
-          <div className="rsvp-card bg-[#F9F6EE] text-[#2c1810] rounded-sm p-8 shadow-xl max-w-lg mx-auto relative relative before:content-[''] before:absolute before:inset-0 before:bg-parchment-scroll before:opacity-40 before:pointer-events-none before:z-0">
+          <div className="aged-scroll relative border-l-8 border-r-8 border-[#3C2A1A]/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <div className="relative z-10 w-full">
-              <form className="rsvp-form space-y-6" onSubmit={handleSubmit}>
+              <div className="text-center mb-10 pb-6 border-b border-[#3C2A1A]/20">
+                <h3 className="font-pirate text-3xl text-[#3C2A1A] uppercase tracking-widest">Sign the Scroll</h3>
+                <p className="font-serif italic text-[#3C2A1A]/60">Every nakama counts on this journey</p>
+              </div>
+
+              <form className="space-y-8" onSubmit={handleSubmit}>
                 <div className="rsvp-field">
-                  <label className="rsvp-label block text-sm font-semibold mb-1 text-[#4a3525]" htmlFor="rsvp-name">Nama Nakama</label>
+                  <label className="block font-pirate text-xl text-[#3C2A1A] mb-2 uppercase tracking-wide" htmlFor="rsvp-name">Full Name</label>
                   <input
                     id="rsvp-name"
-                    className="rsvp-input w-full bg-white/50 border border-[#b59e5f] text-[#2c1810] rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#d4a853]"
+                    className="w-full bg-transparent border-b-2 border-[#3C2A1A]/30 text-[#3C2A1A] px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif italic text-xl outline-none"
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="Masukkan nama kamu"
-                    autoComplete="name"
+                    placeholder="Enter your name..."
                   />
-                  {errorMsg && submitState !== 'error' && (
-                    <span className="rsvp-error text-red-600 text-sm mt-1">{errorMsg}</span>
+                  {errorMsg && (
+                    <span className="text-red-600 text-sm mt-2 block font-bold">{errorMsg}</span>
                   )}
                 </div>
 
-                <div className="rsvp-field">
-                  <label className="rsvp-label block text-sm font-semibold mb-1 text-[#4a3525]" htmlFor="rsvp-pax">Jumlah Crew</label>
-                  <select
-                    id="rsvp-pax"
-                    className="rsvp-select w-full bg-white/50 border border-[#b59e5f] text-[#2c1810] rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#d4a853]"
-                    name="pax"
-                    value={form.pax}
-                    onChange={handleChange}
-                  >
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <option key={n} value={n} className="text-black">{n} Orang</option>
-                    ))}
-                  </select>
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="rsvp-field">
+                    <label className="block font-pirate text-xl text-[#3C2A1A] mb-2 uppercase tracking-wide" htmlFor="rsvp-pax">Crew Size</label>
+                    <select
+                      id="rsvp-pax"
+                      className="w-full bg-transparent border-b-2 border-[#3C2A1A]/30 text-[#3C2A1A] px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif italic text-xl outline-none appearance-none"
+                      name="pax"
+                      value={form.pax}
+                      onChange={handleChange}
+                    >
+                      {[1, 2, 3, 4, 5].map((n) => (
+                        <option key={n} value={n}>{n} People</option>
+                      ))}
+                    </select>
+                  </div>
 
-                <div className="rsvp-field">
-                  <span className="rsvp-label block text-sm font-semibold mb-2 text-[#4a3525]">Konfirmasi</span>
-                  <div className="rsvp-radio-group flex flex-wrap gap-4">
-                    <label className="rsvp-radio flex items-center gap-2 cursor-pointer text-[#4a3525]">
-                      <input
-                        type="radio"
-                        name="attendance"
-                        value="hadir"
-                        className="accent-[#d4a853]"
-                        checked={form.attendance === 'hadir'}
-                        onChange={handleChange}
-                      />
-                      ⚓ Hadir
-                    </label>
-                    <label className="rsvp-radio flex items-center gap-2 cursor-pointer text-[#4a3525]">
-                      <input
-                        type="radio"
-                        name="attendance"
-                        value="tidak_hadir"
-                        className="accent-[#d4a853]"
-                        checked={form.attendance === 'tidak_hadir'}
-                        onChange={handleChange}
-                      />
-                      🌊 Tidak Hadir
-                    </label>
-                    <label className="rsvp-radio flex items-center gap-2 cursor-pointer text-[#4a3525]">
-                      <input
-                        type="radio"
-                        name="attendance"
-                        value="ragu"
-                        className="accent-[#d4a853]"
-                        checked={form.attendance === 'ragu'}
-                        onChange={handleChange}
-                      />
-                      🧭 Masih Ragu
-                    </label>
+                  <div className="rsvp-field">
+                    <span className="block font-pirate text-xl text-[#3C2A1A] mb-2 uppercase tracking-wide">Status</span>
+                    <div className="flex flex-col gap-2">
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <input
+                          type="radio"
+                          name="attendance"
+                          value="hadir"
+                          className="w-4 h-4 accent-[#8E1C1C]"
+                          checked={form.attendance === 'hadir'}
+                          onChange={handleChange}
+                        />
+                        <span className="font-serif italic text-lg text-[#3C2A1A]/80 group-hover:text-[#3C2A1A]">Aye Aye, Captain!</span>
+                      </label>
+                      <label className="flex items-center gap-3 cursor-pointer group">
+                        <input
+                          type="radio"
+                          name="attendance"
+                          value="tidak_hadir"
+                          className="w-4 h-4 accent-[#8E1C1C]"
+                          checked={form.attendance === 'tidak_hadir'}
+                          onChange={handleChange}
+                        />
+                        <span className="font-serif italic text-lg text-[#3C2A1A]/80 group-hover:text-[#3C2A1A]">Stay at Shore</span>
+                      </label>
+                    </div>
                   </div>
                 </div>
 
-                <div className="rsvp-field">
-                  <label className="rsvp-label block text-sm font-semibold mb-1 text-[#4a3525]" htmlFor="rsvp-message">Ucapan & Doa</label>
+                <div className="rsvp-field pt-4">
+                  <label className="block font-pirate text-xl text-[#3C2A1A] mb-2 uppercase tracking-wide" htmlFor="rsvp-message">Wishes & Log Entry</label>
                   <textarea
                     id="rsvp-message"
-                    className="rsvp-textarea w-full bg-white/50 border border-[#b59e5f] text-[#2c1810] rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#d4a853]"
+                    className="w-full bg-[#3C2A1A]/5 border-2 border-dashed border-[#3C2A1A]/20 text-[#3C2A1A] p-4 focus:border-[#8E1C1C] transition-colors font-serif italic text-lg outline-none rounded"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Tulis ucapan dan doa untuk mempelai..."
+                    placeholder="Write your blessing to the happy couple..."
                     rows={4}
                   />
                 </div>
 
                 {isError && (
-                  <span className="rsvp-error text-red-600 text-sm">{errorMsg || error.message}</span>
+                  <span className="text-red-600 text-sm block font-bold">{errorMsg || error.message}</span>
                 )}
 
                 <button
                   type="submit"
-                  className={`rsvp-submit w-full mt-4 bg-gradient-to-r from-[#BF953F] to-[#B38728] text-white py-3 rounded-sm font-semibold shadow-lg hover:shadow-xl transition-all ${isPending ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full py-4 px-8 mt-6 bg-[#3C2A1A] text-[#F4EBD0] font-pirate text-2xl tracking-[0.2em] uppercase transition-all flex items-center justify-center gap-3 hover:bg-[#1A0F08] shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-95 ${isPending ? 'opacity-70 cursor-not-allowed' : ''}`}
                   disabled={isPending}
                   id="submit-rsvp-btn"
                 >
-                  <span>🏴‍☠️ Kirim RSVP</span>
-                  {isPending && (
-                    <span className="rsvp-spinner ml-2 animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent inline-block align-middle" />
-                  )}
+                  {isPending ? 'Sending Message...' : '⚓ Sign Manifest'}
                 </button>
               </form>
             </div>
+            
+            {/* Scroll decorative rolls */}
+            <div className="absolute top-0 left-0 right-0 h-4 bg-[#3C2A1A]/10 -translate-y-4 rounded-t-full"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-4 bg-[#3C2A1A]/10 translate-y-4 rounded-b-full"></div>
           </div>
         </ScrollReveal>
       </div>
