@@ -1,5 +1,6 @@
 .wanted-poster-container {
-  @apply perspective-[1000px] max-w-sm w-full transition-transform duration-500;
+  perspective: 1000px;
+  @apply max-w-sm w-full transition-transform duration-500;
 }
 
 .wanted-poster {
