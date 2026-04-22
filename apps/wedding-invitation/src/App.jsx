@@ -47,6 +47,12 @@ export default function App() {
 
   return (
     <div className="app">
+      <div className="ember-system">
+        <div className="ember"></div>
+        <div className="ember"></div>
+        <div className="ember"></div>
+        <div className="ember"></div>
+      </div>
       {/* Ambient particles */}
       <ParticleBackground />
 
