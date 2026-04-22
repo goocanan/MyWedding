@@ -124,7 +124,8 @@ body {
 
 /* Section Styling */
 .section-heading {
-  @apply font-pirate text-4xl md:text-6xl text-center mb-12 uppercase tracking-wider;
+  font-family: 'Pirata One', cursive;
+  @apply text-4xl md:text-6xl text-center mb-12 uppercase tracking-wider;
   background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
