@@ -3,8 +3,9 @@ import { useScrollLock } from './hooks/useScrollLock';
 
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Keyboard } from 'swiper/modules';
+import { Mousewheel, Keyboard, EffectFade } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 
 // Shared Components
 import ParticleBackground from './components/animation/ParticleBackground';
@@ -62,7 +63,9 @@ export default function App() {
           slidesPerView={1}
           mousewheel={true}
           keyboard={true}
-          modules={[Mousewheel, Keyboard]}
+          effect={'fade'}
+          fadeEffect={{ crossFade: true }}
+          modules={[Mousewheel, Keyboard, EffectFade]}
           speed={1000}
           allowTouchMove={isOpen}
           allowSlideNext={isOpen}
