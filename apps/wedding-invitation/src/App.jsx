@@ -46,7 +46,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="app">
+    <div className="app w-screen h-screen overflow-hidden">
       <div className="ember-system">
         <div className="ember"></div>
         <div className="ember"></div>
@@ -62,67 +62,64 @@ export default function App() {
       {/* Floating audio controller */}
       <AudioController ref={audioRef} />
 
-      {/* Main content sections */}
-      <main className="app-main">
+      {/* Main content sections — Locked by pointer-events-none until isOpen */}
+      <main className={`app-main w-screen h-screen overflow-hidden transition-all duration-1000 ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
         <Swiper
           direction="vertical"
           slidesPerView={1}
-          mousewheel={{ enabled: isOpen }}
-          keyboard={{ enabled: isOpen }}
+          mousewheel={true}
+          keyboard={true}
           effect={'fade'}
           fadeEffect={{
             crossFade: true
           }}
           modules={[Mousewheel, Keyboard, EffectFade]}
           speed={800}
-          allowTouchMove={isOpen}
-          allowSlideNext={isOpen}
-          allowSlidePrev={isOpen}
-          className={`wedding-swiper ${!isOpen ? 'pointer-events-none' : ''}`}
+          className="wedding-swiper w-full h-full"
         >
 
           {/* Hero — Starry night sky */}
-          <SwiperSlide className="section-bg-stars">
+          <SwiperSlide className="section-bg-stars w-full h-screen flex flex-col">
             <HeroSection />
           </SwiperSlide>
 
           {/* Couple — Navy with gold streaks + anchor watermark */}
-          <SwiperSlide className="section-bg-navy">
+          <SwiperSlide className="section-bg-navy w-full h-screen flex flex-col">
             <CoupleSection />
           </SwiperSlide>
 
           {/* Event — Ocean with compass watermark */}
-          <SwiperSlide className="section-bg-ocean">
+          <SwiperSlide className="section-bg-ocean w-full h-screen flex flex-col">
             <EventSection />
           </SwiperSlide>
 
           {/* Countdown — Stars variant */}
-          <SwiperSlide className="section-bg-stars">
+          <SwiperSlide className="section-bg-stars w-full h-screen flex flex-col">
             <CountdownSection />
           </SwiperSlide>
 
           {/* Gallery — Deep abyss with edge glow */}
-          <SwiperSlide className="section-bg-abyss">
+          <SwiperSlide className="section-bg-abyss w-full h-screen flex flex-col">
             <GallerySection />
           </SwiperSlide>
 
           {/* RSVP — Treasure map warm glow */}
-          <SwiperSlide className="section-bg-treasure">
+          <SwiperSlide className="section-bg-treasure w-full h-screen flex flex-col">
             <RSVPSection onNewMessage={handleNewMessage} />
           </SwiperSlide>
 
           {/* Guestbook — Navy variant */}
-          <SwiperSlide className="section-bg-navy">
+          <SwiperSlide className="section-bg-navy w-full h-screen flex flex-col">
             <GuestbookSection newMessages={newMessages} />
           </SwiperSlide>
 
           {/* Gift — Ocean variant */}
-          <SwiperSlide className="section-bg-ocean">
+          <SwiperSlide className="section-bg-ocean w-full h-screen flex flex-col">
             <GiftSection />
           </SwiperSlide>
 
           {/* Footer — Deep abyss */}
-          <SwiperSlide className="section-bg-abyss">
+          <SwiperSlide className="section-bg-abyss w-full h-screen flex flex-col">
             <FooterSection />
           </SwiperSlide>
 

@@ -18,7 +18,7 @@ export default function CoverOverlay({ isOpen, onOpen }) {
           key="cover-gate"
           className="fixed inset-0 z-[9999] w-screen h-screen overflow-hidden flex flex-col items-center justify-center bg-texture-sea"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.2 }}
+          exit={{ opacity: 0, scale: 1.2, pointerEvents: 'none' }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
           {/* Parchment Overlay */}
