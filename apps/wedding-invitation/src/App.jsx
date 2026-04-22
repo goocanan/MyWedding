@@ -65,10 +65,11 @@ export default function App() {
       {/* Main content sections */}
       <main className="app-main">
         <Swiper
+          enabled={isOpen}
           direction="vertical"
           slidesPerView={1}
-          mousewheel={isOpen}
-          keyboard={isOpen}
+          mousewheel={{ enabled: isOpen }}
+          keyboard={{ enabled: isOpen }}
           effect={'fade'}
           fadeEffect={{
             crossFade: true
@@ -78,7 +79,7 @@ export default function App() {
           allowTouchMove={isOpen}
           allowSlideNext={isOpen}
           allowSlidePrev={isOpen}
-          className="wedding-swiper"
+          className={`wedding-swiper ${!isOpen ? 'pointer-events-none' : ''}`}
         >
 
           {/* Hero — Starry night sky */}
