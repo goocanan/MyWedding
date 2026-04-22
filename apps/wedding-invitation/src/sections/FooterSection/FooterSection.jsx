@@ -7,10 +7,6 @@ export default function FooterSection() {
   const { couple } = weddingConfig;
 
   return (
-export default function FooterSection() {
-  const { couple } = weddingConfig;
-
-  return (
     <section className="section bg-texture-sea" id="footer">
       <div className="absolute inset-0 bg-texture-parchment opacity-5 mix-blend-overlay pointer-events-none"></div>
       
@@ -44,7 +40,5 @@ export default function FooterSection() {
         </div>
       </div>
     </section>
-  );
-}
   );
 }
