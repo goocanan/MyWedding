@@ -35,9 +35,9 @@ export default function GuestbookSection({ newMessages = [] }) {
 
 
   return (
-    <section className="section bg-texture-sea" id="guestbook">
+    <section className="section bg-transparent" id="guestbook">
       <ScrollReveal>
-        <h2 className="section-heading text-gold-gradient">📜 Captain's Log</h2>
+        <h2 className="section-heading">Captain's Log</h2>
         <p className="section-subheading text-gold tracking-widest text-center mt-[-2rem] mb-16 uppercase text-sm">Wishes from Nakama</p>
       </ScrollReveal>
 
@@ -60,40 +60,32 @@ export default function GuestbookSection({ newMessages = [] }) {
               {visible.map((msg, idx) => (
                 <motion.div
                   key={msg.id}
-                  className={`aged-scroll p-6 rounded relative border-l-4 border-[#3C2A1A]/20 transition-all duration-500 hover:-translate-y-2
+                  className={`parchment-floating bg-[#FDF6E3] p-6 rounded relative border-l-4 border-[#102A43]/20 transition-all duration-500 hover:-translate-y-2 text-[#102A43]
                     ${idx < newMessages.length ? 'ring-4 ring-[#8E1C1C]/30' : ''}`}
                   variants={fadeInUp}
                 >
-                  <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#3C2A1A]/10">
-                    <div className="w-10 h-10 rounded-full bg-[#3C2A1A] flex items-center justify-center text-xl shadow-md">⚓</div>
+                  <div className="flex items-center gap-4 mb-4 pb-3 border-b border-[#102A43]/10">
+                    <div className="w-12 h-12 rounded-full bg-[#102A43] flex items-center justify-center text-2xl shadow-md text-gold">⚓</div>
                     <div className="flex-1">
-                      <span className="block font-pirate text-xl text-[#3C2A1A] uppercase tracking-wide">{msg.name}</span>
-                      <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded
-                        ${msg.attendance === 'hadir' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                      <span className="block font-script text-3xl text-[#102A43]">{msg.name}</span>
+                      <span className={`text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-0.5 rounded
+                        ${msg.attendance === 'hadir' ? 'bg-[#102A43]/10 text-[#102A43]' : 'bg-red-100 text-red-800'}`}>
                         {badgeLabels[msg.attendance] || msg.attendance}
                       </span>
                     </div>
                   </div>
-                  <p className="font-serif italic text-[#3C2A1A]/90 leading-relaxed text-lg">"{msg.message}"</p>
-                  <div className="mt-4 text-right text-[10px] font-bold text-[#3C2A1A]/40 uppercase tracking-tighter">
+                  <p className="font-serif-readable italic text-[#102A43]/90 leading-relaxed text-lg">"{msg.message}"</p>
+                  <div className="mt-4 text-right text-[10px] font-bold text-[#102A43]/40 uppercase tracking-tighter">
                     🕐 {timeAgo(msg.timestamp || msg.createdAt)}
                   </div>
-                  
-                  {/* Small scroll rolls */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-[#3C2A1A]/5 -translate-y-1"></div>
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-[#3C2A1A]/5 translate-y-1"></div>
                 </motion.div>
               ))}
             </motion.div>
 
             <div className="flex flex-col items-center gap-4">
-              <p className="text-gold/40 text-xs uppercase tracking-widest">
-                Showing {visible.length} of {allMessages.length} entries
-              </p>
-
               {hasMore && (
                 <button
-                  className="px-10 py-4 border-2 border-[#D4AF37] text-[#D4AF37] font-pirate text-xl uppercase tracking-widest hover:bg-[#D4AF37] hover:text-[#0c1b33] transition-all shadow-xl active:scale-95"
+                  className="px-12 py-5 bg-gradient-to-r from-[#BF953F] to-[#B38728] text-white font-pirate text-2xl tracking-[0.2em] rounded shadow-2xl hover:scale-110 transition-transform flex items-center gap-2 uppercase"
                   onClick={() => setVisibleCount((prev) => prev + INITIAL_SHOW)}
                   id="load-more-messages-btn"
                 >

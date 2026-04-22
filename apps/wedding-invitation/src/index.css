@@ -54,11 +54,9 @@ h1, h2, h3, h4 {
 
 /* Container for sections */
 .section {
-  @apply py-24 px-6 relative z-10 flex flex-col items-center min-h-screen justify-center overflow-hidden;
+  @apply py-24 px-6 relative z-10 flex flex-col items-center min-h-screen justify-center overflow-hidden bg-transparent !important;
 }
 
-.section-bg-stars { @apply bg-texture-sea; }
-.section-bg-navy { @apply bg-texture-sea; }
-.section-bg-ocean { @apply bg-texture-sea; }
-.section-bg-treasure { @apply bg-texture-sea; }
-.section-bg-abyss { @apply bg-texture-sea; }
+.section-bg-stars, .section-bg-navy, .section-bg-ocean, .section-bg-treasure, .section-bg-abyss { 
+  @apply bg-transparent !important; 
+}

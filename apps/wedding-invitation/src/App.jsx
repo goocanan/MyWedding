@@ -1,11 +1,6 @@
 import { useState, useRef, useCallback } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollLock } from './hooks/useScrollLock';
-
-// Swiper
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Keyboard, EffectFade } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
 
 // Shared Components
 import ParticleBackground from './components/animation/ParticleBackground';
@@ -29,13 +24,21 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [newMessages, setNewMessages] = useState([]);
   const audioRef = useRef(null);
+  
+  // Parallax Scroll logic
+  const { scrollYProgress } = useScroll();
+  
+  // Ship animations linked to scroll
+  const shipY = useTransform(scrollYProgress, [0, 1], ["20%", "80%"]);
+  const shipRotate = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 5, -5, 5, -5, 0]);
+  const shipScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 1]);
+  const shipX = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], ["0%", "10%", "0%", "-10%", "0%"]);
 
   // Lock scroll when cover is showing
   useScrollLock(!isOpen);
 
   const handleOpen = useCallback(() => {
     setIsOpen(true);
-    // Trigger audio play
     if (audioRef.current) {
       audioRef.current.play();
     }
@@ -46,13 +49,29 @@ export default function App() {
   }, []);
 
   return (
-    <div className="app w-screen h-screen overflow-hidden">
-      <div className="ember-system">
+    <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen'}`}>
+      {/* 1. The Parallax Background (Fixed Video) */}
+      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute top-0 left-0 min-w-full min-h-full object-cover opacity-60 scale-105"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-top-view-of-ocean-waves-32111-large.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-[#0c1b33]/40 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060e1a]/80 via-transparent to-[#060e1a]/80"></div>
+      </div>
+
+      <div className="ember-system pointer-events-none">
         <div className="ember"></div>
         <div className="ember"></div>
         <div className="ember"></div>
         <div className="ember"></div>
       </div>
+
       {/* Ambient particles */}
       <ParticleBackground />
 
@@ -62,68 +81,64 @@ export default function App() {
       {/* Floating audio controller */}
       <AudioController ref={audioRef} />
 
-      {/* Main content sections — Locked by pointer-events-none until isOpen */}
-      <main className={`app-main w-screen h-screen overflow-hidden transition-all duration-1000 ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
-        <Swiper
-          direction="vertical"
-          slidesPerView={1}
-          mousewheel={true}
-          keyboard={true}
-          effect={'fade'}
-          fadeEffect={{
-            crossFade: true
+      {/* 2. The Main Subject (The Ship) — Floating Layer */}
+      {isOpen && (
+        <motion.div 
+          className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-40 md:opacity-60"
+          style={{ 
+            y: shipY,
+            x: shipX,
+            rotate: shipRotate,
+            scale: shipScale
           }}
-          modules={[Mousewheel, Keyboard, EffectFade]}
-          speed={800}
-          className="wedding-swiper w-full h-full"
         >
+          <div className="text-[15rem] md:text-[25rem] drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter grayscale-[0.2] sepia-[0.3]">
+            ⛵
+          </div>
+        </motion.div>
+      )}
 
-          {/* Hero — Starry night sky */}
-          <SwiperSlide className="section-bg-stars w-full h-screen flex flex-col">
+      {/* 3. Section Content — Scrolling over the background and ship */}
+      <main className={`app-main transition-all duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="relative z-10">
+          
+          <div className="section-voyage">
             <HeroSection />
-          </SwiperSlide>
+          </div>
 
-          {/* Couple — Navy with gold streaks + anchor watermark */}
-          <SwiperSlide className="section-bg-navy w-full h-screen flex flex-col">
+          <div className="section-voyage">
             <CoupleSection />
-          </SwiperSlide>
+          </div>
 
-          {/* Event — Ocean with compass watermark */}
-          <SwiperSlide className="section-bg-ocean w-full h-screen flex flex-col">
+          <div className="section-voyage">
             <EventSection />
-          </SwiperSlide>
+          </div>
 
-          {/* Countdown — Stars variant */}
-          <SwiperSlide className="section-bg-stars w-full h-screen flex flex-col">
+          <div className="section-voyage">
             <CountdownSection />
-          </SwiperSlide>
+          </div>
 
-          {/* Gallery — Deep abyss with edge glow */}
-          <SwiperSlide className="section-bg-abyss w-full h-screen flex flex-col">
+          <div className="section-voyage">
             <GallerySection />
-          </SwiperSlide>
+          </div>
 
-          {/* RSVP — Treasure map warm glow */}
-          <SwiperSlide className="section-bg-treasure w-full h-screen flex flex-col">
+          <div className="section-voyage">
             <RSVPSection onNewMessage={handleNewMessage} />
-          </SwiperSlide>
+          </div>
 
-          {/* Guestbook — Navy variant */}
-          <SwiperSlide className="section-bg-navy w-full h-screen flex flex-col">
+          <div className="section-voyage">
             <GuestbookSection newMessages={newMessages} />
-          </SwiperSlide>
+          </div>
 
-          {/* Gift — Ocean variant */}
-          <SwiperSlide className="section-bg-ocean w-full h-screen flex flex-col">
+          <div className="section-voyage">
             <GiftSection />
-          </SwiperSlide>
+          </div>
 
-          {/* Footer — Deep abyss */}
-          <SwiperSlide className="section-bg-abyss w-full h-screen flex flex-col">
+          <div className="section-voyage">
             <FooterSection />
-          </SwiperSlide>
+          </div>
 
-        </Swiper>
+        </div>
       </main>
     </div>
   );

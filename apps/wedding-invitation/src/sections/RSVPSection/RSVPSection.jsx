@@ -54,11 +54,11 @@ export default function RSVPSection({ onNewMessage }) {
       <section className="section bg-texture-sea" id="rsvp">
         <div className="section-content w-full px-4">
           <ScrollReveal>
-            <div className="aged-scroll max-w-lg mx-auto text-center py-16 px-10 relative border-l-8 border-r-8 border-[#3C2A1A]/10">
+            <div className="parchment-floating bg-[#FDF6E3] max-w-lg mx-auto text-center py-16 px-10 relative border-l-8 border-r-8 border-[#102A43]/10 text-[#102A43]">
               <div className="rsvp-success relative z-10">
                 <div className="text-[#8E1C1C] text-6xl mb-6">⚓</div>
-                <h3 className="text-4xl font-pirate text-[#3C2A1A] mb-6">Welcome Aboard, Nakama!</h3>
-                <p className="font-serif italic text-xl text-[#3C2A1A]/80 leading-relaxed">
+                <h3 className="text-5xl font-script text-[#102A43] mb-6">Welcome Aboard, Nakama!</h3>
+                <p className="font-serif-readable italic text-xl text-[#102A43]/80 leading-relaxed">
                   Your name has been added to the crew manifest. <br />
                   See you at the Grand Line! 🏴‍☠️
                 </p>
@@ -71,32 +71,32 @@ export default function RSVPSection({ onNewMessage }) {
   }
 
   return (
-    <section className="section bg-texture-sea" id="rsvp">
+    <section className="section bg-transparent" id="rsvp">
       <ScrollReveal>
-        <h2 className="section-heading text-gold-gradient">🏴‍☠️ Crew Manifest</h2>
-        <p className="section-subheading text-gold tracking-widest text-center mt-[-2rem] mb-16 uppercase text-sm">Join the Voyage</p>
+        <h2 className="section-heading">Join the Crew</h2>
+        <p className="section-subheading text-gold tracking-widest text-center mt-[-2rem] mb-16 uppercase text-sm">Sign the Manifest</p>
       </ScrollReveal>
 
       <div className="section-content w-full px-4 max-w-2xl">
         <ScrollReveal delay={0.2}>
-          <div className="aged-scroll relative border-l-8 border-r-8 border-[#3C2A1A]/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          <div className="parchment-floating bg-[#FDF6E3] relative border-l-8 border-r-8 border-[#102A43]/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] text-[#102A43]">
             <div className="relative z-10 w-full">
-              <div className="text-center mb-10 pb-6 border-b border-[#3C2A1A]/20">
-                <h3 className="font-pirate text-3xl text-[#3C2A1A] uppercase tracking-widest">Sign the Scroll</h3>
-                <p className="font-serif italic text-[#3C2A1A]/60">Every nakama counts on this journey</p>
+              <div className="text-center mb-10 pb-6 border-b border-[#102A43]/10">
+                <h3 className="font-script text-5xl text-[#102A43] mb-2">Crew Manifest</h3>
+                <p className="font-serif-readable italic text-[#102A43]/60">Every nakama counts on this journey</p>
               </div>
 
-              <form className="space-y-8" onSubmit={handleSubmit}>
+              <form className="space-y-8 font-serif-readable" onSubmit={handleSubmit}>
                 <div className="rsvp-field">
-                  <label className="block font-pirate text-xl text-[#3C2A1A] mb-2 uppercase tracking-wide" htmlFor="rsvp-name">Full Name</label>
+                  <label className="block font-pirate text-xl text-[#102A43] mb-2 uppercase tracking-wide" htmlFor="rsvp-name">Full Name</label>
                   <input
                     id="rsvp-name"
-                    className="w-full bg-transparent border-b-2 border-[#3C2A1A]/30 text-[#3C2A1A] px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif italic text-xl outline-none"
+                    className="w-full bg-transparent border-b-2 border-[#102A43]/20 text-[#102A43] px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-xl outline-none"
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="Enter your name..."
+                    placeholder="Write your name here..."
                   />
                   {errorMsg && (
                     <span className="text-red-600 text-sm mt-2 block font-bold">{errorMsg}</span>
@@ -105,10 +105,10 @@ export default function RSVPSection({ onNewMessage }) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="rsvp-field">
-                    <label className="block font-pirate text-xl text-[#3C2A1A] mb-2 uppercase tracking-wide" htmlFor="rsvp-pax">Crew Size</label>
+                    <label className="block font-pirate text-xl text-[#102A43] mb-2 uppercase tracking-wide" htmlFor="rsvp-pax">Crew Size</label>
                     <select
                       id="rsvp-pax"
-                      className="w-full bg-transparent border-b-2 border-[#3C2A1A]/30 text-[#3C2A1A] px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif italic text-xl outline-none appearance-none"
+                      className="w-full bg-transparent border-b-2 border-[#102A43]/20 text-[#102A43] px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-xl outline-none appearance-none"
                       name="pax"
                       value={form.pax}
                       onChange={handleChange}
@@ -120,7 +120,7 @@ export default function RSVPSection({ onNewMessage }) {
                   </div>
 
                   <div className="rsvp-field">
-                    <span className="block font-pirate text-xl text-[#3C2A1A] mb-2 uppercase tracking-wide">Status</span>
+                    <span className="block font-pirate text-xl text-[#102A43] mb-2 uppercase tracking-wide">Status</span>
                     <div className="flex flex-col gap-2">
                       <label className="flex items-center gap-3 cursor-pointer group">
                         <input
@@ -131,7 +131,7 @@ export default function RSVPSection({ onNewMessage }) {
                           checked={form.attendance === 'hadir'}
                           onChange={handleChange}
                         />
-                        <span className="font-serif italic text-lg text-[#3C2A1A]/80 group-hover:text-[#3C2A1A]">Aye Aye, Captain!</span>
+                        <span className="font-serif-readable italic text-lg text-[#102A43]/80 group-hover:text-[#102A43]">Aye Aye, Captain!</span>
                       </label>
                       <label className="flex items-center gap-3 cursor-pointer group">
                         <input
@@ -142,17 +142,17 @@ export default function RSVPSection({ onNewMessage }) {
                           checked={form.attendance === 'tidak_hadir'}
                           onChange={handleChange}
                         />
-                        <span className="font-serif italic text-lg text-[#3C2A1A]/80 group-hover:text-[#3C2A1A]">Stay at Shore</span>
+                        <span className="font-serif-readable italic text-lg text-[#102A43]/80 group-hover:text-[#102A43]">Stay at Shore</span>
                       </label>
                     </div>
                   </div>
                 </div>
 
                 <div className="rsvp-field pt-4">
-                  <label className="block font-pirate text-xl text-[#3C2A1A] mb-2 uppercase tracking-wide" htmlFor="rsvp-message">Wishes & Log Entry</label>
+                  <label className="block font-pirate text-xl text-[#102A43] mb-2 uppercase tracking-wide" htmlFor="rsvp-message">Wishes & Log Entry</label>
                   <textarea
                     id="rsvp-message"
-                    className="w-full bg-[#3C2A1A]/5 border-2 border-dashed border-[#3C2A1A]/20 text-[#3C2A1A] p-4 focus:border-[#8E1C1C] transition-colors font-serif italic text-lg outline-none rounded"
+                    className="w-full bg-[#102A43]/5 border-2 border-dashed border-[#102A43]/10 text-[#102A43] p-4 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-lg outline-none rounded"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
@@ -167,18 +167,14 @@ export default function RSVPSection({ onNewMessage }) {
 
                 <button
                   type="submit"
-                  className={`w-full py-4 px-8 mt-6 bg-[#3C2A1A] text-[#F4EBD0] font-pirate text-2xl tracking-[0.2em] uppercase transition-all flex items-center justify-center gap-3 hover:bg-[#1A0F08] shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-95 ${isPending ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full py-5 px-8 mt-6 bg-[#102A43] text-[#FDF6E3] font-pirate text-2xl tracking-[0.2em] uppercase transition-all flex items-center justify-center gap-3 hover:bg-[#0c1b33] shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-95 ${isPending ? 'opacity-70 cursor-not-allowed' : ''}`}
                   disabled={isPending}
                   id="submit-rsvp-btn"
                 >
-                  {isPending ? 'Sending Message...' : '⚓ Sign Manifest'}
+                  {isPending ? 'Sending Message...' : '⚓ Sign Scroll'}
                 </button>
               </form>
             </div>
-            
-            {/* Scroll decorative rolls */}
-            <div className="absolute top-0 left-0 right-0 h-4 bg-[#3C2A1A]/10 -translate-y-4 rounded-t-full"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-4 bg-[#3C2A1A]/10 translate-y-4 rounded-b-full"></div>
           </div>
         </ScrollReveal>
       </div>

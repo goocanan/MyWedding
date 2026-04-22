@@ -18,27 +18,25 @@ export default function HeroSection() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <motion.div className="mb-12" variants={fadeInUp}>
-           <div className="w-24 h-24 mx-auto mb-8 border-4 border-gold rounded-full flex items-center justify-center text-4xl shadow-[0_0_30px_rgba(212,168,83,0.3)] bg-[#0c1b33]">
-              🧭
-           </div>
+        <motion.div className="parchment-floating mb-16" variants={fadeInUp}>
+          <div className="w-20 h-20 mx-auto mb-8 border-2 border-[#D4AF37] rounded-full flex items-center justify-center text-3xl bg-[#102A43] text-[#D4AF37] shadow-lg">
+            📜
+          </div>
+          <p className="font-serif-readable italic text-2xl mb-8 leading-relaxed">
+            "{quotes.religious.text}"
+          </p>
+          <span className="font-pirate text-[#D4AF37] text-lg tracking-widest block uppercase">
+            — {quotes.religious.source} —
+          </span>
         </motion.div>
-
-        <motion.p className="font-serif italic text-2xl text-white/90 mb-6 leading-relaxed" variants={fadeInUp}>
-          "{quotes.religious.text}"
-        </motion.p>
-
-        <motion.span className="font-pirate text-gold-gradient text-xl tracking-widest mb-16 block" variants={fadeInUp}>
-          — {quotes.religious.source} —
-        </motion.span>
 
         <motion.div variants={fadeInUp} className="w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-16"></motion.div>
 
-        <motion.p className="font-pirate text-3xl md:text-5xl text-gold-gradient mb-4 uppercase tracking-tighter" variants={fadeInUp}>
+        <motion.p className="font-script text-5xl md:text-7xl text-gold-gradient mb-6 leading-tight" variants={fadeInUp}>
           "{quotes.theme.text}"
         </motion.p>
 
-        <motion.span className="font-serif italic text-gold/60 text-lg uppercase tracking-[0.2em]" variants={fadeInUp}>
+        <motion.span className="font-pirate text-gold/60 text-xl uppercase tracking-[0.3em]" variants={fadeInUp}>
           {quotes.theme.source}
         </motion.span>
       </motion.div>

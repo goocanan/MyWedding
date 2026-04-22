@@ -13,13 +13,13 @@ export default function GallerySection() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   return (
-    <section className="section bg-texture-sea" id="gallery">
+    <section className="section bg-transparent" id="gallery">
       <ScrollReveal>
-        <h2 className="section-heading text-gold-gradient">📸 Our Treasure Gallery</h2>
-        <p className="section-subheading text-gold tracking-widest text-center mt-[-2rem] mb-16 uppercase text-sm">Captured Moments</p>
+        <h2 className="section-heading">Captured Memories</h2>
+        <p className="section-subheading text-gold tracking-widest text-center mt-[-2rem] mb-16 uppercase text-sm">Treasures of our Voyage</p>
       </ScrollReveal>
 
-      <div className="section-content max-w-6xl">
+      <div className="section-content max-w-6xl px-4">
         <motion.div
           className="flex flex-wrap justify-center gap-10"
           variants={staggerContainer}
@@ -30,20 +30,18 @@ export default function GallerySection() {
           {gallery.map((item, idx) => (
             <motion.div
               key={item.id}
-              className={`relative bg-[#F4EBD0] p-4 pb-12 shadow-2xl transition-all duration-500 cursor-pointer hover:z-50 hover:scale-110 hover:rotate-0 group
+              className={`relative bg-[#F4EBD0]/90 backdrop-blur-sm p-4 pb-14 shadow-2xl transition-all duration-500 cursor-pointer hover:z-50 hover:scale-110 hover:rotate-0 group border border-white/20
                 ${idx % 3 === 0 ? '-rotate-3' : idx % 3 === 1 ? 'rotate-2' : 'rotate-1'}`}
               style={{ width: '280px' }}
               variants={fadeInUp}
               onClick={() => setLightboxIndex(idx)}
               role="button"
               tabIndex={0}
-              aria-label={`View ${item.alt}`}
-              onKeyDown={(e) => e.key === 'Enter' && setLightboxIndex(idx)}
             >
               {/* Gold Frame Border */}
               <div className="absolute inset-0 border-8 border-double border-[#D4AF37]/30 pointer-events-none group-hover:border-[#D4AF37]"></div>
               
-              <div className="w-full aspect-square bg-[#D4C4A0]/20 overflow-hidden relative">
+              <div className="w-full aspect-square bg-[#D4C4A0]/20 overflow-hidden relative border border-[#102A43]/5">
                 {item.src ? (
                   <img src={item.src} alt={item.alt} className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" loading="lazy" />
                 ) : (
@@ -51,10 +49,9 @@ export default function GallerySection() {
                     {placeholderIcons[idx % placeholderIcons.length]}
                   </div>
                 )}
-                <div className="absolute inset-0 bg-texture-parchment opacity-10 pointer-events-none"></div>
               </div>
 
-              <div className="mt-4 font-serif italic text-center text-[#3C2A1A] opacity-80">
+              <div className="mt-4 font-script text-3xl text-center text-[#102A43]">
                 Log Entry #{idx + 1}
               </div>
             </motion.div>

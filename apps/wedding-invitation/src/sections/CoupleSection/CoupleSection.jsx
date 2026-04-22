@@ -7,34 +7,46 @@ export default function CoupleSection() {
   const { groom, bride } = weddingConfig.couple;
 
   return (
-    <section className="section bg-texture-sea" id="couple">
+    <section className="section bg-transparent" id="couple">
       <ScrollReveal>
-        <h2 className="section-heading text-gold-gradient">The Happy Couple</h2>
+        <h2 className="section-heading">Nakama for Life</h2>
       </ScrollReveal>
 
       <div className="couple-cards flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24 w-full px-4">
         <ScrollReveal direction="scale" delay={0.1}>
-          <WantedPosterFrame
-            label={groom.label}
-            name={groom.fullName}
-            parents={groom.parents}
-            photo={groom.photo}
-            rotationClass="-rotate-2 hover:rotate-0 transition-transform duration-500"
-          />
+          <div className="flex flex-col items-center gap-8">
+            <WantedPosterFrame
+              label={groom.label}
+              name={groom.fullName}
+              parents={groom.parents}
+              photo={groom.photo}
+              rotationClass="-rotate-2 hover:rotate-0 transition-transform duration-500"
+            />
+            <div className="gold-nameplate text-center w-full">
+              <div className="font-script text-5xl md:text-6xl text-gold-gradient mb-2">{groom.name}</div>
+              <div className="font-serif-readable italic text-gold/60 text-sm">Son of {groom.parents}</div>
+            </div>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal direction="scale" delay={0.3} className="hidden md:block">
-          <div className="wax-seal border-4 border-gold shadow-[0_0_20px_rgba(212,168,83,0.5)]"></div>
+           <div className="w-16 h-16 rounded-full border-2 border-gold flex items-center justify-center text-4xl bg-[#102A43] shadow-[0_0_20px_rgba(212,175,55,0.4)]">💍</div>
         </ScrollReveal>
 
         <ScrollReveal direction="scale" delay={0.5}>
-          <WantedPosterFrame
-            label={bride.label}
-            name={bride.fullName}
-            parents={bride.parents}
-            photo={bride.photo}
-            rotationClass="rotate-3 hover:rotate-0 transition-transform duration-500"
-          />
+          <div className="flex flex-col items-center gap-8">
+            <WantedPosterFrame
+              label={bride.label}
+              name={bride.fullName}
+              parents={bride.parents}
+              photo={bride.photo}
+              rotationClass="rotate-3 hover:rotate-0 transition-transform duration-500"
+            />
+            <div className="gold-nameplate text-center w-full">
+              <div className="font-script text-5xl md:text-6xl text-gold-gradient mb-2">{bride.name}</div>
+              <div className="font-serif-readable italic text-gold/60 text-sm">Daughter of {bride.parents}</div>
+            </div>
+          </div>
         </ScrollReveal>
       </div>
     </section>

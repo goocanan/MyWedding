@@ -1,36 +1,36 @@
 /* App Layout */
 .app {
   position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
+  background-color: var(--bg-deep-sea);
+  color: white;
 }
 
 .app-main {
   position: relative;
-  z-index: var(--z-content);
-}
-
-/* Swiper Configuration */
-.wedding-swiper {
   width: 100%;
-  height: 100vh;
-  height: 100dvh; /* For mobile browsers with dynamic UI */
 }
 
-/* Make sure swiper slides manage content and background */
-.wedding-swiper .swiper-slide {
+.section-voyage {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  justify-content: center;
+  position: relative;
+  background: transparent !important;
 }
 
-/* Force inner sections to fill the slide and center their content */
-.wedding-swiper .swiper-slide > .section {
-  width: 100%;
-  min-height: 100%;
-  justify-content: center;
+/* Ensure child sections are also transparent */
+.section-voyage > section {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Add some depth to the voyage sections */
+.section-voyage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(12, 27, 51, 0.4) 0%, transparent 70%);
+  pointer-events: none;
 }
