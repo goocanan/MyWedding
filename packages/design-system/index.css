@@ -65,7 +65,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.005' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.15'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.005' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.1'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
   pointer-events: none;
 }
@@ -86,13 +86,12 @@ body {
 
 /* Ornate Gold Plaque */
 .gold-plaque {
-  background: rgba(12, 27, 51, 0.8);
+  background: rgba(12, 27, 51, 0.9);
   border: 2px solid var(--gold-primary);
   border-radius: 4px;
   position: relative;
   padding: 2rem;
-  box-shadow: var(--shadow-epic);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .gold-plaque::before {
