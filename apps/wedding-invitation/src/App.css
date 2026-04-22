@@ -9,3 +9,28 @@
   position: relative;
   z-index: var(--z-content);
 }
+
+/* Swiper Configuration */
+.wedding-swiper {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* For mobile browsers with dynamic UI */
+}
+
+/* Make sure swiper slides manage content and background */
+.wedding-swiper .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Force inner sections to fill the slide and center their content */
+.wedding-swiper .swiper-slide > .section {
+  width: 100%;
+  min-height: 100%;
+  justify-content: center;
+}

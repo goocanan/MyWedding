@@ -1,6 +1,11 @@
 import { useState, useRef, useCallback } from 'react';
 import { useScrollLock } from './hooks/useScrollLock';
 
+// Swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Mousewheel, Keyboard } from 'swiper/modules';
+import 'swiper/css';
+
 // Shared Components
 import ParticleBackground from './components/animation/ParticleBackground';
 import AudioController from './components/shared/AudioController';
@@ -52,52 +57,65 @@ export default function App() {
 
       {/* Main content sections */}
       <main className="app-main">
+        <Swiper
+          direction="vertical"
+          slidesPerView={1}
+          mousewheel={true}
+          keyboard={true}
+          modules={[Mousewheel, Keyboard]}
+          speed={1000}
+          allowTouchMove={isOpen}
+          allowSlideNext={isOpen}
+          allowSlidePrev={isOpen}
+          className="wedding-swiper"
+        >
 
-        {/* Hero — Starry night sky */}
-        <div className="section-bg-stars section-fade-out">
-          <HeroSection />
-        </div>
+          {/* Hero — Starry night sky */}
+          <SwiperSlide className="section-bg-stars">
+            <HeroSection />
+          </SwiperSlide>
 
-        {/* Couple — Navy with gold streaks + anchor watermark */}
-        <div className="section-bg-navy section-fade-in section-fade-out">
-          <CoupleSection />
-        </div>
+          {/* Couple — Navy with gold streaks + anchor watermark */}
+          <SwiperSlide className="section-bg-navy">
+            <CoupleSection />
+          </SwiperSlide>
 
-        {/* Event — Ocean with compass watermark */}
-        <div className="section-bg-ocean section-fade-in section-fade-out">
-          <EventSection />
-        </div>
+          {/* Event — Ocean with compass watermark */}
+          <SwiperSlide className="section-bg-ocean">
+            <EventSection />
+          </SwiperSlide>
 
-        {/* Countdown — Stars variant */}
-        <div className="section-bg-stars section-fade-in section-fade-out">
-          <CountdownSection />
-        </div>
+          {/* Countdown — Stars variant */}
+          <SwiperSlide className="section-bg-stars">
+            <CountdownSection />
+          </SwiperSlide>
 
-        {/* Gallery — Deep abyss with edge glow */}
-        <div className="section-bg-abyss section-fade-in section-fade-out">
-          <GallerySection />
-        </div>
+          {/* Gallery — Deep abyss with edge glow */}
+          <SwiperSlide className="section-bg-abyss">
+            <GallerySection />
+          </SwiperSlide>
 
-        {/* RSVP — Treasure map warm glow */}
-        <div className="section-bg-treasure section-fade-in section-fade-out">
-          <RSVPSection onNewMessage={handleNewMessage} />
-        </div>
+          {/* RSVP — Treasure map warm glow */}
+          <SwiperSlide className="section-bg-treasure">
+            <RSVPSection onNewMessage={handleNewMessage} />
+          </SwiperSlide>
 
-        {/* Guestbook — Navy variant */}
-        <div className="section-bg-navy section-fade-in section-fade-out">
-          <GuestbookSection newMessages={newMessages} />
-        </div>
+          {/* Guestbook — Navy variant */}
+          <SwiperSlide className="section-bg-navy">
+            <GuestbookSection newMessages={newMessages} />
+          </SwiperSlide>
 
-        {/* Gift — Ocean variant */}
-        <div className="section-bg-ocean section-fade-in section-fade-out">
-          <GiftSection />
-        </div>
+          {/* Gift — Ocean variant */}
+          <SwiperSlide className="section-bg-ocean">
+            <GiftSection />
+          </SwiperSlide>
 
-        {/* Footer — Deep abyss */}
-        <div className="section-bg-abyss section-fade-in">
-          <FooterSection />
-        </div>
+          {/* Footer — Deep abyss */}
+          <SwiperSlide className="section-bg-abyss">
+            <FooterSection />
+          </SwiperSlide>
 
+        </Swiper>
       </main>
     </div>
   );
