@@ -3,7 +3,7 @@ import { useScrollLock } from './hooks/useScrollLock';
 
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Mousewheel, Keyboard, Fade } from 'swiper/modules';
+import { Mousewheel, Keyboard, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
@@ -73,7 +73,7 @@ export default function App() {
           fadeEffect={{
             crossFade: true
           }}
-          modules={[Mousewheel, Keyboard, Fade]}
+          modules={[Mousewheel, Keyboard, EffectFade]}
           speed={800}
           allowTouchMove={isOpen}
           allowSlideNext={isOpen}
