@@ -7,9 +7,9 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "commonjs",
+    "module": "NodeNext",
     "target": "esnext",
-    "moduleResolution": "node16",
+    "moduleResolution": "NodeNext",
     "allowSyntheticDefaultImports": true,
 
     // Other Outputs
