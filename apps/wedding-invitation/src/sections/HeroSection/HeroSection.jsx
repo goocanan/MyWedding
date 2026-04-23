@@ -8,7 +8,7 @@ export default function HeroSection() {
   const { quotes } = weddingConfig;
 
   return (
-    <section className="section bg-texture-sea" id="hero">
+    <section className="section bg-transparent" id="hero">
       <div className="absolute inset-0 bg-texture-parchment opacity-10 mix-blend-overlay pointer-events-none"></div>
       
       <motion.div

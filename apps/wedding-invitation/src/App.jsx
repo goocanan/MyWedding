@@ -1,10 +1,10 @@
 import { useState, useRef, useCallback } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScrollLock } from './hooks/useScrollLock';
 
-// Shared Components
-import ParticleBackground from './components/animation/ParticleBackground';
+// Updated/New Components
+import BubbleBackground from './components/animation/BubbleBackground';
 import AudioController from './components/shared/AudioController';
+import ParticleBackground from './components/animation/ParticleBackground';
 
 // Sections
 import CoverOverlay from './sections/CoverOverlay/CoverOverlay';
@@ -28,9 +28,6 @@ export default function App() {
   const [newMessages, setNewMessages] = useState([]);
   const audioRef = useRef(null);
   
-  // Parallax Scroll logic
-  const { scrollYProgress } = useScroll();
-  
   // Lock scroll when cover is showing
   useScrollLock(!isOpen);
 
@@ -47,73 +44,37 @@ export default function App() {
 
   return (
     <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen'}`}>
-      {/* 1. The Parallax Background (Fixed High Quality Image) */}
+
+      {/* 1. The Unified Elegant Background (Fixed image with rich blending) */}
       <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#0c1b33]">
         <img 
           src={voyageBg} 
-          alt="Ocean Voyage" 
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-80 scale-105"
+          alt="" 
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-60 scale-105" 
         />
-        <div className="absolute inset-0 bg-[#0c1b33]/30 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060e1a]/70 via-transparent to-[#060e1a]/80"></div>
+        <div className="absolute inset-0 bg-[#0c1b33]/40 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c1b33]/90 via-[#0c1b33]/60 to-[#0c1b33]/90"></div>
       </div>
 
-      <div className="ember-system pointer-events-none">
-        <div className="ember"></div>
-        <div className="ember"></div>
-        <div className="ember"></div>
-        <div className="ember"></div>
-      </div>
+      {/* 2. New Global Bubble Background Effect */}
+      <BubbleBackground /> 
 
-      {/* Ambient particles */}
-      <ParticleBackground />
-
-      {/* Cover Overlay — entry gate */}
+      {/* Other Shared Components */}
       <CoverOverlay isOpen={isOpen} onOpen={handleOpen} />
-
-      {/* Floating audio controller */}
       <AudioController ref={audioRef} />
 
-      {/* 3. Section Content — Scrolling over the background */}
+      {/* Main Content — Scrolling over the bubble ocean */}
       <main className={`app-main transition-all duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="relative z-10">
-          
-          <div className="section-voyage">
-            <HeroSection />
-          </div>
-
-          <div className="section-voyage">
-            <CoupleSection />
-          </div>
-
-          <div className="section-voyage">
-            <EventSection />
-          </div>
-
-          <div className="section-voyage">
-            <CountdownSection />
-          </div>
-
-          <div className="section-voyage">
-            <GallerySection />
-          </div>
-
-          <div className="section-voyage">
-            <RSVPSection onNewMessage={handleNewMessage} />
-          </div>
-
-          <div className="section-voyage">
-            <GuestbookSection newMessages={newMessages} />
-          </div>
-
-          <div className="section-voyage">
-            <GiftSection />
-          </div>
-
-          <div className="section-voyage">
-            <FooterSection />
-          </div>
-
+        <div className="relative z-10 space-y-24 py-20 bg-transparent">
+          <div className="section-voyage"><HeroSection /></div>
+          <div className="section-voyage"><CoupleSection /></div>
+          <div className="section-voyage"><CountdownSection /></div>
+          <div className="section-voyage"><EventSection /></div>
+          <div className="section-voyage"><GallerySection /></div>
+          <div className="section-voyage"><RSVPSection onNewMessage={handleNewMessage} /></div>
+          <div className="section-voyage"><GuestbookSection newMessages={newMessages} /></div>
+          <div className="section-voyage"><GiftSection /></div>
+          <div className="section-voyage"><FooterSection /></div>
         </div>
       </main>
     </div>

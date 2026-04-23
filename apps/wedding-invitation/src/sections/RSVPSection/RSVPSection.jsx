@@ -51,7 +51,7 @@ export default function RSVPSection({ onNewMessage }) {
 
   if (isSuccess) {
     return (
-      <section className="section bg-texture-sea" id="rsvp">
+      <section className="section bg-transparent" id="rsvp">
         <div className="section-content w-full px-4">
           <ScrollReveal>
             <div className="parchment-floating bg-[#FDF6E3] max-w-lg mx-auto text-center py-16 px-10 relative border-l-8 border-r-8 border-[#102A43]/10 text-[#102A43]">

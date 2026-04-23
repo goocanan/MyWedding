@@ -1,0 +1,19 @@
+.bubble {
+  animation-name: rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+  }
+}
+
+.bubble-container {
+  /* Subtle light beams or depth can be added here if needed */
+  perspective: 1000px;
+}
