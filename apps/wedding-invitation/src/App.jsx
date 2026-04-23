@@ -29,7 +29,7 @@ export default function App() {
   const { scrollYProgress } = useScroll();
   
   // Ship animations linked to scroll
-  const shipY = useTransform(scrollYProgress, [0, 1], ["20%", "80%"]);
+  const shipY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
   const shipRotate = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 5, -5, 5, -5, 0]);
   const shipScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 1]);
   const shipX = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], ["0%", "10%", "0%", "-10%", "0%"]);
