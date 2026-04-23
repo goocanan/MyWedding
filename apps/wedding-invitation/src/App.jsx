@@ -18,6 +18,9 @@ import GuestbookSection from './sections/GuestbookSection/GuestbookSection';
 import GiftSection from './sections/GiftSection/GiftSection';
 import FooterSection from './sections/FooterSection/FooterSection';
 
+// Assets
+import shipImage from './assets/ship.png';
+
 import './App.css';
 
 export default function App() {
@@ -92,9 +95,11 @@ export default function App() {
             scale: shipScale
           }}
         >
-          <div className="text-[15rem] md:text-[25rem] drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter grayscale-[0.2] sepia-[0.3]">
-            ⛵
-          </div>
+          <img 
+            src={shipImage} 
+            alt="Thousand Sunny" 
+            className="w-[40rem] md:w-[60rem] drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter grayscale-[0.2] sepia-[0.3]"
+          />
         </motion.div>
       )}
 
