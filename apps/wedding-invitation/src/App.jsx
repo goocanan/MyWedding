@@ -1,10 +1,8 @@
 import { useState, useRef, useCallback } from 'react';
 import { useScrollLock } from './hooks/useScrollLock';
 
-// Updated/New Components
-import BubbleBackground from './components/animation/BubbleBackground';
+// Components
 import AudioController from './components/shared/AudioController';
-import ParticleBackground from './components/animation/ParticleBackground';
 
 // Sections
 import CoverOverlay from './sections/CoverOverlay/CoverOverlay';
@@ -17,10 +15,6 @@ import RSVPSection from './sections/RSVPSection/RSVPSection';
 import GuestbookSection from './sections/GuestbookSection/GuestbookSection';
 import GiftSection from './sections/GiftSection/GiftSection';
 import FooterSection from './sections/FooterSection/FooterSection';
-
-// Assets
-import voyageBg from './assets/voyage-bg.png';
-import shipImage from './assets/ship-voyage.png';
 
 import './App.css';
 
@@ -44,31 +38,22 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen'}`}>
+    <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43]'}`}>
 
-      {/* 1. The Unified Vibrant One Piece Background */}
-      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#87CEEB]">
-        <img 
-          src={voyageBg} 
-          alt="" 
-          className="absolute top-0 left-0 w-full h-full object-cover scale-105" 
-        />
-        {/* Vibrant color grading instead of dark gloom */}
-        <div className="absolute inset-0 vibrant-overlay"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#87CEEB]/20 via-transparent to-[#006994]/40"></div>
+      {/* 1. Global Parchment Background with Subtle One Piece Pattern */}
+      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#FDF6E3]">
+        {/* A soft repeating pattern simulating aged parchment */}
+        <div className="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')] opacity-50 mix-blend-multiply"></div>
+        
+        {/* Subtle repeating silhouette pattern (Simulated via CSS) */}
+        <div className="absolute inset-0 z-0 opacity-5 pointer-events-none"
+             style={{
+               backgroundImage: `radial-gradient(circle at 50% 50%, #4A3000 2px, transparent 2px)`,
+               backgroundSize: '100px 100px',
+               backgroundPosition: '0 0, 50px 50px'
+             }}
+        ></div>
       </div>
-
-      {/* 2. Floating Thousand Sunny in Background */}
-      <div className="fixed bottom-[10%] left-1/2 -translate-x-1/2 z-[-1] pointer-events-none opacity-80 mix-blend-normal">
-        <img 
-          src={shipImage} 
-          alt="Thousand Sunny" 
-          className="w-[30rem] md:w-[45rem] animate-float-ship drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
-        />
-      </div>
-
-      {/* 3. New Global Bubble Background Effect */}
-      <BubbleBackground /> 
 
       {/* Other Shared Components */}
       <CoverOverlay isOpen={isOpen} onOpen={handleOpen} />
