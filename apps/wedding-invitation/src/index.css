@@ -54,9 +54,10 @@ h1, h2, h3, h4 {
 
 /* Container for sections */
 .section {
-  @apply py-24 px-6 relative z-10 flex flex-col items-center min-h-screen justify-center overflow-hidden bg-transparent !important;
+  @apply py-24 px-6 relative z-10 flex flex-col items-center min-h-screen justify-center overflow-hidden;
+  background-color: transparent !important;
 }
 
 .section-bg-stars, .section-bg-navy, .section-bg-ocean, .section-bg-treasure, .section-bg-abyss { 
-  @apply bg-transparent !important; 
+  background-color: transparent !important; 
 }

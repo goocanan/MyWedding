@@ -7,6 +7,8 @@ import './CoverOverlay.css';
  * Full-screen cover overlay — the entry gate.
  * Locks scroll until "Buka Undangan" is clicked.
  */
+import voyageBg from '../../assets/voyage-bg.png';
+
 export default function CoverOverlay({ isOpen, onOpen }) {
   const guestName = useGuestName();
   const { couple } = weddingConfig;
@@ -16,13 +18,21 @@ export default function CoverOverlay({ isOpen, onOpen }) {
       {!isOpen && (
         <motion.div
           key="cover-gate"
-          className="fixed inset-0 z-[9999] w-screen h-screen overflow-hidden flex flex-col items-center justify-center bg-texture-sea"
+          className="fixed inset-0 z-[9999] w-screen h-screen overflow-hidden flex flex-col items-center justify-center bg-[#0c1b33]"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.2, pointerEvents: 'none' }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          {/* Parchment Overlay */}
-          <div className="absolute inset-0 bg-texture-parchment opacity-10 mix-blend-overlay pointer-events-none"></div>
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 z-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${voyageBg})` }}
+          ></div>
+          
+          {/* Overlays for depth and readability */}
+          <div className="absolute inset-0 z-10 bg-[#0c1b33]/50 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0c1b33]/80 via-transparent to-[#0c1b33]/90"></div>
+          <div className="absolute inset-0 z-10 bg-texture-parchment opacity-10 mix-blend-overlay pointer-events-none"></div>
 
           <motion.div
             className="cover-content relative z-20"

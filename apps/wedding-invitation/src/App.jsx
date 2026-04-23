@@ -19,7 +19,6 @@ import GiftSection from './sections/GiftSection/GiftSection';
 import FooterSection from './sections/FooterSection/FooterSection';
 
 // Assets
-import shipImage from './assets/ship-voyage.png';
 import voyageBg from './assets/voyage-bg.png';
 
 import './App.css';
@@ -32,12 +31,6 @@ export default function App() {
   // Parallax Scroll logic
   const { scrollYProgress } = useScroll();
   
-  // Ship animations linked to scroll — matching the artistic tilted style
-  const shipY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  const shipRotate = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 3, -3, 3, -3, 0]);
-  const shipScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.3, 1.1]);
-  const shipX = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], ["0%", "5%", "0%", "-5%", "0%"]);
-
   // Lock scroll when cover is showing
   useScrollLock(!isOpen);
 
@@ -81,26 +74,7 @@ export default function App() {
       {/* Floating audio controller */}
       <AudioController ref={audioRef} />
 
-      {/* 2. The Main Subject (The Ship) — Floating Layer */}
-      {isOpen && (
-        <motion.div 
-          className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-60 md:opacity-90"
-          style={{ 
-            y: shipY,
-            x: shipX,
-            rotate: shipRotate,
-            scale: shipScale
-          }}
-        >
-          <img 
-            src={shipImage} 
-            alt="Thousand Sunny Voyage" 
-            className="w-[45rem] md:w-[70rem] drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] filter contrast-[1.1] saturate-[1.2]"
-          />
-        </motion.div>
-      )}
-
-      {/* 3. Section Content — Scrolling over the background and ship */}
+      {/* 3. Section Content — Scrolling over the background */}
       <main className={`app-main transition-all duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
         <div className="relative z-10">
           
