@@ -20,6 +20,7 @@ import FooterSection from './sections/FooterSection/FooterSection';
 
 // Assets
 import voyageBg from './assets/voyage-bg.png';
+import shipImage from './assets/ship-voyage.png';
 
 import './App.css';
 
@@ -45,18 +46,28 @@ export default function App() {
   return (
     <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen'}`}>
 
-      {/* 1. The Unified Elegant Background (Fixed image with rich blending) */}
-      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#0c1b33]">
+      {/* 1. The Unified Vibrant One Piece Background */}
+      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#87CEEB]">
         <img 
           src={voyageBg} 
           alt="" 
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-60 scale-105" 
+          className="absolute top-0 left-0 w-full h-full object-cover scale-105" 
         />
-        <div className="absolute inset-0 bg-[#0c1b33]/40 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0c1b33]/90 via-[#0c1b33]/60 to-[#0c1b33]/90"></div>
+        {/* Vibrant color grading instead of dark gloom */}
+        <div className="absolute inset-0 vibrant-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#87CEEB]/20 via-transparent to-[#006994]/40"></div>
       </div>
 
-      {/* 2. New Global Bubble Background Effect */}
+      {/* 2. Floating Thousand Sunny in Background */}
+      <div className="fixed bottom-[10%] left-1/2 -translate-x-1/2 z-[-1] pointer-events-none opacity-80 mix-blend-normal">
+        <img 
+          src={shipImage} 
+          alt="Thousand Sunny" 
+          className="w-[30rem] md:w-[45rem] animate-float-ship drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+        />
+      </div>
+
+      {/* 3. New Global Bubble Background Effect */}
       <BubbleBackground /> 
 
       {/* Other Shared Components */}

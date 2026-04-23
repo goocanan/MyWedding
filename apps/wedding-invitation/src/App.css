@@ -26,11 +26,17 @@
   box-shadow: none !important;
 }
 
-/* Add some depth to the voyage sections */
-.section-voyage::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(12, 27, 51, 0.4) 0%, transparent 70%);
-  pointer-events: none;
+@keyframes float-ship {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float-ship {
+  animation: float-ship 6s ease-in-out infinite;
+}
+
+.vibrant-overlay {
+  background: linear-gradient(180deg, rgba(135, 206, 235, 0.2) 0%, rgba(255, 215, 0, 0.1) 50%, rgba(0, 105, 148, 0.4) 100%);
+  mix-blend-mode: overlay;
 }

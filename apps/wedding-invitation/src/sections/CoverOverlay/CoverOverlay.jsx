@@ -3,6 +3,7 @@ import { weddingConfig } from '../../data/weddingConfig';
 import { useGuestName } from '../../hooks/useGuestName';
 import './CoverOverlay.css';
 import voyageBg from '../../assets/voyage-bg.png';
+import shipImage from '../../assets/ship-voyage.png';
 
 /**
  * Full-screen cover overlay — the entry gate.
@@ -21,19 +22,28 @@ export default function CoverOverlay({ isOpen, onOpen }) {
       {!isOpen && (
         <motion.div
           key="cover-gate"
-          className="fixed inset-0 z-[9999] w-screen h-screen overflow-hidden flex flex-col items-center justify-center bg-[#0c1b33]"
+          className="fixed inset-0 z-[9999] w-screen h-screen overflow-hidden flex flex-col items-center justify-center bg-[#87CEEB]"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.2, pointerEvents: 'none' }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
-          {/* 1. Background Layers */}
+          {/* 1. Background Layers - Vibrant One Piece Style */}
           <div 
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${voyageBg})` }}
           ></div>
-          <div className="absolute inset-0 z-10 bg-[#0c1b33]/60 backdrop-blur-[3px] mix-blend-multiply"></div>
-          <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0c1b33]/90 via-[#0c1b33]/40 to-[#0c1b33]/90"></div>
+          <div className="absolute inset-0 z-10 vibrant-overlay"></div>
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#87CEEB]/20 via-transparent to-[#006994]/60"></div>
           
+          {/* Floating Ship on Cover */}
+          <div className="absolute bottom-[5%] md:bottom-[10%] left-1/2 -translate-x-1/2 z-10 pointer-events-none opacity-90 mix-blend-normal">
+            <img 
+              src={shipImage} 
+              alt="Thousand Sunny" 
+              className="w-[35rem] md:w-[50rem] animate-float-ship drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)]"
+            />
+          </div>
+
           {/* 2. Ornate Inner Frame (Memberikan kesan Logbook Mewah) */}
           <div className="absolute inset-4 md:inset-8 z-15 border-[1px] border-[#D4AF37]/30 rounded-sm pointer-events-none flex flex-col justify-between p-4">
             <div className="w-full flex justify-between">
