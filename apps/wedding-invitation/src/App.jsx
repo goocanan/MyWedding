@@ -19,7 +19,8 @@ import GiftSection from './sections/GiftSection/GiftSection';
 import FooterSection from './sections/FooterSection/FooterSection';
 
 // Assets
-import shipImage from './assets/ship.png';
+import shipImage from './assets/ship-voyage.png';
+import voyageBg from './assets/voyage-bg.png';
 
 import './App.css';
 
@@ -31,11 +32,11 @@ export default function App() {
   // Parallax Scroll logic
   const { scrollYProgress } = useScroll();
   
-  // Ship animations linked to scroll
-  const shipY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-  const shipRotate = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 5, -5, 5, -5, 0]);
-  const shipScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 1]);
-  const shipX = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], ["0%", "10%", "0%", "-10%", "0%"]);
+  // Ship animations linked to scroll — matching the artistic tilted style
+  const shipY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const shipRotate = useTransform(scrollYProgress, [0, 0.2, 0.4, 0.6, 0.8, 1], [0, 3, -3, 3, -3, 0]);
+  const shipScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.3, 1.1]);
+  const shipX = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], ["0%", "5%", "0%", "-5%", "0%"]);
 
   // Lock scroll when cover is showing
   useScrollLock(!isOpen);
@@ -53,19 +54,15 @@ export default function App() {
 
   return (
     <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen'}`}>
-      {/* 1. The Parallax Background (Fixed Video) */}
-      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="absolute top-0 left-0 min-w-full min-h-full object-cover opacity-60 scale-105"
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-top-view-of-ocean-waves-32111-large.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-[#0c1b33]/40 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060e1a]/80 via-transparent to-[#060e1a]/80"></div>
+      {/* 1. The Parallax Background (Fixed High Quality Image) */}
+      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#0c1b33]">
+        <img 
+          src={voyageBg} 
+          alt="Ocean Voyage" 
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-80 scale-105"
+        />
+        <div className="absolute inset-0 bg-[#0c1b33]/30 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060e1a]/70 via-transparent to-[#060e1a]/80"></div>
       </div>
 
       <div className="ember-system pointer-events-none">
@@ -87,7 +84,7 @@ export default function App() {
       {/* 2. The Main Subject (The Ship) — Floating Layer */}
       {isOpen && (
         <motion.div 
-          className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-40 md:opacity-60"
+          className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-60 md:opacity-90"
           style={{ 
             y: shipY,
             x: shipX,
@@ -97,8 +94,8 @@ export default function App() {
         >
           <img 
             src={shipImage} 
-            alt="Thousand Sunny" 
-            className="w-[40rem] md:w-[60rem] drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter grayscale-[0.2] sepia-[0.3]"
+            alt="Thousand Sunny Voyage" 
+            className="w-[45rem] md:w-[70rem] drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)] filter contrast-[1.1] saturate-[1.2]"
           />
         </motion.div>
       )}
