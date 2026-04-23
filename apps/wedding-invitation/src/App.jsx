@@ -38,39 +38,47 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43]'}`}>
+    <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] bg-[#4a3018]'} relative`}>
 
-      {/* 1. Global Parchment Background with Subtle One Piece Pattern */}
-      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#FDF6E3]">
-        {/* A soft repeating pattern simulating aged parchment */}
-        <div className="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')] opacity-50 mix-blend-multiply"></div>
-        
-        {/* Subtle repeating silhouette pattern (Simulated via CSS) */}
-        <div className="absolute inset-0 z-0 opacity-5 pointer-events-none"
-             style={{
-               backgroundImage: `radial-gradient(circle at 50% 50%, #4A3000 2px, transparent 2px)`,
-               backgroundSize: '100px 100px',
-               backgroundPosition: '0 0, 50px 50px'
-             }}
-        ></div>
-      </div>
+      {/* 1. Global Wood Desk Background */}
+      <div className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#4a3018] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]"></div>
 
       {/* Other Shared Components */}
       <CoverOverlay isOpen={isOpen} onOpen={handleOpen} />
       <AudioController ref={audioRef} />
 
-      {/* Main Content — Scrolling over the bubble ocean */}
-      <main className={`app-main transition-all duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="relative z-10 space-y-24 py-20 bg-transparent">
-          <div className="section-voyage"><HeroSection /></div>
-          <div className="section-voyage"><CoupleSection /></div>
-          <div className="section-voyage"><CountdownSection /></div>
-          <div className="section-voyage"><EventSection /></div>
-          <div className="section-voyage"><GallerySection /></div>
-          <div className="section-voyage"><RSVPSection onNewMessage={handleNewMessage} /></div>
-          <div className="section-voyage"><GuestbookSection newMessages={newMessages} /></div>
-          <div className="section-voyage"><GiftSection /></div>
-          <div className="section-voyage"><FooterSection /></div>
+      {/* Main Content — Scrolling inside the parchment scroll */}
+      <main className={`app-main transition-all duration-1000 ${isOpen ? 'opacity-100' : 'opacity-0'} flex justify-center w-full`}>
+        
+        {/* The Parchment Scroll Container (Global) */}
+        <div className="relative z-10 w-full max-w-[400px] md:max-w-[450px] min-h-screen bg-[#E6D0A7] shadow-[0_20px_50px_rgba(0,0,0,0.7),inset_10px_0_15px_-5px_rgba(0,0,0,0.4),inset_-10px_0_15px_-5px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col items-center"
+             style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/aged-paper.png')` }}>
+          
+          {/* Scroll Rolled Edge Left */}
+          <div className="absolute top-0 left-0 bottom-0 w-8 bg-gradient-to-r from-[rgba(0,0,0,0.3)] via-[rgba(0,0,0,0.1)] to-transparent pointer-events-none z-0"></div>
+          {/* Scroll Rolled Edge Right */}
+          <div className="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-[rgba(0,0,0,0.3)] via-[rgba(0,0,0,0.1)] to-transparent pointer-events-none z-0"></div>
+
+          {/* One Piece Background Pattern Overlay */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-multiply z-0"
+               style={{
+                 backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100"><text x="50" y="50" font-size="30" text-anchor="middle" dominant-baseline="middle" fill="%234A3000">☠</text></svg>')`,
+                 backgroundSize: '60px 60px'
+               }}
+          ></div>
+
+          {/* Sections Wrapper */}
+          <div className="relative z-10 space-y-24 py-20 w-full px-4">
+            <div className="section-voyage"><HeroSection /></div>
+            <div className="section-voyage"><CoupleSection /></div>
+            <div className="section-voyage"><CountdownSection /></div>
+            <div className="section-voyage"><EventSection /></div>
+            <div className="section-voyage"><GallerySection /></div>
+            <div className="section-voyage"><RSVPSection onNewMessage={handleNewMessage} /></div>
+            <div className="section-voyage"><GuestbookSection newMessages={newMessages} /></div>
+            <div className="section-voyage"><GiftSection /></div>
+            <div className="section-voyage"><FooterSection /></div>
+          </div>
         </div>
       </main>
     </div>
