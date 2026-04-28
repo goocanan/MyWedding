@@ -7,6 +7,27 @@ export default function CoverOverlay({ isOpen, onOpen }) {
   const guestName = useGuestName();
   const { couple } = weddingConfig;
 
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.5,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    },
+  };
+
   return (
     <AnimatePresence>
       {!isOpen && (
@@ -14,48 +35,56 @@ export default function CoverOverlay({ isOpen, onOpen }) {
           key="cover-gate"
           className="cover-wrapper"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
+          exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
         >
-          {/* Background Map */}
+          {/* Background Map & Lighting */}
           <div className="wood-desk-bg"></div>
 
-          {/* ===== CONTENT (Directly on Map) ===== */}
+          {/* Content Layer */}
           <motion.div 
             className="cover-content-direct"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            {/* TOP */}
-            <div className="cover-top">
-              <h1 className="title">The Grand Wedding</h1>
-            </div>
+            {/* TOP: Cinematic Title */}
+            <motion.div className="cover-top" variants={itemVariants}>
+              <h1 className="title gold-metallic">The Grand Wedding</h1>
+            </motion.div>
 
-            {/* CENTER */}
+            {/* CENTER: Couple & Guest */}
             <div className="cover-center">
-              <div className="couple-name">
-                {couple.groom.name} & {couple.bride.name}
-              </div>
+              <motion.div className="couple-name gold-metallic" variants={itemVariants}>
+                {couple.groom.name}
+                <span>&</span>
+                {couple.bride.name}
+              </motion.div>
 
-              <div className="guest">
-                <span>Nakama Dear,</span>
-                <strong>{guestName}</strong>
-              </div>
+              <motion.div className="guest-box guest-card" variants={itemVariants}>
+                <span className="guest-label">To Our Dear Nakama</span>
+                <strong className="guest-name">{guestName}</strong>
+              </motion.div>
             </div>
 
-            {/* BOTTOM CTA */}
-            <div className="cover-bottom">
-              <button className="wax-btn" onClick={onOpen} id="open-invitation-btn">
-                <img 
-                  src="/assets/wax-seal.png" 
-                  alt="Wax Seal" 
-                  className="wax-seal-img"
-                />
-              </button>
+            {/* BOTTOM: Premium CTA */}
+            <motion.div className="cover-bottom" variants={itemVariants}>
+              <div className="wax-btn-container">
+                <button 
+                  className="wax-btn" 
+                  onClick={onOpen} 
+                  id="open-invitation-btn"
+                  aria-label="Open Invitation"
+                >
+                  <img 
+                    src="/assets/wax-seal.png" 
+                    alt="Wax Seal" 
+                    className="wax-seal-img"
+                  />
+                </button>
+              </div>
 
-              <span className="open-text">Buka Undangan</span>
-            </div>
+              <span className="open-hint">Tap to Unseal</span>
+            </motion.div>
           </motion.div>
         </motion.div>
       )}

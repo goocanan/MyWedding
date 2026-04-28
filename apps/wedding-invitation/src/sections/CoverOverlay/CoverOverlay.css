@@ -7,151 +7,223 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #0c0a09; /* Deep ebony base */
 }
 
-/* ===== BACKGROUND ===== */
+/* ===== BACKGROUND & LIGHTING ===== */
 .wood-desk-bg {
   position: absolute;
   inset: 0;
-
-  background:
-    linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.8)),
-    url("../../assets/map-cover.png");
-
+  background: url("../../assets/map-cover.png");
   background-size: cover;
-  background-position: center 40%;
+  background-position: center;
   background-repeat: no-repeat;
-
-  animation: zoomBg 15s ease-in-out infinite alternate;
+  filter: contrast(1.1) brightness(0.8);
+  animation: slowPan 20s ease-in-out infinite alternate;
 }
 
-/* ===== CONTENT (Directly on Map) ===== */
+/* Cinematic Vignette & Warm Lamp Light */
+.wood-desk-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(255, 214, 112, 0.15) 0%,   /* Warm center glow */
+    rgba(0, 0, 0, 0.4) 40%,         /* Soft transition */
+    rgba(0, 0, 0, 0.85) 100%        /* Deep vignette edges */
+  );
+  pointer-events: none;
+}
+
+/* ===== CONTENT LAYOUT ===== */
 .cover-content-direct {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 500px;
-  height: 80vh;
+  max-width: 450px;
+  height: 90vh; /* Taller for mobile 9:16 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding: 40px 20px;
-  color: #f5e6c8;
+  padding: 60px 30px;
 }
 
-/* ===== TOP ===== */
+/* ===== TYPOGRAPHY & GOLD EFFECTS ===== */
+.gold-metallic {
+  background: linear-gradient(
+    to bottom,
+    #cf9d42 22%,
+    #e6c986 45%,
+    #d4af37 50%,
+    #8a6d3b 51%,
+    #cf9d42 78%,
+    #e6c986 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* TOP: Title */
 .cover-top .title {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.5rem, 8vw, 3.5rem);
-  color: #d4af37;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(184, 134, 11, 0.3);
-  margin-bottom: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  /* Gold applied via class in JSX */
 }
 
-/* ===== CENTER ===== */
+/* CENTER: Names & Guest */
 .cover-center {
-  margin: 20px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
 }
 
 .couple-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.2rem, 7vw, 3rem);
-  color: #ffffff;
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9);
-  margin-bottom: 25px;
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(3.2rem, 11vw, 4.5rem);
+  line-height: 1.2;
+  padding: 10px 0;
 }
 
-.guest {
-  font-family: 'Playfair Display', serif;
-}
-
-.guest span {
+.couple-name span {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.4em;
   display: block;
-  font-size: 1rem;
-  color: #d4af37;
-  margin-bottom: 8px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  margin: -10px 0;
+  opacity: 0.8;
+  -webkit-text-fill-color: #f5e6c8; /* Solid cream for the ampersand */
 }
 
-.guest strong {
-  font-size: clamp(1.8rem, 6vw, 2.4rem);
-  color: #f5e6c8;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-}
-
-/* ===== BOTTOM CTA ===== */
-.cover-bottom {
+.guest-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
 }
 
-/* ===== WAX SEAL BUTTON (Image-Based) ===== */
-.wax-btn {
-  width: 100px;
-  height: 100px;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+.guest-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #f5e6c8;
+  opacity: 0.7;
+}
+
+.guest-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+/* Horizontal lines for guest name */
+.guest-name::before, .guest-name::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
+  margin: 10px auto;
+}
+
+/* ===== BOTTOM: CTA ===== */
+.cover-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.wax-btn-container {
   position: relative;
-  background: none;
+  width: 110px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  animation: waxPulse 6s ease-in-out infinite;
+}
+
+/* Glow behind the seal */
+.wax-btn-container::before {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.wax-btn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .wax-seal-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* Realistic drop shadow for the PNG object */
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.7));
 }
 
-/* ===== FEEDBACK ===== */
+.wax-btn:hover {
+  transform: scale(1.08) rotate(5deg);
+}
+
 .wax-btn:active {
-  transform: scale(0.92);
+  transform: scale(0.95);
 }
 
-@media (hover: hover) {
-  .wax-btn:hover {
-    transform: scale(1.03);
-  }
-}
-
-@keyframes waxPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-}
-
-.open-text {
-  font-family: 'Playfair Display', serif;
-  color: #d4af37;
-  font-size: 0.9rem;
+.open-hint {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(212, 175, 55, 0.9);
   text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-  animation: pulse 2.5s ease-in-out infinite;
+  letter-spacing: 5px;
+  animation: fadeInOut 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 0.6; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(-3px); }
+/* ===== ANIMATIONS ===== */
+@keyframes slowPan {
+  from { transform: scale(1) translateX(-2%); }
+  to { transform: scale(1.1) translateX(2%); }
 }
 
-/* ===== ANIMATION ===== */
-@keyframes zoomBg {
-  from { transform: scale(1); }
-  to { transform: scale(1.12); }
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Glassmorphism for Guest Section (optional touch) */
+.guest-card {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 20px 40px;
+  border-radius: 2px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
