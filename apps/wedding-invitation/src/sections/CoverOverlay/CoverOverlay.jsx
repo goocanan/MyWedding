@@ -20,51 +20,42 @@ export default function CoverOverlay({ isOpen, onOpen }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Background */}
+          {/* Background Map */}
           <div className="wood-desk-bg"></div>
 
-          {/* Scroll */}
-          <motion.div
-            className="parchment-scroll"
-            initial={{ opacity: 0, y: 40, scale: 0.95, rotateX: 8 }}
-            animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+          {/* ===== CONTENT (Directly on Map) ===== */}
+          <motion.div 
+            className="cover-content-direct"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <div className="scroll-edge-left"></div>
-            <div className="scroll-edge-right"></div>
-            <div className="op-pattern-overlay"></div>
+            {/* TOP */}
+            <div className="cover-top">
+              <h1 className="title">The Grand Wedding</h1>
+            </div>
 
-            {/* ===== CONTENT ===== */}
-            <div className="scroll-content">
-
-              {/* TOP */}
-              <div className="scroll-top">
-                <h1 className="title">The Grand Wedding</h1>
+            {/* CENTER */}
+            <div className="cover-center">
+              <div className="couple-name">
+                {couple.groom.name} & {couple.bride.name}
               </div>
 
-              {/* CENTER */}
-              <div className="scroll-center">
-                <div className="couple-name">
-                  {couple.groom.name} & {couple.bride.name}
+              <div className="guest">
+                <span>Nakama Dear,</span>
+                <strong>{guestName}</strong>
+              </div>
+            </div>
+
+            {/* BOTTOM CTA */}
+            <div className="cover-bottom">
+              <button className="wax-seal-btn" onClick={onOpen}>
+                <div className="wax-seal-inner">
+                  {groomInitial}&{brideInitial}
                 </div>
+              </button>
 
-                <div className="guest">
-                  <span>Nakama Dear,</span>
-                  <strong>{guestName}</strong>
-                </div>
-              </div>
-
-              {/* BOTTOM CTA */}
-              <div className="scroll-bottom">
-                <button className="wax-seal-btn" onClick={onOpen}>
-                  <div className="wax-seal-inner">
-                    {groomInitial}&{brideInitial}
-                  </div>
-                </button>
-
-                <span className="open-text">Buka Undangan</span>
-              </div>
-
+              <span className="open-text">Buka Undangan</span>
             </div>
           </motion.div>
         </motion.div>
