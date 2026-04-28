@@ -49,12 +49,15 @@ export default function CoverOverlay({ isOpen, onOpen }) {
 
             {/* BOTTOM CTA */}
             <div className="cover-bottom">
-              <button className="wax-btn" onClick={onOpen}>
-                <div className="wax-layer">
-                  <span className="wax-text">
-                    {groomInitial}&{brideInitial}
-                  </span>
-                </div>
+              <button className="wax-btn" onClick={onOpen} id="open-invitation-btn">
+                <img 
+                  src="/assets/wax-seal.png" 
+                  alt="Wax Seal" 
+                  className="wax-seal-img"
+                />
+                <span className="wax-text">
+                  {groomInitial}&{brideInitial}
+                </span>
               </button>
 
               <span className="open-text">Buka Undangan</span>
