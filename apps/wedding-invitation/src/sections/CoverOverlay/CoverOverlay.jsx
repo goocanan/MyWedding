@@ -7,9 +7,6 @@ export default function CoverOverlay({ isOpen, onOpen }) {
   const guestName = useGuestName();
   const { couple } = weddingConfig;
 
-  const groomInitial = couple.groom.name.charAt(0);
-  const brideInitial = couple.bride.name.charAt(0);
-
   return (
     <AnimatePresence>
       {!isOpen && (
@@ -55,9 +52,6 @@ export default function CoverOverlay({ isOpen, onOpen }) {
                   alt="Wax Seal" 
                   className="wax-seal-img"
                 />
-                <span className="wax-text">
-                  {groomInitial}&{brideInitial}
-                </span>
               </button>
 
               <span className="open-text">Buka Undangan</span>

@@ -119,28 +119,6 @@
   filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
 }
 
-/* ===== EMBOSS TEXT OVERLAY ===== */
-.wax-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  font-family: 'Georgia', serif;
-  font-size: 22px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #7a1c1c; /* Color of the wax for the indent look */
-  opacity: 0.8;
-  z-index: 2;
-  pointer-events: none;
-
-  /* EMBOSS / INDENT EFFECT */
-  text-shadow: 
-    -1px -1px 1px rgba(0,0,0,0.7), /* Inner depth shadow */
-    1px 1px 1px rgba(255,255,255,0.15); /* Bottom light highlight */
-}
-
 /* ===== FEEDBACK ===== */
 .wax-btn:active {
   transform: scale(0.92);
