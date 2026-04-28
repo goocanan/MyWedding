@@ -13,9 +13,17 @@
 .wood-desk-bg {
   position: absolute;
   inset: 0;
-  background: #3d2b15;
-  background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.85);
+
+  background:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.85)),
+    url("/src/assets/map-cover.png");
+
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
 }
 
 /* ===== SCROLL ===== */
