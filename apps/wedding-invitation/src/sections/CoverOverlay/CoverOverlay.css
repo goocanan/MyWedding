@@ -3,200 +3,110 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
 }
 
 /* ===== BACKGROUND ===== */
-.wood-desk-bg {
+.cover-bg {
   position: absolute;
   inset: 0;
 
   background:
     linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.75),
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.85)),
-    url("/src/assets/map-cover.png");
+    url("/assets/map-cover.png");
 
   background-size: cover;
   background-position: center 40%;
   background-repeat: no-repeat;
+
+  animation: zoomBg 12s ease-in-out infinite alternate;
 }
 
-/* ===== SCROLL ===== */
-.parchment-scroll {
-  position: relative;
-  width: 92%;
-  max-width: 420px;
-  min-height: 88vh;
-
-  background: #d4b896;
-  background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
-
-  border-radius: 8px;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 1.5rem 1.2rem;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.5),
-    inset 0 0 30px rgba(0, 0, 0, 0.1);
-
-  transform: perspective(1200px) rotateX(2deg);
-}
-
-/* ===== EDGE ===== */
-.parchment-scroll::before,
-.parchment-scroll::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 22px;
-  z-index: -1;
-}
-
-.parchment-scroll::before {
-  left: -12px;
-  background: linear-gradient(to right, #8B7355, #D4B896);
-}
-
-.parchment-scroll::after {
-  right: -12px;
-  background: linear-gradient(to left, #8B7355, #D4B896);
-}
-
-/* ===== EDGE SHADOW ===== */
-.scroll-edge-left,
-.scroll-edge-right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 20px;
-  pointer-events: none;
-}
-
-.scroll-edge-left {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent);
-}
-
-.scroll-edge-right {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.25), transparent);
-}
-
-/* ===== PATTERN ===== */
-.op-pattern-overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0.06;
-  pointer-events: none;
-  background-image: radial-gradient(#4a3000 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* ===== CONTENT LAYOUT ===== */
-.scroll-content {
+/* ===== CONTENT ===== */
+.cover-content {
   position: relative;
   z-index: 2;
-  height: 100%;
 
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  padding: 40px 20px;
+  color: #f5e6c8;
+  text-align: center;
 }
 
 /* ===== TOP ===== */
-.scroll-top {
-  text-align: center;
-  margin-top: 1rem;
+.cover-top h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  margin-bottom: 5px;
 }
 
-.title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
-  color: #1a3a5c;
+.cover-top h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #d4af37;
 }
 
 /* ===== CENTER ===== */
-.scroll-center {
-  text-align: center;
-}
-
-.couple-name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.8rem;
-  color: #8b6508;
-  margin-bottom: 1rem;
-}
-
-.guest span {
+.cover-center span {
   display: block;
   font-size: 14px;
-  color: #4a3018;
+  opacity: 0.8;
 }
 
-.guest strong {
-  display: block;
-  font-size: 1.4rem;
-  color: #102a43;
+.cover-center strong {
+  font-size: 22px;
 }
 
 /* ===== BOTTOM ===== */
-.scroll-bottom {
-  text-align: center;
-  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+.cover-bottom {
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
 }
 
-/* ===== WAX SEAL ===== */
-.wax-seal-btn {
+/* ===== BUTTON ===== */
+.wax-btn {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+
   background: radial-gradient(circle, #7a1c1c, #2a0505);
+  color: gold;
+  font-weight: bold;
+  font-size: 18px;
+
   border: none;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   margin: 0 auto;
 
   box-shadow:
     0 10px 25px rgba(0, 0, 0, 0.7),
     inset 0 0 10px rgba(0, 0, 0, 0.6);
 
-  cursor: pointer;
   transition: transform 0.2s;
 }
 
-.wax-seal-btn:active {
+.wax-btn:active {
   transform: scale(0.9);
 }
 
-.wax-seal-inner {
-  color: gold;
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
-/* ===== TEXT ===== */
-.open-text {
-  display: block;
+.cover-bottom p {
   margin-top: 10px;
   font-size: 13px;
-  color: #4a3018;
-  animation: pulse 1.5s infinite;
+  opacity: 0.8;
 }
 
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
+/* ===== ANIMATION ===== */
+@keyframes zoomBg {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
   }
 }
