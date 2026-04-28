@@ -1,20 +1,194 @@
-.cover-overlay {
-  @apply fixed inset-0 z-[1000] flex flex-col items-center justify-center text-center overflow-hidden;
+/* ===== WRAPPER ===== */
+.cover-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.cover-content {
-  @apply flex flex-col items-center max-w-2xl px-8 py-16 rounded-lg;
+/* ===== BACKGROUND ===== */
+.wood-desk-bg {
+  position: absolute;
+  inset: 0;
+  background: #3d2b15;
+  background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.85);
 }
 
-/* Shimmer animation for gold text */
-@keyframes goldShimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+/* ===== SCROLL ===== */
+.parchment-scroll {
+  position: relative;
+  width: 92%;
+  max-width: 420px;
+  min-height: 88vh;
+
+  background: #d4b896;
+  background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.5rem 1.2rem;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(0, 0, 0, 0.1);
+
+  transform: perspective(1200px) rotateX(2deg);
 }
 
-.cover-title {
-  background-size: 200% auto;
-  animation: goldShimmer 5s linear infinite;
+/* ===== EDGE ===== */
+.parchment-scroll::before,
+.parchment-scroll::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  z-index: -1;
 }
 
-/* Wax Seal and Button styling is handled via utility classes in index.css */
+.parchment-scroll::before {
+  left: -12px;
+  background: linear-gradient(to right, #8B7355, #D4B896);
+}
+
+.parchment-scroll::after {
+  right: -12px;
+  background: linear-gradient(to left, #8B7355, #D4B896);
+}
+
+/* ===== EDGE SHADOW ===== */
+.scroll-edge-left,
+.scroll-edge-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  pointer-events: none;
+}
+
+.scroll-edge-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent);
+}
+
+.scroll-edge-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.25), transparent);
+}
+
+/* ===== PATTERN ===== */
+.op-pattern-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image: radial-gradient(#4a3000 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ===== CONTENT LAYOUT ===== */
+.scroll-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===== TOP ===== */
+.scroll-top {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #1a3a5c;
+}
+
+/* ===== CENTER ===== */
+.scroll-center {
+  text-align: center;
+}
+
+.couple-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: #8b6508;
+  margin-bottom: 1rem;
+}
+
+.guest span {
+  display: block;
+  font-size: 14px;
+  color: #4a3018;
+}
+
+.guest strong {
+  display: block;
+  font-size: 1.4rem;
+  color: #102a43;
+}
+
+/* ===== BOTTOM ===== */
+.scroll-bottom {
+  text-align: center;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+}
+
+/* ===== WAX SEAL ===== */
+.wax-seal-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #7a1c1c, #2a0505);
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.7),
+    inset 0 0 10px rgba(0, 0, 0, 0.6);
+
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.wax-seal-btn:active {
+  transform: scale(0.9);
+}
+
+.wax-seal-inner {
+  color: gold;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* ===== TEXT ===== */
+.open-text {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #4a3018;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
