@@ -110,18 +110,46 @@
 /* line besar (ini yang penting 🔥) */
 .hero-tagline h2 {
   font-family: 'Cinzel', serif;
-  font-size: clamp(18px, 5vw, 26px);
+  font-size: clamp(22px, 6vw, 32px);
   font-weight: 600;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden; /* For the shine effect */
 
-  background: linear-gradient(45deg, #d4af37, #f6e27a);
+  background: linear-gradient(
+    to bottom,
+    #f6e27a,
+    #d4af37,
+    #8f6b1f
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
   text-shadow:
-    0 2px 6px rgba(0,0,0,0.8),
-    0 0 10px rgba(212,175,55,0.3);
+    0 3px 10px rgba(0,0,0,0.9),
+    0 0 20px rgba(212,175,55,0.4);
   
-  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+/* Light Sweep Shine Animation (Cinematic 🔥) */
+.hero-tagline h2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+  animation: shine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  30%, 100% { transform: translateX(100%); }
 }
 
 /* CENTER: Names & Guest */
@@ -165,8 +193,8 @@
   -webkit-text-fill-color: transparent;
 
   text-shadow:
-    0 4px 12px rgba(0,0,0,0.9),
-    0 0 20px rgba(212,175,55,0.25);
+    0 6px 20px rgba(0,0,0,1),
+    0 0 25px rgba(255,215,0,0.35);
 
   margin: 15px 0;
   line-height: 1.1;
@@ -275,15 +303,27 @@
   cursor: pointer;
   z-index: 2;
   position: relative;
-  /* Use filter for the whole button to include its shadows */
-  filter: none; /* Resetting filter to use box-shadow and other effects */
+  /* Resetting filter to use box-shadow and other effects */
+  filter: none; 
   
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.8),
-    0 0 25px rgba(255,215,0,0.4),
-    inset 0 0 12px rgba(0,0,0,0.6);
   border-radius: 50%;
   transition: all 0.3s ease;
+  animation: pulseWaxSeal 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseWaxSeal {
+  0%, 100% {
+    box-shadow:
+      0 12px 30px rgba(0,0,0,0.8),
+      0 0 20px rgba(255,215,0,0.2),
+      inset 0 0 12px rgba(0,0,0,0.6);
+  }
+  50% {
+    box-shadow:
+      0 15px 40px rgba(0,0,0,0.9),
+      0 0 35px rgba(255,215,0,0.5),
+      inset 0 0 15px rgba(0,0,0,0.7);
+  }
 }
 
 /* Magical Glow Halus */
@@ -342,10 +382,13 @@
 
 /* Glassmorphism for Guest Section (optional touch) */
 .guest-card {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 20px 40px;
   border-radius: 2px;
-  border: 1px solid rgba(212, 175, 55, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.7),
+    inset 0 0 20px rgba(255, 215, 0, 0.1);
 }
