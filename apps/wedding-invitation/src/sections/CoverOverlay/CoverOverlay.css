@@ -30,14 +30,20 @@
   /* Multi-layered lighting for cinematic depth */
   background: 
     /* 1. Top Shadow for Title Readability */
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 30%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 40%),
     /* 2. Bottom Shadow / Vignette */
-    linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 40%),
-    /* 3. Central Oil Lamp Glow */
+    linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 40%),
+    /* 3. Central Cinematic Light Focus (Game Changer) */
     radial-gradient(
       circle at 50% 50%,
-      rgba(255, 180, 60, 0.25) 0%,
-      rgba(150, 80, 20, 0.1) 40%,
+      rgba(255, 215, 0, 0.15) 0%,
+      rgba(255, 180, 60, 0.1) 30%,
+      transparent 60%
+    ),
+    /* 4. Soft Oil Lamp Glow (Broad) */
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 180, 60, 0.2) 0%,
       rgba(0, 0, 0, 0.6) 100%
     );
   pointer-events: none;
@@ -85,17 +91,37 @@
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
-/* TOP: Title */
-.cover-top .title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: 8px;
+.hero-tagline {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* line kecil */
+.hero-tagline span {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: rgba(212,175,55,0.7);
+  margin-bottom: 6px;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  opacity: 0.9;
-  /* Gold applied via class in JSX */
+}
+
+/* line besar (ini yang penting 🔥) */
+.hero-tagline h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(18px, 5vw, 26px);
+  font-weight: 600;
+
+  background: linear-gradient(45deg, #d4af37, #f6e27a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.8),
+    0 0 10px rgba(212,175,55,0.3);
+  
+  letter-spacing: 1px;
 }
 
 /* CENTER: Names & Guest */
@@ -110,17 +136,6 @@
 .hero-text {
   text-align: center;
   margin-top: 20px;
-}
-
-/* tagline kecil */
-.tagline-top {
-  display: block;
-  font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: rgba(212,175,55,0.8);
-  margin-bottom: 10px;
-  text-transform: uppercase;
 }
 
 /* headline utama */
@@ -143,17 +158,18 @@
 
 .couple-name {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(36px, 9vw, 48px);
+  font-size: clamp(40px, 10vw, 56px);
 
   background: linear-gradient(45deg, #f6e27a, #d4af37);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
   text-shadow:
-    0 3px 10px rgba(0,0,0,0.8);
+    0 4px 12px rgba(0,0,0,0.9),
+    0 0 20px rgba(212,175,55,0.25);
 
-  margin: 20px 0;
-  line-height: 1.2;
+  margin: 15px 0;
+  line-height: 1.1;
   padding: 10px 0;
 }
 
@@ -260,10 +276,26 @@
   z-index: 2;
   position: relative;
   /* Use filter for the whole button to include its shadows */
-  filter: 
-    drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8))
-    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-  transition: filter 0.3s ease;
+  filter: none; /* Resetting filter to use box-shadow and other effects */
+  
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.8),
+    0 0 25px rgba(255,215,0,0.4),
+    inset 0 0 12px rgba(0,0,0,0.6);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Magical Glow Halus */
+.wax-btn::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(rgba(255,215,0,0.3), transparent);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .wax-seal-img {
@@ -271,7 +303,7 @@
   height: 100%;
   object-fit: contain;
   /* Complex inner lighting simulation */
-  filter: brightness(1.1) contrast(1.1);
+  filter: brightness(1.1) contrast(1.1) drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
 .wax-btn:active {
@@ -284,11 +316,11 @@
 
 .open-hint {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.8rem;
+  font-size: 11px;
   font-weight: 400;
-  color: rgba(212, 175, 55, 0.9);
+  color: rgba(212, 175, 55, 0.7);
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   animation: fadeInOut 3s ease-in-out infinite;
 }
 
