@@ -8,6 +8,7 @@
 .app-main {
   position: relative;
   width: 100%;
+  perspective: 1000px;
 }
 
 .section-voyage {
@@ -39,4 +40,15 @@
 .vibrant-overlay {
   background: linear-gradient(180deg, rgba(135, 206, 235, 0.2) 0%, rgba(255, 215, 0, 0.1) 50%, rgba(0, 105, 148, 0.4) 100%);
   mix-blend-mode: overlay;
+}
+
+/* Scroll Specific Styles */
+.scroll-roller {
+  background: linear-gradient(to bottom, #4a3018, #2a1b0d 50%, #4a3018);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.gold-endcap {
+  background: radial-gradient(circle at 30% 30%, #f7e4a1 0%, #d4af37 50%, #8a6d3b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
