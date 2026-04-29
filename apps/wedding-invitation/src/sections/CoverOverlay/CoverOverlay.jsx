@@ -13,19 +13,41 @@ export default function CoverOverlay({ isOpen, onOpen }) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.5,
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
       },
     },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.1,
+        staggerDirection: -1, // Exit from bottom up
+        when: "afterChildren"
+      }
+    }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
+      scale: 1,
+      transition: { 
+        duration: 0.8, 
+        ease: [0.22, 1, 0.36, 1] 
+      }
     },
+    exit: {
+      opacity: 0,
+      y: -20,
+      scale: 1.1,
+      filter: "blur(10px)",
+      transition: { 
+        duration: 0.6, 
+        ease: [0.22, 1, 0.36, 1] 
+      }
+    }
   };
 
   return (
@@ -37,23 +59,37 @@ export default function CoverOverlay({ isOpen, onOpen }) {
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0,
-            scale: 1.1,
-            filter: "blur(20px)",
-            transition: { 
-              duration: 1.2, 
-              ease: [0.43, 0.13, 0.23, 0.96] 
-            } 
+            transition: { duration: 1, ease: "easeInOut" } 
           }}
         >
-          {/* Background Map & Lighting */}
-          <div className="wood-desk-bg"></div>
+          {/* 1. BACKGROUND LAYER (Depth) */}
+          <motion.div 
+            className="wood-desk-bg"
+            exit={{ 
+              scale: 1.2, 
+              filter: "blur(20px) brightness(1.5)",
+              transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 } 
+            }}
+          ></motion.div>
 
-          {/* Content Layer */}
+          {/* 2. LIGHT BURST LAYER (Impact) */}
+          <motion.div 
+            className="light-burst"
+            initial={{ opacity: 0, scale: 0.8 }}
+            exit={{ 
+              opacity: [0, 1, 0], 
+              scale: [0.8, 1.5, 2],
+              transition: { duration: 0.8, times: [0, 0.2, 1], ease: "easeOut", delay: 0.1 } 
+            }}
+          />
+
+          {/* 3. CONTENT LAYER */}
           <motion.div 
             className="cover-content-direct"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
+            exit="exit"
           >
             {/* TOP: Cinematic Title */}
             <motion.div className="cover-top" variants={itemVariants}>
@@ -71,7 +107,7 @@ export default function CoverOverlay({ isOpen, onOpen }) {
                 {couple.bride.name}
               </motion.div>
 
-              <motion.div className="guest-box guest-card" variants={itemVariants}>
+              <motion.div className="guest-box invite-box guest-card" variants={itemVariants}>
                 <span className="guest-label">To Our Dear Nakama</span>
                 <strong className="guest-name">{guestName}</strong>
               </motion.div>
@@ -87,18 +123,18 @@ export default function CoverOverlay({ isOpen, onOpen }) {
                   aria-label="Open Invitation"
                   whileHover={{ 
                     scale: 1.05, 
-                    rotate: 5,
-                    filter: "drop-shadow(0 15px 30px rgba(0,0,0,0.9)) brightness(1.1)"
+                    rotate: 2,
+                    filter: "brightness(1.1)"
                   }}
                   whileTap={{ 
-                    scale: 0.92, 
-                    rotate: -2,
-                    filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.9)) brightness(0.9)"
+                    scale: 0.85, 
+                    rotate: [0, -3, 3, -1, 0], // Micro-shake for physical feedback
+                    transition: { duration: 0.3 }
                   }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 400, 
-                    damping: 15 
+                  exit={{ 
+                    scale: 0.5, 
+                    opacity: 0,
+                    transition: { duration: 0.4, ease: "backIn" } 
                   }}
                 >
                   <img 
