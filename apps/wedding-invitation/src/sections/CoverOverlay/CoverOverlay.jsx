@@ -57,16 +57,11 @@ export default function CoverOverlay({ isOpen, onOpen }) {
           >
             {/* TOP: Cinematic Title */}
             <motion.div className="cover-top" variants={itemVariants}>
-              <h1 className="title gold-metallic">The Grand Wedding</h1>
+              <h1 className="title gold-metallic">Let’s Sail to Our Wedding</h1>
             </motion.div>
 
             {/* CENTER: Couple & Guest */}
             <div className="cover-center">
-              <motion.div className="hero-text" variants={itemVariants}>
-                <span className="tagline-top">Let’s Sail to Our Wedding</span>
-                <h1 className="headline">Our Journey Through the Grand Line</h1>
-              </motion.div>
-
               <motion.div className="couple-name gold-metallic" variants={itemVariants}>
                 {couple.groom.name}
                 <span>&</span>
