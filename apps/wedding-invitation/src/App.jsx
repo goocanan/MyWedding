@@ -41,14 +41,16 @@ export default function App() {
   return (
     <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] bg-transparent'} relative`}>
 
-      {/* 1. Global Background (Switches to cinematic background when open) */}
+      {/* 1. Global Background (Scrolls with the content when open) */}
       <div 
-        className="fixed inset-0 z-[-2] w-full h-full overflow-hidden bg-[#1a140d] transition-all duration-1000 ease-in-out"
+        className={`${isOpen ? 'absolute' : 'fixed'} inset-0 z-[-2] w-full h-full overflow-hidden bg-[#1a140d] transition-all duration-1000 ease-in-out`}
         style={{ 
           backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: isOpen ? 'brightness(0.6) contrast(1.1)' : 'none'
+          backgroundPosition: 'top center',
+          backgroundAttachment: 'scroll',
+          filter: isOpen ? 'brightness(0.6) contrast(1.1)' : 'none',
+          minHeight: isOpen ? '100%' : '100vh'
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
