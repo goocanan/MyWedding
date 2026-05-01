@@ -55,7 +55,7 @@ h1, h2, h3, h4 {
 
 /* Container for sections */
 .section {
-  @apply py-24 px-6 relative z-10 flex flex-col items-center min-h-screen justify-center overflow-hidden;
+  @apply py-24 px-6 relative z-10 flex flex-col items-center min-h-screen justify-center;
   background-color: transparent !important;
 }
 

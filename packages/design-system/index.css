@@ -131,10 +131,12 @@ body {
 
 /* Section Styling */
 .section-heading {
-  font-family: 'Great Vibes', cursive;
-  @apply text-5xl md:text-7xl text-center mb-12 tracking-wide;
-  background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728);
+  font-family: 'Cinzel', serif;
+  @apply text-4xl md:text-6xl text-center mb-16 tracking-[0.2em] uppercase font-bold;
+  background: linear-gradient(to bottom, #cf9d42, #e6c986, #b38728);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding: 0.5em 0; /* Prevents cropping on top/bottom */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6)); /* Makes it pop on bright backgrounds */
 }
