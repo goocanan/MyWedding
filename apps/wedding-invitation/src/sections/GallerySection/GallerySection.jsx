@@ -48,7 +48,7 @@ export default function GallerySection() {
                 )}
               </div>
 
-              <div className="mt-4 font-script text-4xl text-center text-white">
+              <div className="mt-4 font-script text-3xl text-center text-[#102A43]">
                 Log Entry #{idx + 1}
               </div>
             </motion.div>

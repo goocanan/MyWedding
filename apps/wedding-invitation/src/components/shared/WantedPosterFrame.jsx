@@ -16,7 +16,7 @@ export default function WantedPosterFrame({ label, name, parents, photo, bounty 
 
         <div className="wanted-poster__header w-full text-center pb-4 mb-6">
           <div className="font-pirate text-6xl tracking-widest text-gold-gradient">WANTED</div>
-          <div className="text-sm font-bold tracking-[0.4em] text-white mt-2 opacity-80">DEAD OR ALIVE</div>
+          <div className="text-sm font-bold tracking-[0.4em] text-[#3C2A1A] mt-2 opacity-80">DEAD OR ALIVE</div>
         </div>
 
         <div className="wanted-poster__photo w-full aspect-[4/5] overflow-hidden relative">
@@ -35,11 +35,11 @@ export default function WantedPosterFrame({ label, name, parents, photo, bounty 
           
           <div className="flex items-baseline justify-center gap-2 mb-4 py-2 rounded">
             <span className="font-pirate text-2xl text-gold-gradient">B</span>
-            <span className="font-pirate text-3xl text-white tracking-widest">{bounty}</span>
+            <span className="font-pirate text-3xl text-[#3C2A1A] tracking-widest">{bounty}</span>
           </div>
 
           <div className="text-[10px] font-bold tracking-[0.2em] text-[#D4AF37] uppercase mb-1">{label}</div>
-          <div className="font-serif italic text-sm text-white opacity-80 leading-tight">{parents}</div>
+          <div className="font-serif italic text-sm text-[#3C2A1A]/70 leading-tight">{parents}</div>
         </div>
 
         {/* Texture overlays */}

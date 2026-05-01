@@ -20,13 +20,13 @@ export default function EventSection() {
                 direction={idx % 2 === 0 ? 'left' : 'right'}
                 delay={idx * 0.2}
               >
-                <div className="parchment-floating relative p-10 transition-all duration-500 group-hover:-translate-y-4 text-white">
+                <div className="parchment-floating relative p-10 transition-all duration-500 group-hover:-translate-y-4 text-[#102A43]">
                   {/* Decorative corners removed for clean look */}
                   
                   <div className="text-6xl mb-6 text-center drop-shadow-lg">{event.icon}</div>
-                  <h3 className="text-3xl font-pirate text-gold-gradient text-center mb-8 pb-4">{event.title}</h3>
+                  <h3 className="text-3xl font-pirate text-[#102A43] text-center mb-8 pb-4">{event.title}</h3>
 
-                  <div className="space-y-6 font-serif-readable">
+                  <div className="space-y-6 font-serif-readable text-[#102A43]">
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-full bg-[#102A43]/5 flex items-center justify-center text-[#102A43]">📅</div>
                       <span className="text-lg font-bold">{event.displayDate}</span>

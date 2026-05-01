@@ -60,22 +60,22 @@ export default function GuestbookSection({ newMessages = [] }) {
               {visible.map((msg, idx) => (
                 <motion.div
                   key={msg.id}
-                  className={`parchment-floating p-6 relative transition-all duration-500 hover:-translate-y-2 text-white
+                  className={`parchment-floating p-6 relative transition-all duration-500 hover:-translate-y-2 text-[#102A43]
                     ${idx < newMessages.length ? 'border-2 border-[#8E1C1C]/60' : ''}`}
                   variants={fadeInUp}
                 >
-                  <div className="flex items-center gap-4 mb-4 pb-3 border-b border-white/10">
+                  <div className="flex items-center gap-4 mb-4 pb-3 border-b border-[#102A43]/10">
                     <div className="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center text-2xl shadow-md text-gold">⚓</div>
                     <div className="flex-1">
-                      <span className="block font-script text-4xl text-white">{msg.name}</span>
-                      <span className={`text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-0.5 rounded border border-white/20
-                        ${msg.attendance === 'hadir' ? 'text-gold' : 'text-red-400'}`}>
+                      <span className="block font-script text-3xl text-[#102A43]">{msg.name}</span>
+                      <span className={`text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-0.5 rounded
+                        ${msg.attendance === 'hadir' ? 'bg-[#102A43]/10 text-[#102A43]' : 'bg-red-100 text-red-800'}`}>
                         {badgeLabels[msg.attendance] || msg.attendance}
                       </span>
                     </div>
                   </div>
-                  <p className="font-serif-readable italic text-white leading-relaxed text-xl">"{msg.message}"</p>
-                  <div className="mt-4 text-right text-[10px] font-bold text-white/40 uppercase tracking-tighter">
+                  <p className="font-serif-readable italic text-[#102A43]/90 leading-relaxed text-lg">"{msg.message}"</p>
+                  <div className="mt-4 text-right text-[10px] font-bold text-[#102A43]/40 uppercase tracking-tighter">
                     🕐 {timeAgo(msg.timestamp || msg.createdAt)}
                   </div>
                 </motion.div>

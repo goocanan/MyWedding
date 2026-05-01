@@ -38,9 +38,9 @@ export default function GiftSection() {
           <ScrollReveal direction="left" delay={0.2} className="flex-1 max-w-sm">
             <div className="gold-nameplate h-full flex flex-col items-center text-center p-10">
                <div className="text-6xl mb-6 drop-shadow-xl">🏦</div>
-               <h3 className="font-script text-5xl text-white mb-2">{gift.bank.name}</h3>
-               <div className="text-3xl font-pirate tracking-widest text-gold-gradient mb-2">{gift.bank.accountNumber}</div>
-               <div className="font-serif-readable italic text-white/60 mb-8 uppercase text-xs tracking-widest font-bold">a.n. {gift.bank.accountHolder}</div>
+               <h3 className="font-script text-4xl text-gold-gradient mb-2">{gift.bank.name}</h3>
+               <div className="text-3xl font-pirate tracking-widest text-white mb-2">{gift.bank.accountNumber}</div>
+               <div className="font-serif-readable italic text-gold/60 mb-8 uppercase text-xs tracking-widest font-bold">a.n. {gift.bank.accountHolder}</div>
                
                <button
                  className={`w-full py-4 px-6 rounded-sm border-2 border-[#D4AF37] text-[#D4AF37] font-bold uppercase tracking-[0.2em] transition-all text-xs
@@ -56,7 +56,7 @@ export default function GiftSection() {
           <ScrollReveal direction="right" delay={0.3} className="flex-1 max-w-sm">
             <div className="gold-nameplate h-full flex flex-col items-center text-center p-10">
                <div className="text-6xl mb-6 drop-shadow-xl">📱</div>
-               <h3 className="font-script text-5xl text-white mb-6">QRIS Manifest</h3>
+               <h3 className="font-script text-4xl text-gold-gradient mb-6">QRIS Manifest</h3>
                <div className="w-full aspect-square bg-white p-4 rounded shadow-2xl border-4 border-gold-gradient">
                 {gift.qris.image ? (
                    <img src={gift.qris.image} alt="QRIS Payment" className="w-full h-full object-contain" loading="lazy" />
