@@ -46,12 +46,13 @@ export default function App() {
         className={`${isOpen ? 'absolute' : 'fixed'} inset-0 z-[-2] transition-all duration-1000 ease-in-out`}
         style={{ 
           backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-          backgroundSize: '100% auto', // Force width, allow height to be natural for looping
+          backgroundSize: '100%', // Match width, height scales proportionally
           backgroundPosition: 'top center',
-          backgroundRepeat: 'repeat', // Ensures vertical and horizontal looping
+          backgroundRepeat: 'repeat-y', // Only loop vertically to prevent horizontal seams
           backgroundAttachment: 'scroll',
           filter: isOpen ? 'brightness(0.6) contrast(1.1)' : 'none',
-          minHeight: '100%', // Ensure it stretches to the full height of the parent
+          height: '100%',
+          minHeight: '100vh',
         }}
       >
         <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
