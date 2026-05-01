@@ -43,18 +43,18 @@ export default function App() {
 
       {/* 1. Global Background (Scrolling & Looping) */}
       <div 
-        className={`${isOpen ? 'absolute' : 'fixed'} inset-0 z-[-2] w-full h-full overflow-hidden bg-[#1a140d] transition-all duration-1000 ease-in-out`}
+        className={`${isOpen ? 'absolute' : 'fixed'} inset-0 z-[-2] transition-all duration-1000 ease-in-out`}
         style={{ 
           backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-          backgroundSize: '100% auto', // Fill width, maintain aspect ratio (prevents zoom)
+          backgroundSize: '100% auto', // Force width, allow height to be natural for looping
           backgroundPosition: 'top center',
-          backgroundRepeat: 'repeat', // Loop if the content is longer than the image
-          backgroundAttachment: 'scroll', // Allow it to scroll with content
+          backgroundRepeat: 'repeat', // Ensures vertical and horizontal looping
+          backgroundAttachment: 'scroll',
           filter: isOpen ? 'brightness(0.6) contrast(1.1)' : 'none',
-          minHeight: isOpen ? '100%' : '100vh'
+          minHeight: '100%', // Ensure it stretches to the full height of the parent
         }}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
       </div>
 
       {/* Other Shared Components */}
