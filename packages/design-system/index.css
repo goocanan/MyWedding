@@ -32,7 +32,7 @@
   --z-cover: 1000;
 }
 
-/* --- Global Reset --- */
+/* --- Global Reset & Readability --- */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -41,33 +41,28 @@
 
 body {
   font-family: 'Outfit', sans-serif;
-  color: var(--text-primary);
+  color: #FFFFFF;
   background-color: var(--bg-deep-sea);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  /* Global Text Outline - Crucial for readability on the bright map */
+  text-shadow: 
+    -1px -1px 0 rgba(0,0,0,0.8),  
+     1px -1px 0 rgba(0,0,0,0.8),
+    -1px  1px 0 rgba(0,0,0,0.8),
+     1px  1px 0 rgba(0,0,0,0.8),
+     0 2px 10px rgba(0,0,0,0.5);
 }
 
 /* --- Global Textures --- */
 .bg-texture-parchment {
-  background-color: var(--bg-parchment);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.2'/%3E%3C/svg%3E");
+  display: none; /* Removed as requested */
 }
 
 .bg-texture-sea {
-  background: 
-    radial-gradient(ellipse at 30% 20%, rgba(30, 77, 140, 0.4) 0%, transparent 60%),
-    linear-gradient(180deg, #060e1a 0%, #0c1b33 50%, #060e1a 100%);
+  background: transparent;
   position: relative;
-}
-
-.bg-texture-sea::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.005' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.1'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-  pointer-events: none;
 }
 
 /* --- Typography --- */
@@ -77,56 +72,45 @@ body {
 .font-serif-readable { font-family: 'Playfair Display', serif; }
 
 .gold-gradient-text {
-  background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728);
+  background: linear-gradient(to bottom, #cf9d42, #e6c986, #b38728);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
-/* --- Components --- */
+/* --- Components (All Boxes Removed) --- */
 
-/* Floating Parchment */
 .parchment-floating {
-  background: rgba(253, 246, 227, 0.8);
-  backdrop-filter: blur(8px);
-  padding: 3rem;
-  border-radius: 4px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  color: #102A43;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #FFFFFF !important;
+  padding: 1rem !important;
 }
 
-/* Gold Nameplate */
 .gold-nameplate {
-  @apply relative py-8 px-12 border-4 border-[#D4AF37] bg-[#0c1b33]/60 backdrop-blur-md;
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 1rem !important;
 }
 
 .gold-nameplate::before {
-  content: '';
-  position: absolute;
-  inset: -10px;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  pointer-events: none;
+  display: none;
 }
 
-/* Ornate Gold Plaque */
 .gold-plaque {
-  background: rgba(12, 27, 51, 0.9);
-  border: 2px solid var(--gold-primary);
-  border-radius: 4px;
-  position: relative;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 1rem !important;
 }
 
 .gold-plaque::before {
-  content: '';
-  position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  pointer-events: none;
+  display: none;
 }
 
 /* Section Styling */
@@ -137,6 +121,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  padding: 0.5em 0; /* Prevents cropping on top/bottom */
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6)); /* Makes it pop on bright backgrounds */
+  padding: 0.5em 0;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 1));
 }

@@ -30,7 +30,7 @@ export default function GallerySection() {
           {gallery.map((item, idx) => (
             <motion.div
               key={item.id}
-              className={`relative bg-[#F4EBD0]/90 backdrop-blur-sm p-4 pb-14 shadow-2xl transition-all duration-500 cursor-pointer hover:z-50 hover:scale-110 hover:rotate-0 group border border-white/20
+              className={`relative p-0 transition-all duration-500 cursor-pointer hover:z-50 hover:scale-110 hover:rotate-0 group
                 ${idx % 3 === 0 ? '-rotate-3' : idx % 3 === 1 ? 'rotate-2' : 'rotate-1'}`}
               style={{ width: '280px' }}
               variants={fadeInUp}
@@ -38,10 +38,7 @@ export default function GallerySection() {
               role="button"
               tabIndex={0}
             >
-              {/* Gold Frame Border */}
-              <div className="absolute inset-0 border-8 border-double border-[#D4AF37]/30 pointer-events-none group-hover:border-[#D4AF37]"></div>
-              
-              <div className="w-full aspect-square bg-[#D4C4A0]/20 overflow-hidden relative border border-[#102A43]/5">
+              <div className="w-full aspect-square overflow-hidden relative shadow-2xl border-4 border-gold-gradient">
                 {item.src ? (
                   <img src={item.src} alt={item.alt} className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]" loading="lazy" />
                 ) : (
@@ -51,7 +48,7 @@ export default function GallerySection() {
                 )}
               </div>
 
-              <div className="mt-4 font-script text-3xl text-center text-[#102A43]">
+              <div className="mt-4 font-script text-4xl text-center text-white">
                 Log Entry #{idx + 1}
               </div>
             </motion.div>

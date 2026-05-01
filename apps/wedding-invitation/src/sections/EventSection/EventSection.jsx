@@ -20,15 +20,11 @@ export default function EventSection() {
                 direction={idx % 2 === 0 ? 'left' : 'right'}
                 delay={idx * 0.2}
               >
-                <div className="parchment-floating bg-[#FDF6E3] relative border-2 border-[#D4AF37]/30 p-10 shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-all duration-500 group-hover:-translate-y-4 text-[#102A43]">
-                  {/* Decorative corners */}
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#102A43]/20 -translate-x-2 -translate-y-2"></div>
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#102A43]/20 translate-x-2 -translate-y-2"></div>
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#102A43]/20 -translate-x-2 translate-y-2"></div>
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#102A43]/20 translate-x-2 translate-y-2"></div>
+                <div className="parchment-floating relative p-10 transition-all duration-500 group-hover:-translate-y-4 text-white">
+                  {/* Decorative corners removed for clean look */}
                   
                   <div className="text-6xl mb-6 text-center drop-shadow-lg">{event.icon}</div>
-                  <h3 className="text-3xl font-pirate text-[#102A43] text-center mb-8 border-b border-[#102A43]/10 pb-4">{event.title}</h3>
+                  <h3 className="text-3xl font-pirate text-gold-gradient text-center mb-8 pb-4">{event.title}</h3>
 
                   <div className="space-y-6 font-serif-readable">
                     <div className="flex items-center gap-4">

@@ -54,7 +54,7 @@ export default function RSVPSection({ onNewMessage }) {
       <section className="section bg-transparent" id="rsvp">
         <div className="section-content w-full px-4">
           <ScrollReveal>
-            <div className="parchment-floating bg-[#FDF6E3] max-w-lg mx-auto text-center py-16 px-10 relative border-l-8 border-r-8 border-[#102A43]/10 text-[#102A43]">
+            <div className="parchment-floating max-w-lg mx-auto text-center py-16 px-10 relative text-white">
               <div className="rsvp-success relative z-10">
                 <div className="text-[#8E1C1C] text-6xl mb-6">⚓</div>
                 <h3 className="text-5xl font-script text-[#102A43] mb-6">Welcome Aboard, Nakama!</h3>
@@ -79,19 +79,19 @@ export default function RSVPSection({ onNewMessage }) {
 
       <div className="section-content w-full px-4 max-w-2xl">
         <ScrollReveal delay={0.2}>
-          <div className="parchment-floating bg-[#FDF6E3] relative border-l-8 border-r-8 border-[#102A43]/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] text-[#102A43]">
+          <div className="parchment-floating relative text-white">
             <div className="relative z-10 w-full">
               <div className="text-center mb-10 pb-6 border-b border-[#102A43]/10">
-                <h3 className="font-script text-5xl text-[#102A43] mb-2">Crew Manifest</h3>
-                <p className="font-serif-readable italic text-[#102A43]/60">Every nakama counts on this journey</p>
+                <h3 className="font-script text-5xl text-white mb-2">Crew Manifest</h3>
+                <p className="font-serif-readable italic text-white/60">Every nakama counts on this journey</p>
               </div>
 
               <form className="space-y-8 font-serif-readable" onSubmit={handleSubmit}>
                 <div className="rsvp-field">
-                  <label className="block font-pirate text-xl text-[#102A43] mb-2 uppercase tracking-wide" htmlFor="rsvp-name">Full Name</label>
+                  <label className="block font-pirate text-xl text-white mb-2 uppercase tracking-wide" htmlFor="rsvp-name">Full Name</label>
                   <input
                     id="rsvp-name"
-                    className="w-full bg-transparent border-b-2 border-[#102A43]/20 text-[#102A43] px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-xl outline-none"
+                    className="w-full bg-transparent border-b-2 border-[#102A43]/20 text-white px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-xl outline-none"
                     type="text"
                     name="name"
                     value={form.name}
@@ -105,10 +105,10 @@ export default function RSVPSection({ onNewMessage }) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="rsvp-field">
-                    <label className="block font-pirate text-xl text-[#102A43] mb-2 uppercase tracking-wide" htmlFor="rsvp-pax">Crew Size</label>
+                    <label className="block font-pirate text-xl text-white mb-2 uppercase tracking-wide" htmlFor="rsvp-pax">Crew Size</label>
                     <select
                       id="rsvp-pax"
-                      className="w-full bg-transparent border-b-2 border-[#102A43]/20 text-[#102A43] px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-xl outline-none appearance-none"
+                      className="w-full bg-transparent border-b-2 border-[#102A43]/20 text-white px-2 py-3 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-xl outline-none appearance-none"
                       name="pax"
                       value={form.pax}
                       onChange={handleChange}
@@ -120,7 +120,7 @@ export default function RSVPSection({ onNewMessage }) {
                   </div>
 
                   <div className="rsvp-field">
-                    <span className="block font-pirate text-xl text-[#102A43] mb-2 uppercase tracking-wide">Status</span>
+                    <span className="block font-pirate text-xl text-white mb-2 uppercase tracking-wide">Status</span>
                     <div className="flex flex-col gap-2">
                       <label className="flex items-center gap-3 cursor-pointer group">
                         <input
@@ -131,7 +131,7 @@ export default function RSVPSection({ onNewMessage }) {
                           checked={form.attendance === 'hadir'}
                           onChange={handleChange}
                         />
-                        <span className="font-serif-readable italic text-lg text-[#102A43]/80 group-hover:text-[#102A43]">Aye Aye, Captain!</span>
+                        <span className="font-serif-readable italic text-lg text-white/80 group-hover:text-white">Aye Aye, Captain!</span>
                       </label>
                       <label className="flex items-center gap-3 cursor-pointer group">
                         <input
@@ -142,17 +142,17 @@ export default function RSVPSection({ onNewMessage }) {
                           checked={form.attendance === 'tidak_hadir'}
                           onChange={handleChange}
                         />
-                        <span className="font-serif-readable italic text-lg text-[#102A43]/80 group-hover:text-[#102A43]">Stay at Shore</span>
+                        <span className="font-serif-readable italic text-lg text-white/80 group-hover:text-white">Stay at Shore</span>
                       </label>
                     </div>
                   </div>
                 </div>
 
                 <div className="rsvp-field pt-4">
-                  <label className="block font-pirate text-xl text-[#102A43] mb-2 uppercase tracking-wide" htmlFor="rsvp-message">Wishes & Log Entry</label>
+                  <label className="block font-pirate text-xl text-white mb-2 uppercase tracking-wide" htmlFor="rsvp-message">Wishes & Log Entry</label>
                   <textarea
                     id="rsvp-message"
-                    className="w-full bg-[#102A43]/5 border-2 border-dashed border-[#102A43]/10 text-[#102A43] p-4 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-lg outline-none rounded"
+                    className="w-full bg-[#102A43]/5 border-2 border-dashed border-[#102A43]/10 text-white p-4 focus:border-[#8E1C1C] transition-colors font-serif-readable italic text-lg outline-none rounded"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
