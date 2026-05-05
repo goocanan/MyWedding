@@ -48,14 +48,9 @@ export default function App() {
 
       {/* 1. Global Background (Cinematic Grand Line Map) */}
       <div 
-        className={`${isOpen ? 'absolute' : 'fixed'} z-[-1]`}
+        className={`${isOpen ? 'absolute' : 'fixed'} z-[-1] overflow-hidden`}
         style={{ 
           backgroundColor: '#060e1a',
-          backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-          backgroundSize: '100% 100%', 
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'no-repeat', 
-          filter: isOpen ? 'brightness(1.1) contrast(1.1) saturate(1.2)' : 'none',
           width: '100%',
           maxWidth: '1080px',
           height: isOpen ? 'auto' : '100vh',
@@ -63,15 +58,41 @@ export default function App() {
           top: 0,
           left: '50%',
           transform: 'translateX(-50%)',
-          transition: 'filter 2s ease-in-out',
         }}
       >
-        {/* Cinematic Overlays */}
-        {isOpen && (
-          <>
+        {isOpen ? (
+          <div className="relative w-full h-full">
+            {/* Top Part */}
+            <div 
+              style={{ 
+                backgroundImage: "url('/assets/background1.png')",
+                backgroundSize: '100% 100%',
+                height: '50%',
+                width: '100%',
+              }} 
+            />
+            {/* Bottom Part */}
+            <div 
+              style={{ 
+                backgroundImage: "url('/assets/background2.png')",
+                backgroundSize: '100% 100%',
+                height: '50%',
+                width: '100%',
+              }} 
+            />
+            {/* Cinematic Overlays */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 pointer-events-none" />
             <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
-          </>
+          </div>
+        ) : (
+          <div 
+            style={{ 
+              backgroundImage: "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
+              backgroundSize: 'cover',
+              height: '100vh',
+              width: '100%',
+            }} 
+          />
         )}
       </div>
 
