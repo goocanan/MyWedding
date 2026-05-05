@@ -4,6 +4,7 @@ import { useScrollLock } from './hooks/useScrollLock';
 
 // Components
 import AudioController from './components/shared/AudioController';
+import BubbleBackground from './components/animation/BubbleBackground';
 
 // Sections
 import CoverOverlay from './sections/CoverOverlay/CoverOverlay';
@@ -39,29 +40,41 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] bg-transparent'} relative`}>
+    <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] bg-transparent cinematic-grain'} relative`} style={{ height: isOpen ? '15000px' : 'auto' }}>
+      
+      {isOpen && <div className="cinematic-vignette" />}
 
-      {/* 1. Global Background (Scrolling & Looping) */}
+      {/* 1. Global Background (Cinematic Grand Line Map) */}
       <div 
-        className={`${isOpen ? 'absolute' : 'fixed'} inset-0 z-[-2]`}
+        className={`${isOpen ? 'absolute' : 'fixed'} inset-0 z-[-2] overflow-hidden`}
         style={{ 
           backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-          backgroundSize: '100vw auto', 
+          backgroundSize: isOpen ? '100% 15000px' : 'cover', 
           backgroundPosition: 'top center',
-          backgroundRepeat: 'repeat', 
-          backgroundAttachment: 'scroll',
-          filter: isOpen ? 'brightness(1) contrast(1.1)' : 'none',
-          minHeight: '100%',
+          backgroundRepeat: 'no-repeat', 
+          filter: isOpen ? 'brightness(1.1) contrast(1.1) saturate(1.2)' : 'none',
+          height: isOpen ? '15000px' : '100vh',
+          width: '100%',
+          transition: 'filter 2s ease-in-out',
         }}
       >
-        {/* Dark overlay removed for 100% brightness */}
+        {/* Cinematic Overlays */}
+        {isOpen && (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 pointer-events-none" />
+            <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
+          </>
+        )}
       </div>
+
+      {/* Animated Elements */}
+      {isOpen && <BubbleBackground />}
 
       {/* Other Shared Components */}
       <CoverOverlay isOpen={isOpen} onOpen={handleOpen} />
       <AudioController ref={audioRef} />
 
-      {/* Main Content — Directly on the cinematic background */}
+      {/* Main Content — Aligned to the 15000px Cinematic Map */}
       <AnimatePresence>
         {isOpen && (
           <motion.main 
@@ -69,23 +82,25 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
+            style={{ height: '15000px' }}
           >
-            {/* Sections Wrapper - Optimized for Mobile */}
+            {/* Sections Wrapper - Distributed over 15000px */}
             <motion.div 
-              className="relative w-full max-w-[500px] space-y-16 md:space-y-24 py-16 px-6 text-white flex flex-col items-center"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="relative w-full max-w-[600px] px-6 text-white flex flex-col items-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
             >
-              <div className="section-voyage"><HeroSection /></div>
-              <div className="section-voyage"><CoupleSection /></div>
-              <div className="section-voyage"><CountdownSection /></div>
-              <div className="section-voyage"><EventSection /></div>
-              <div className="section-voyage"><GallerySection /></div>
-              <div className="section-voyage"><RSVPSection onNewMessage={handleNewMessage} /></div>
-              <div className="section-voyage"><GuestbookSection newMessages={newMessages} /></div>
-              <div className="section-voyage"><GiftSection /></div>
-              <div className="section-voyage"><FooterSection /></div>
+              {/* Spacing sections evenly across the 15000px map */}
+              <div className="section-voyage" style={{ height: '1800px' }}><HeroSection /></div>
+              <div className="section-voyage" style={{ height: '1800px' }}><CoupleSection /></div>
+              <div className="section-voyage" style={{ height: '1600px' }}><CountdownSection /></div>
+              <div className="section-voyage" style={{ height: '1800px' }}><EventSection /></div>
+              <div className="section-voyage" style={{ height: '2000px' }}><GallerySection /></div>
+              <div className="section-voyage" style={{ height: '1600px' }}><RSVPSection onNewMessage={handleNewMessage} /></div>
+              <div className="section-voyage" style={{ height: '1600px' }}><GuestbookSection newMessages={newMessages} /></div>
+              <div className="section-voyage" style={{ height: '1400px' }}><GiftSection /></div>
+              <div className="section-voyage" style={{ height: '1400px' }}><FooterSection /></div>
             </motion.div>
           </motion.main>
         )}

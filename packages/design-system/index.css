@@ -50,6 +50,29 @@ body {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
+/* --- Cinematic Effects --- */
+.cinematic-grain::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: overlay;
+}
+
+.cinematic-vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+  z-index: 50;
+}
+
 /* --- Global Textures --- */
 .bg-texture-parchment {
   display: none;
