@@ -61,25 +61,15 @@ export default function App() {
         }}
       >
         {isOpen ? (
-          <div className="relative w-full h-full">
-            {/* Top Part */}
-            <div 
-              style={{ 
-                backgroundImage: "url('/assets/background1.png')",
-                backgroundSize: '100% 100%',
-                height: '50%',
-                width: '100%',
-              }} 
-            />
-            {/* Bottom Part */}
-            <div 
-              style={{ 
-                backgroundImage: "url('/assets/background2.png')",
-                backgroundSize: '100% 100%',
-                height: '50%',
-                width: '100%',
-              }} 
-            />
+          <div 
+            className="w-full h-full"
+            style={{ 
+              backgroundImage: "url('/assets/background1.png'), url('/assets/background2.png')",
+              backgroundPosition: 'top center, bottom center',
+              backgroundSize: '100% 50%, 100% 50%',
+              backgroundRepeat: 'no-repeat',
+            }}
+          >
             {/* Cinematic Overlays */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 pointer-events-none" />
             <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
