@@ -76,12 +76,11 @@ export default function App() {
             style={{ 
               width: '100%', 
               maxWidth: '1080px',
-              height: 'auto',
-              aspectRatio: '1080 / 15000',
+              height: '15000px',
               position: 'relative'
             }}
           >
-            {/* 1. Global Background (Now Locked to Main Content Height) */}
+            {/* 1. Global Background (Locked to 15000px Height) */}
             <div 
               className="absolute inset-0 z-[-1] overflow-hidden"
               style={{ 
@@ -95,7 +94,8 @@ export default function App() {
                 style={{ 
                   backgroundImage: "url('/assets/background1.png'), url('/assets/background2.png')",
                   backgroundPosition: 'top center, bottom center',
-                  backgroundSize: '100% 50%, 100% 50%',
+                  /* On mobile, we use 'auto 100%' to prevent stretching while keeping 15000px height */
+                  backgroundSize: 'auto 50%, auto 50%',
                   backgroundRepeat: 'no-repeat',
                 }}
               >
