@@ -23,14 +23,14 @@ export default function CoupleSection() {
               rotationClass="-rotate-2 hover:rotate-0 transition-transform duration-500"
             />
             <div className="gold-nameplate text-center w-full">
-              <div className="font-script text-5xl md:text-6xl text-gold-gradient mb-2">{groom.name}</div>
-              <div className="font-serif-readable italic text-gold/60 text-sm">Son of {groom.parents}</div>
+              <div className="font-script text-5xl md:text-6xl gold-gradient-text mb-2">{groom.name}</div>
+              <div className="font-serif-readable italic text-gold-bronze text-sm">Son of {groom.parents}</div>
             </div>
           </div>
         </ScrollReveal>
 
         <ScrollReveal direction="scale" delay={0.3} className="hidden md:block">
-           <div className="w-16 h-16 rounded-full border-2 border-gold flex items-center justify-center text-4xl bg-[#102A43] shadow-[0_0_20px_rgba(212,175,55,0.4)]">💍</div>
+           <div className="w-16 h-16 rounded-full border-2 border-gold-primary flex items-center justify-center text-4xl bg-black/40 shadow-premium">💍</div>
         </ScrollReveal>
 
         <ScrollReveal direction="scale" delay={0.5}>
@@ -43,8 +43,8 @@ export default function CoupleSection() {
               rotationClass="rotate-3 hover:rotate-0 transition-transform duration-500"
             />
             <div className="gold-nameplate text-center w-full">
-              <div className="font-script text-5xl md:text-6xl text-gold-gradient mb-2">{bride.name}</div>
-              <div className="font-serif-readable italic text-gold/60 text-sm">Daughter of {bride.parents}</div>
+              <div className="font-script text-5xl md:text-6xl gold-gradient-text mb-2">{bride.name}</div>
+              <div className="font-serif-readable italic text-gold-bronze text-sm">Daughter of {bride.parents}</div>
             </div>
           </div>
         </ScrollReveal>

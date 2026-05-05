@@ -70,8 +70,8 @@ export const weddingConfig = {
 
   quotes: {
     religious: {
-      text: "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya.",
-      source: "QS. Ar-Rum: 21",
+      text: "Demikianlah tinggal ketiga hal ini, yaitu iman, pengharapan dan kasih, dan yang paling besar di antaranya ialah kasih.",
+      source: "1 Korintus 13:13",
     },
     theme: {
       text: "The sea is vast, but our love is the greatest treasure we've ever found.",

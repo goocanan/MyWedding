@@ -4,30 +4,36 @@
    ============================================ */
 
 :root {
-  /* Antique Palette */
+  /* Cinematic Pirate Palette */
   --bg-deep-sea: #060e1a;
   --bg-navy: #0c1b33;
   --bg-parchment: #F4EBD0;
-  --bg-parchment-dark: #D4C4A0;
   
-  /* Gold Palette - Epic Luxury */
+  /* Premium Gold Palette */
+  --gold-elegant: #E0BE74;
   --gold-primary: #D4AF37;
-  --gold-light: #FCF6BA;
-  --gold-dark: #B38728;
-  --gold-gradient: linear-gradient(to right, #BF953F, #FCF6BA, #B38728);
+  --gold-deep: #CFA85A;
+  --gold-bronze: #B08A4A;
+  --gold-dark: #9C7440;
   
-  /* Text */
-  --text-primary: #F5F0E8;
-  --text-secondary: #A0AEC0;
-  --text-dark: #3C2A1A;
-  --text-gold: #D4AF37;
-
+  /* Text Colors */
+  --text-ivory: #F3E7C9;
+  --text-ivory-soft: #EAD9B6;
+  --text-primary: #F3E7C9;
+  --text-secondary: #B08A4A;
+  
   /* Effects */
-  --shadow-epic: 0 20px 50px rgba(0, 0, 0, 0.6);
-  --border-gold: 2px solid #D4AF37;
-  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --gold-gradient: linear-gradient(
+    180deg,
+    #fff6d5 0%,
+    #d4af37 45%,
+    #8f6b2e 100%
+  );
   
-  /* Z-Indexes */
+  --shadow-premium: 0 2px 8px rgba(0,0,0,0.55), 0 0 18px rgba(212,175,55,0.18);
+  --shadow-text-heavy: 0 2px 10px rgba(0,0,0,0.65);
+  
+  /* Stacking */
   --z-content: 10;
   --z-cover: 1000;
 }
@@ -41,13 +47,12 @@
 
 body {
   font-family: 'Outfit', sans-serif;
-  color: var(--text-primary);
+  color: var(--text-ivory);
   background-color: var(--bg-deep-sea);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  /* Subtle Text Outline for readability */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-shadow: var(--shadow-text-heavy);
 }
 
 /* --- Cinematic Effects --- */
@@ -73,14 +78,16 @@ body {
   z-index: 50;
 }
 
-/* --- Global Textures --- */
-.bg-texture-parchment {
-  display: none;
-}
-
-.bg-texture-sea {
-  background: transparent;
-  position: relative;
+/* Text Overlay for Contrast */
+.text-container-premium {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.1)
+  );
+  backdrop-filter: blur(2px);
+  padding: 1.5rem;
+  border-radius: 4px;
 }
 
 /* --- Typography --- */
@@ -90,54 +97,49 @@ body {
 .font-serif-readable { font-family: 'Playfair Display', serif; }
 
 .gold-gradient-text {
-  background: linear-gradient(to bottom, #cf9d42, #e6c986, #b38728);
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
-/* --- Components (All Boxes Removed) --- */
-
-.parchment-floating {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 1rem !important;
-}
-
-.gold-nameplate {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 1rem !important;
-}
-
-.gold-nameplate::before {
-  display: none;
-}
-
-.gold-plaque {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 1rem !important;
-}
-
-.gold-plaque::before {
-  display: none;
-}
+.ivory-text { color: var(--text-ivory); }
+.bronze-text { color: var(--text-secondary); }
 
 /* Section Styling */
 .section-heading {
   font-family: 'Cinzel', serif;
-  @apply text-4xl md:text-6xl text-center mb-16 tracking-[0.2em] uppercase font-bold;
-  background: linear-gradient(to bottom, #cf9d42, #e6c986, #b38728);
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold-primary);
+  background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   padding: 0.5em 0;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  text-shadow: var(--shadow-premium);
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    font-size: 3.5rem;
+  }
+}
+
+/* --- Components (Cinematic Overhaul) --- */
+.parchment-floating {
+  background: transparent !important;
+  color: var(--text-ivory);
+  text-shadow: var(--shadow-text-heavy);
+}
+
+.gold-nameplate {
+  color: var(--gold-elegant);
+  text-shadow: var(--shadow-premium);
 }
