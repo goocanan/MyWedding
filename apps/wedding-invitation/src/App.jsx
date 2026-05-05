@@ -40,21 +40,26 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] bg-transparent cinematic-grain'} relative`} style={{ height: isOpen ? '15000px' : 'auto' }}>
+    <div 
+      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] bg-[#060e1a] cinematic-grain'} relative flex flex-col items-center`} 
+      style={{ height: isOpen ? '15000px' : 'auto' }}
+    >
       
       {isOpen && <div className="cinematic-vignette" />}
 
       {/* 1. Global Background (Cinematic Grand Line Map) */}
       <div 
-        className={`${isOpen ? 'absolute' : 'fixed'} inset-0 z-[-2] overflow-hidden`}
+        className={`${isOpen ? 'absolute' : 'fixed'} z-[-2] overflow-hidden`}
         style={{ 
           backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-          backgroundSize: isOpen ? '100% 15000px' : 'cover', 
+          backgroundSize: isOpen ? '1080px 15000px' : 'cover', 
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat', 
           filter: isOpen ? 'brightness(1.1) contrast(1.1) saturate(1.2)' : 'none',
           height: isOpen ? '15000px' : '100vh',
-          width: '100%',
+          width: isOpen ? '1080px' : '100%',
+          left: '50%',
+          transform: 'translateX(-50%)',
           transition: 'filter 2s ease-in-out',
         }}
       >
@@ -74,7 +79,7 @@ export default function App() {
       <CoverOverlay isOpen={isOpen} onOpen={handleOpen} />
       <AudioController ref={audioRef} />
 
-      {/* Main Content — Aligned to the 15000px Cinematic Map */}
+      {/* Main Content — Aligned to the 1080x15000px Cinematic Map */}
       <AnimatePresence>
         {isOpen && (
           <motion.main 
@@ -82,11 +87,11 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
-            style={{ height: '15000px' }}
+            style={{ height: '15000px', width: '1080px' }}
           >
-            {/* Sections Wrapper - Distributed over 15000px */}
+            {/* Sections Wrapper - Distributed over 15000px height within 1080px width */}
             <motion.div 
-              className="relative w-full max-w-[600px] px-6 text-white flex flex-col items-center"
+              className="relative w-full px-6 text-white flex flex-col items-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
