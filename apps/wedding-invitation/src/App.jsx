@@ -41,8 +41,7 @@ export default function App() {
 
   return (
     <div 
-      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] cinematic-grain'} relative flex flex-col items-center`} 
-      style={{ height: isOpen ? '15000px' : 'auto', width: '100%' }}
+      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] cinematic-grain'} relative flex flex-col items-center bg-[#060e1a]`} 
     >
       
       {isOpen && <div className="cinematic-vignette" />}
@@ -53,12 +52,14 @@ export default function App() {
         style={{ 
           backgroundColor: '#060e1a',
           backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-          backgroundSize: isOpen ? '100% 100%' : 'cover', 
+          backgroundSize: '100% 100%', 
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat', 
           filter: isOpen ? 'brightness(1.1) contrast(1.1) saturate(1.2)' : 'none',
-          height: isOpen ? '15000px' : '100vh',
-          width: isOpen ? '1080px' : '100%',
+          width: '100%',
+          maxWidth: '1080px',
+          height: isOpen ? 'auto' : '100vh',
+          aspectRatio: isOpen ? '1080 / 15000' : 'unset',
           top: 0,
           left: '50%',
           transform: 'translateX(-50%)',
@@ -89,25 +90,30 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
-            style={{ height: '15000px', width: '1080px' }}
+            style={{ 
+              width: '100%', 
+              maxWidth: '1080px',
+              height: 'auto',
+              aspectRatio: '1080 / 15000'
+            }}
           >
-            {/* Sections Wrapper - Distributed over 15000px height within 1080px width */}
+            {/* Sections Wrapper - Proportional Distribution */}
             <motion.div 
-              className="relative w-full px-6 text-white flex flex-col items-center"
+              className="relative w-full h-full px-6 text-white flex flex-col items-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
             >
-              {/* Spacing sections evenly across the 15000px map */}
-              <div className="section-voyage" style={{ height: '1800px' }}><HeroSection /></div>
-              <div className="section-voyage" style={{ height: '1800px' }}><CoupleSection /></div>
-              <div className="section-voyage" style={{ height: '1600px' }}><CountdownSection /></div>
-              <div className="section-voyage" style={{ height: '1800px' }}><EventSection /></div>
-              <div className="section-voyage" style={{ height: '2000px' }}><GallerySection /></div>
-              <div className="section-voyage" style={{ height: '1600px' }}><RSVPSection onNewMessage={handleNewMessage} /></div>
-              <div className="section-voyage" style={{ height: '1600px' }}><GuestbookSection newMessages={newMessages} /></div>
-              <div className="section-voyage" style={{ height: '1400px' }}><GiftSection /></div>
-              <div className="section-voyage" style={{ height: '1400px' }}><FooterSection /></div>
+              {/* Spacing sections proportionally across the map to maintain alignment on all screens */}
+              <div className="section-voyage" style={{ height: '12%' }}><HeroSection /></div>
+              <div className="section-voyage" style={{ height: '12%' }}><CoupleSection /></div>
+              <div className="section-voyage" style={{ height: '10.66%' }}><CountdownSection /></div>
+              <div className="section-voyage" style={{ height: '12%' }}><EventSection /></div>
+              <div className="section-voyage" style={{ height: '13.34%' }}><GallerySection /></div>
+              <div className="section-voyage" style={{ height: '10.66%' }}><RSVPSection onNewMessage={handleNewMessage} /></div>
+              <div className="section-voyage" style={{ height: '10.66%' }}><GuestbookSection newMessages={newMessages} /></div>
+              <div className="section-voyage" style={{ height: '9.34%' }}><GiftSection /></div>
+              <div className="section-voyage" style={{ height: '9.34%' }}><FooterSection /></div>
             </motion.div>
           </motion.main>
         )}
