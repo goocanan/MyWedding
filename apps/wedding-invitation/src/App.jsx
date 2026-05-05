@@ -49,11 +49,11 @@ export default function App() {
 
       {/* 1. Global Background (Cinematic Grand Line Map) */}
       <div 
-        className={`${isOpen ? 'absolute' : 'fixed'} z-[-2] overflow-hidden`}
+        className={`${isOpen ? 'absolute' : 'fixed'} z-[-1]`}
         style={{ 
           backgroundColor: '#060e1a',
           backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-          backgroundSize: isOpen ? '1080px 15000px' : 'cover', 
+          backgroundSize: isOpen ? '100% 100%' : 'cover', 
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat', 
           filter: isOpen ? 'brightness(1.1) contrast(1.1) saturate(1.2)' : 'none',
