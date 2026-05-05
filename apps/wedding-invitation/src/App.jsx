@@ -46,50 +46,22 @@ export default function App() {
       
       {isOpen && <div className="cinematic-vignette" />}
 
-      {/* 1. Global Background (Cinematic Grand Line Map) */}
-      <div 
-        className={`${isOpen ? 'absolute' : 'fixed'} z-[-1] overflow-hidden`}
-        style={{ 
-          backgroundColor: '#060e1a',
-          width: '100%',
-          maxWidth: '1080px',
-          height: isOpen ? 'auto' : '100vh',
-          aspectRatio: isOpen ? '1080 / 15000' : 'unset',
-          top: 0,
-          left: '50%',
-          transform: 'translateX(-50%)',
-        }}
-      >
-        {isOpen ? (
-          <div 
-            className="w-full h-full"
-            style={{ 
-              backgroundImage: "url('/assets/background1.png'), url('/assets/background2.png')",
-              backgroundPosition: 'top center, bottom center',
-              backgroundSize: '100% 50%, 100% 50%',
-              backgroundRepeat: 'no-repeat',
-            }}
-          >
-            {/* Cinematic Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 pointer-events-none" />
-            <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
-          </div>
-        ) : (
-          <div 
-            style={{ 
-              backgroundImage: "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-              backgroundSize: 'cover',
-              height: '100vh',
-              width: '100%',
-            }} 
-          />
-        )}
-      </div>
+      {/* Landing Page Background (Only when not open) */}
+      {!isOpen && (
+        <div 
+          className="fixed inset-0 z-[-1]"
+          style={{ 
+            backgroundImage: "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
+            backgroundSize: 'cover',
+            backgroundColor: '#060e1a'
+          }}
+        />
+      )}
 
       {/* Animated Elements */}
       {isOpen && <BubbleBackground />}
 
-      {/* Other Shared Components */}
+      {/* Shared Components */}
       <CoverOverlay isOpen={isOpen} onOpen={handleOpen} />
       <AudioController ref={audioRef} />
 
@@ -105,9 +77,34 @@ export default function App() {
               width: '100%', 
               maxWidth: '1080px',
               height: 'auto',
-              aspectRatio: '1080 / 15000'
+              aspectRatio: '1080 / 15000',
+              position: 'relative'
             }}
           >
+            {/* 1. Global Background (Now Locked to Main Content Height) */}
+            <div 
+              className="absolute inset-0 z-[-1] overflow-hidden"
+              style={{ 
+                backgroundColor: '#060e1a',
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <div 
+                className="w-full h-full"
+                style={{ 
+                  backgroundImage: "url('/assets/background1.png'), url('/assets/background2.png')",
+                  backgroundPosition: 'top center, bottom center',
+                  backgroundSize: '100% 50%, 100% 50%',
+                  backgroundRepeat: 'no-repeat',
+                }}
+              >
+                {/* Cinematic Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 pointer-events-none" />
+                <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
+              </div>
+            </div>
+
             {/* Sections Wrapper - Proportional Distribution */}
             <motion.div 
               className="relative w-full h-full px-6 text-white flex flex-col items-center"
