@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <div 
-      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] cinematic-grain'} relative flex flex-col items-center bg-[#060e1a]`} 
+      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] cinematic-grain'} relative flex flex-col items-center`} 
       style={{ height: isOpen ? '15000px' : 'auto', width: '100%' }}
     >
       
@@ -51,6 +51,7 @@ export default function App() {
       <div 
         className={`${isOpen ? 'absolute' : 'fixed'} z-[-2] overflow-hidden`}
         style={{ 
+          backgroundColor: '#060e1a',
           backgroundImage: isOpen ? "url('/assets/background1.png')" : "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
           backgroundSize: isOpen ? '1080px 15000px' : 'cover', 
           backgroundPosition: 'top center',
