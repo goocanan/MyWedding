@@ -105,23 +105,23 @@ export default function App() {
               </div>
             </div>
 
-            {/* Sections Wrapper - Proportional Distribution */}
+            {/* Sections Wrapper - Proportional Distribution using Fixed Pixels for Stability */}
             <motion.div 
-              className="relative w-full h-full px-6 text-white flex flex-col items-center"
+              className="relative w-full h-full px-6 text-white"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
             >
-              {/* Spacing sections proportionally across the map to maintain alignment on all screens */}
-              <div className="section-voyage" style={{ height: '12%' }}><HeroSection /></div>
-              <div className="section-voyage" style={{ height: '12%' }}><CoupleSection /></div>
-              <div className="section-voyage" style={{ height: '10.66%' }}><CountdownSection /></div>
-              <div className="section-voyage" style={{ height: '12%' }}><EventSection /></div>
-              <div className="section-voyage" style={{ height: '13.34%' }}><GallerySection /></div>
-              <div className="section-voyage" style={{ height: '10.66%' }}><RSVPSection onNewMessage={handleNewMessage} /></div>
-              <div className="section-voyage" style={{ height: '10.66%' }}><GuestbookSection newMessages={newMessages} /></div>
-              <div className="section-voyage" style={{ height: '9.34%' }}><GiftSection /></div>
-              <div className="section-voyage" style={{ height: '9.34%' }}><FooterSection /></div>
+              {/* Spacing sections with fixed pixel heights to perfectly match the 15000px map */}
+              <div className="section-voyage" style={{ height: '1800px' }}><HeroSection /></div>
+              <div className="section-voyage" style={{ height: '1800px' }}><CoupleSection /></div>
+              <div className="section-voyage" style={{ height: '1600px' }}><CountdownSection /></div>
+              <div className="section-voyage" style={{ height: '1800px' }}><EventSection /></div>
+              <div className="section-voyage" style={{ height: '2000px' }}><GallerySection /></div>
+              <div className="section-voyage" style={{ height: '1600px' }}><RSVPSection onNewMessage={handleNewMessage} /></div>
+              <div className="section-voyage" style={{ height: '1600px' }}><GuestbookSection newMessages={newMessages} /></div>
+              <div className="section-voyage" style={{ height: '1400px' }}><GiftSection /></div>
+              <div className="section-voyage" style={{ height: '1400px' }}><FooterSection /></div>
             </motion.div>
           </motion.main>
         )}
