@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <div 
-      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] cinematic-grain'} relative flex flex-col items-center bg-[#060e1a]`} 
+      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] cinematic-grain'} relative flex flex-col items-center`} 
     >
       
       {isOpen && <div className="cinematic-vignette" />}
