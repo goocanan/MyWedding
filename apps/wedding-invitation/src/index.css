@@ -72,15 +72,24 @@ h1, h2, h3, h4 {
 
 /* Container for sections */
 .section {
-  padding: 6rem 1.5rem;
+  padding: 2rem 1.5rem;
   position: relative;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
   justify-content: center;
+  width: 100%;
+  height: 100%;
   background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+  .section-voyage {
+    /* Use center alignment to stay on map landmarks */
+    align-items: center; 
+    padding-top: 0;
+  }
 }
 
 .section-bg-stars, .section-bg-navy, .section-bg-ocean, .section-bg-treasure, .section-bg-abyss { 

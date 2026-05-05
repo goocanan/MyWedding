@@ -18,10 +18,9 @@
 }
 
 .section-voyage {
-  min-height: 100vh;
   width: 100%;
   display: flex;
-  align-items: center; /* Default for desktop */
+  align-items: center;
   justify-content: center;
   position: relative;
   background: transparent !important;
@@ -29,8 +28,9 @@
 
 @media (max-width: 768px) {
   .section-voyage {
-    align-items: flex-start; /* Move to top on mobile */
-    padding-top: 15vh; /* Controlled offset from top */
+    /* Center content within its allocated map space to maintain alignment */
+    align-items: center; 
+    padding-top: 0;
   }
 }
 
