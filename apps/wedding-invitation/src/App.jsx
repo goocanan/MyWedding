@@ -41,8 +41,8 @@ export default function App() {
 
   return (
     <div 
-      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] bg-[#060e1a] cinematic-grain'} relative flex flex-col items-center`} 
-      style={{ height: isOpen ? '15000px' : 'auto' }}
+      className={`app ${!isOpen ? 'h-screen overflow-hidden' : 'min-h-screen text-[#102A43] cinematic-grain'} relative flex flex-col items-center bg-[#060e1a]`} 
+      style={{ height: isOpen ? '15000px' : 'auto', width: '100%' }}
     >
       
       {isOpen && <div className="cinematic-vignette" />}
@@ -58,6 +58,7 @@ export default function App() {
           filter: isOpen ? 'brightness(1.1) contrast(1.1) saturate(1.2)' : 'none',
           height: isOpen ? '15000px' : '100vh',
           width: isOpen ? '1080px' : '100%',
+          top: 0,
           left: '50%',
           transform: 'translateX(-50%)',
           transition: 'filter 2s ease-in-out',
