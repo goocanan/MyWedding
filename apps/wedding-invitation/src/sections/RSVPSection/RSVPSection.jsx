@@ -54,11 +54,11 @@ export default function RSVPSection({ onNewMessage }) {
       <section className="section" id="rsvp">
         <div className="content">
           <ScrollReveal>
-            <div className="text-container overlay-strong parchment-floating max-w-lg mx-auto text-center py-16 px-10 relative">
-              <div className="rsvp-success relative z-10 flex flex-col items-center gap-6">
-                <div className="text-gold-primary text-6xl drop-shadow-2xl">⚓</div>
-                <h3 className="text-5xl font-script gold-text">Welcome Aboard, Nakama!</h3>
-                <p className="font-serif-readable italic text-xl text-readable leading-relaxed">
+            <div className="text-container p-12">
+              <div className="flex flex-col items-center gap-6">
+                <div className="text-gold-primary text-6xl">⚓</div>
+                <h3 className="text-4xl md:text-5xl font-script gold-text">Welcome Aboard, Nakama!</h3>
+                <p className="font-serif-readable italic text-xl text-readable">
                   Your name has been added to the crew manifest. <br />
                   See you at the Grand Line! 🏴‍☠️
                 </p>
@@ -72,29 +72,29 @@ export default function RSVPSection({ onNewMessage }) {
 
   return (
     <section className="section" id="rsvp">
-      <div className="content max-w-2xl">
+      <div className="content">
         <ScrollReveal>
-          <div className="text-container overlay-soft flex flex-col items-center gap-2 mb-8">
+          <div className="text-container">
             <h2 className="section-heading gold-text">Join the Crew</h2>
-            <p className="section-subheading text-bronze tracking-widest text-center uppercase text-sm text-shadow-premium">Sign the Manifest</p>
+            <p className="font-pirate text-bronze tracking-widest uppercase text-sm">Sign the Manifest</p>
           </div>
         </ScrollReveal>
 
         <div className="w-full">
           <ScrollReveal delay={0.2}>
-            <div className="text-container overlay-strong relative text-ivory p-8">
-              <div className="relative z-10 w-full p-2">
-                <div className="text-center mb-10 pb-6 border-b border-gold-primary/20">
-                  <h3 className="font-script text-5xl gold-text mb-2">Crew Manifest</h3>
+            <div className="text-container p-8">
+              <div className="flex flex-col gap-8">
+                <div className="text-center pb-6 border-b border-gold-primary/20">
+                  <h3 className="font-script text-4xl gold-text mb-2">Crew Manifest</h3>
                   <p className="font-serif-readable italic text-readable opacity-70">Every nakama counts on this journey</p>
                 </div>
 
-                <form className="space-y-8 font-serif-readable" onSubmit={handleSubmit}>
-                  <div className="rsvp-field">
-                    <label className="block font-pirate text-xl text-gold-primary mb-2 uppercase tracking-wide text-shadow-premium" htmlFor="rsvp-name">Full Name</label>
+                <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
+                  <div className="flex flex-col gap-2">
+                    <label className="font-pirate text-xl text-gold-primary uppercase tracking-wide" htmlFor="rsvp-name">Full Name</label>
                     <input
                       id="rsvp-name"
-                      className="w-full bg-black/40 border-b-2 border-gold-primary/20 text-ivory px-2 py-3 focus:border-gold-primary transition-colors font-serif-readable italic text-xl outline-none"
+                      className="w-full bg-black/40 border-b-2 border-gold-primary/20 text-ivory px-4 py-3 focus:border-gold-primary transition-colors font-serif-readable italic text-xl outline-none"
                       type="text"
                       name="name"
                       value={form.name}
@@ -102,16 +102,16 @@ export default function RSVPSection({ onNewMessage }) {
                       placeholder="Write your name here..."
                     />
                     {errorMsg && (
-                      <span className="text-red-400 text-sm mt-2 block font-bold text-shadow-premium">{errorMsg}</span>
+                      <span className="text-red-400 text-sm font-bold">{errorMsg}</span>
                     )}
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="rsvp-field">
-                      <label className="block font-pirate text-xl text-gold-primary mb-2 uppercase tracking-wide text-shadow-premium" htmlFor="rsvp-pax">Crew Size</label>
+                    <div className="flex flex-col gap-2">
+                      <label className="font-pirate text-xl text-gold-primary uppercase tracking-wide" htmlFor="rsvp-pax">Crew Size</label>
                       <select
                         id="rsvp-pax"
-                        className="w-full bg-black/40 border-b-2 border-gold-primary/20 text-ivory px-2 py-3 focus:border-gold-primary transition-colors font-serif-readable italic text-xl outline-none appearance-none"
+                        className="w-full bg-black/40 border-b-2 border-gold-primary/20 text-ivory px-4 py-3 focus:border-gold-primary transition-colors font-serif-readable italic text-xl outline-none appearance-none"
                         name="pax"
                         value={form.pax}
                         onChange={handleChange}
@@ -122,8 +122,8 @@ export default function RSVPSection({ onNewMessage }) {
                       </select>
                     </div>
 
-                    <div className="rsvp-field">
-                      <span className="block font-pirate text-xl text-gold-primary mb-2 uppercase tracking-wide text-shadow-premium">Status</span>
+                    <div className="flex flex-col gap-2">
+                      <span className="font-pirate text-xl text-gold-primary uppercase tracking-wide">Status</span>
                       <div className="flex flex-col gap-2">
                         <label className="flex items-center gap-3 cursor-pointer group">
                           <input
@@ -151,8 +151,8 @@ export default function RSVPSection({ onNewMessage }) {
                     </div>
                   </div>
 
-                  <div className="rsvp-field pt-4">
-                    <label className="block font-pirate text-xl text-gold-primary mb-2 uppercase tracking-wide text-shadow-premium" htmlFor="rsvp-message">Wishes & Log Entry</label>
+                  <div className="flex flex-col gap-2">
+                    <label className="font-pirate text-xl text-gold-primary uppercase tracking-wide" htmlFor="rsvp-message">Wishes & Log Entry</label>
                     <textarea
                       id="rsvp-message"
                       className="w-full bg-black/40 border-2 border-dashed border-gold-primary/10 text-ivory p-4 focus:border-gold-primary transition-colors font-serif-readable italic text-lg outline-none rounded"
@@ -165,12 +165,12 @@ export default function RSVPSection({ onNewMessage }) {
                   </div>
 
                   {isError && (
-                    <span className="text-red-400 text-sm block font-bold text-shadow-premium">{errorMsg || error.message}</span>
+                    <span className="text-red-400 text-sm font-bold">{errorMsg || error.message}</span>
                   )}
 
                   <button
                     type="submit"
-                    className={`w-full py-5 px-8 mt-6 bg-gold-primary text-bg-deep-sea font-pirate text-2xl tracking-[0.2em] uppercase transition-all flex items-center justify-center gap-3 hover:bg-gold-light shadow-premium hover:scale-[1.02] active:scale-95 ${isPending ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    className={`w-full py-5 px-8 bg-gold-primary text-bg-deep-sea font-pirate text-2xl tracking-[0.2em] uppercase transition-all flex items-center justify-center gap-3 hover:bg-gold-light shadow-xl hover:scale-105 active:scale-95 ${isPending ? 'opacity-70 cursor-not-allowed' : ''}`}
                     disabled={isPending}
                     id="submit-rsvp-btn"
                   >

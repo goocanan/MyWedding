@@ -36,29 +36,28 @@ export default function GuestbookSection({ newMessages = [] }) {
 
   return (
     <section className="section" id="guestbook">
-      <div className="content max-w-4xl">
+      <div className="content">
         <ScrollReveal>
-          <div className="text-container overlay-soft flex flex-col items-center gap-2 mb-12">
+          <div className="text-container">
             <h2 className="section-heading gold-text">Captain's Log</h2>
-            <p className="section-subheading text-bronze tracking-widest text-center uppercase text-sm text-shadow-premium">Wishes from Nakama</p>
+            <p className="font-pirate text-bronze tracking-widest uppercase text-sm">Wishes from Nakama</p>
           </div>
         </ScrollReveal>
 
         <div className="w-full">
           {isLoading ? (
-            <div className="text-container overlay-soft py-10 text-center">
-              <div className="inline-block animate-spin text-5xl mb-4 text-gold-primary">⚓</div>
+            <div className="text-container py-10">
+              <div className="animate-spin text-5xl mb-4 text-gold-primary">⚓</div>
               <p className="font-pirate text-xl gold-text tracking-widest">Scanning the Horizon...</p>
             </div>
           ) : allMessages.length === 0 ? (
-            <div className="text-container overlay-soft text-center italic text-readable py-10">
+            <div className="text-container italic text-readable py-10">
               No entries found. Be the first to sign the log! 🏴‍☠️
             </div>
           ) : (
-            <>
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-10">
               <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 variants={staggerFast}
                 initial="hidden"
                 whileInView="visible"
@@ -67,22 +66,22 @@ export default function GuestbookSection({ newMessages = [] }) {
                 {visible.map((msg, idx) => (
                   <motion.div
                     key={msg.id}
-                    className={`text-container overlay-strong parchment-floating p-6 relative transition-all duration-500 hover:-translate-y-2
+                    className={`text-container p-6 flex flex-col gap-4
                       ${idx < newMessages.length ? 'border-2 border-gold-primary/60' : ''}`}
                     variants={fadeInUp}
                   >
-                    <div className="flex items-center gap-4 mb-4 pb-3 border-b border-gold-primary/10">
-                      <div className="w-12 h-12 rounded-full border-2 border-gold-primary flex items-center justify-center text-2xl shadow-premium text-gold-primary bg-black/20">⚓</div>
+                    <div className="flex items-center gap-4 pb-3 border-b border-gold-primary/10">
+                      <div className="w-12 h-12 rounded-full border-2 border-gold-primary flex items-center justify-center text-2xl text-gold-primary bg-black/20">⚓</div>
                       <div className="flex-1 text-left">
-                        <span className="block font-script text-3xl gold-text">{msg.name}</span>
-                        <span className={`text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-0.5 rounded text-shadow-premium
+                        <span className="block font-script text-2xl gold-text">{msg.name}</span>
+                        <span className={`text-[10px] font-bold uppercase tracking-[0.2em] px-2 py-0.5 rounded
                           ${msg.attendance === 'hadir' ? 'bg-gold-primary/20 text-gold-primary' : 'bg-red-900/40 text-red-200'}`}>
                           {badgeLabels[msg.attendance] || msg.attendance}
                         </span>
                       </div>
                     </div>
-                    <p className="font-serif-readable italic text-readable leading-relaxed text-lg text-left">"{msg.message}"</p>
-                    <div className="mt-4 text-right text-[10px] font-bold text-bronze uppercase tracking-tighter text-shadow-premium">
+                    <p className="font-serif-readable italic text-readable text-lg text-left leading-relaxed">"{msg.message}"</p>
+                    <div className="text-right text-[10px] font-bold text-bronze uppercase tracking-tighter">
                       🕐 {timeAgo(msg.timestamp || msg.createdAt)}
                     </div>
                   </motion.div>
@@ -90,9 +89,9 @@ export default function GuestbookSection({ newMessages = [] }) {
               </motion.div>
 
               {hasMore && (
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex justify-center">
                   <button
-                    className="px-12 py-5 bg-gradient-to-r from-[#BF953F] to-[#B38728] text-white font-pirate text-2xl tracking-[0.2em] rounded shadow-2xl hover:scale-110 transition-transform flex items-center gap-2 uppercase"
+                    className="px-10 py-4 bg-gradient-to-r from-gold-deep to-gold-primary text-bg-deep-sea font-pirate text-xl tracking-widest rounded shadow-xl hover:scale-105 transition-transform uppercase"
                     onClick={() => setVisibleCount((prev) => prev + INITIAL_SHOW)}
                     id="load-more-messages-btn"
                   >
@@ -101,7 +100,6 @@ export default function GuestbookSection({ newMessages = [] }) {
                 </div>
               )}
             </div>
-            </>
           )}
         </div>
       </div>

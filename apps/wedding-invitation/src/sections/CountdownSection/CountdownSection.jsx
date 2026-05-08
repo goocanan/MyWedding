@@ -19,17 +19,17 @@ export default function CountdownSection() {
     <section className="section" id="countdown">
       <div className="content">
         <ScrollReveal>
-          <div className="text-container overlay-soft flex flex-col items-center gap-2 mb-8">
+          <div className="text-container">
             <h2 className="section-heading gold-text">The Voyage Begins In</h2>
-            <p className="section-subheading text-bronze tracking-widest text-center uppercase text-sm text-shadow-premium">Time until we reach the Grand Line</p>
+            <p className="font-pirate text-bronze tracking-widest uppercase text-sm">Time until we reach the Grand Line</p>
           </div>
         </ScrollReveal>
 
-        <div className="w-full max-w-4xl">
+        <div className="w-full">
           {isExpired ? (
             <ScrollReveal>
-              <div className="text-container overlay-strong py-10 px-20 text-center">
-                <p className="font-pirate text-4xl gold-text animate-pulse">⚓ The Adventure Has Begun! ⚓</p>
+              <div className="text-container py-10 px-20">
+                <p className="font-pirate text-3xl md:text-5xl gold-text animate-pulse">⚓ The Adventure Has Begun! ⚓</p>
               </div>
             </ScrollReveal>
           ) : (
@@ -41,12 +41,12 @@ export default function CountdownSection() {
               viewport={{ once: true, amount: 0.5 }}
             >
               {items.map(({ value, label }) => (
-                <motion.div key={label} className="w-32 md:w-40" variants={scaleIn}>
-                  <div className="text-container overlay-strong p-0 aspect-square flex flex-col items-center justify-center relative group overflow-hidden border border-gold-primary/20">
-                     <div className="relative z-10 font-script text-5xl md:text-7xl gold-text drop-shadow-2xl">
+                <motion.div key={label} className="w-28 md:w-40" variants={scaleIn}>
+                  <div className="text-container p-4 aspect-square flex flex-col items-center justify-center border border-gold-primary/20">
+                     <div className="font-script text-4xl md:text-7xl gold-text">
                         {String(value).padStart(2, '0')}
                      </div>
-                     <div className="relative z-10 font-serif-readable italic text-readable uppercase tracking-widest text-xs mt-2 opacity-80">
+                     <div className="font-serif-readable italic text-readable uppercase tracking-widest text-xs">
                         {label}
                      </div>
                   </div>

@@ -112,10 +112,9 @@ export default function App() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
               style={{ 
-                display: 'grid',
-                gridTemplateColumns: '100%',
-                /* Standardized 100vh per section for mobile-first consistency */
-                gridTemplateRows: 'repeat(9, 100vh)'
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%'
               }}
             >
               {/* Each section is locked into its own grid row */}
