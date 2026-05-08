@@ -6,10 +6,21 @@
 @tailwind utilities;
 
 /* Global Base Styling */
+/* Color Tokens */
+:root {
+  --gold-primary: #d4af37;
+  --gold-light: #fff6d5;
+  --gold-deep: #8f6b2e;
+  --ivory-primary: #F3E7C9;
+  --ivory-secondary: #E6D8B8;
+  --bronze-accent: #B08A4A;
+  --text-shadow-premium: 0 2px 6px rgba(0,0,0,0.7), 0 0 12px rgba(0,0,0,0.35);
+}
+
 body {
   min-height: 100vh;
   background-color: var(--bg-deep-sea);
-  color: var(--text-ivory);
+  color: var(--ivory-primary);
 }
 
 body.scroll-locked {
@@ -40,12 +51,50 @@ h1, h2, h3, h4 {
   letter-spacing: 0.05em;
 }
 
-/* Global Gold Gradient Text Class */
-.text-gold-gradient {
-  background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728);
+/* Premium Readability System */
+.gold-text {
+  background: linear-gradient(
+    180deg,
+    #fff6d5 0%,
+    #d4af37 50%,
+    #8f6b2e 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: none; /* Gradients don't work with text-shadow on the same element usually, so we might need a wrapper for shadow if needed */
+}
+
+/* Base text shadow for all readable text */
+.text-readable {
+  color: var(--ivory-primary);
+  text-shadow: var(--text-shadow-premium);
+}
+
+.text-secondary-readable {
+  color: var(--ivory-secondary);
+  text-shadow: var(--text-shadow-premium);
+}
+
+.text-bronze {
+  color: var(--bronze-accent);
+}
+
+.text-container {
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 16px 20px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.overlay-soft {
+  background: rgba(0,0,0,0.15);
+}
+
+.overlay-strong {
+  background: rgba(0,0,0,0.35);
 }
 
 /* Custom Component Helpers */
@@ -72,25 +121,30 @@ h1, h2, h3, h4 {
 
 /* Container for sections */
 .section {
-  padding: 2rem 1.5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
   position: relative;
   z-index: 10;
+  width: 100%;
+  background-color: transparent !important;
+  overflow: hidden;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  text-align: center;
+  gap: 1.5rem; /* ~24px for premium spacing, adjustable via Tailwind 'gap' */
   width: 100%;
-  height: 100%;
-  background-color: transparent !important;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .section-voyage {
-    /* Use center alignment to stay on map landmarks */
-    align-items: center; 
-    padding-top: 0;
-  }
-}
 
 .section-bg-stars, .section-bg-navy, .section-bg-ocean, .section-bg-treasure, .section-bg-abyss { 
   background-color: transparent !important; 

@@ -76,7 +76,7 @@ export default function App() {
             style={{ 
               width: '100%', 
               maxWidth: '1080px',
-              height: '15000px',
+              minHeight: '100vh',
               position: 'relative'
             }}
           >
@@ -114,20 +114,20 @@ export default function App() {
               style={{ 
                 display: 'grid',
                 gridTemplateColumns: '100%',
-                /* Explicit row heights totaling exactly 15000px */
-                gridTemplateRows: '1800px 1800px 1600px 1800px 2000px 1600px 1600px 1400px 1400px'
+                /* Standardized 100vh per section for mobile-first consistency */
+                gridTemplateRows: 'repeat(9, 100vh)'
               }}
             >
               {/* Each section is locked into its own grid row */}
-              <div className="section-voyage"><HeroSection /></div>
-              <div className="section-voyage"><CoupleSection /></div>
-              <div className="section-voyage"><CountdownSection /></div>
-              <div className="section-voyage"><EventSection /></div>
-              <div className="section-voyage"><GallerySection /></div>
-              <div className="section-voyage"><RSVPSection onNewMessage={handleNewMessage} /></div>
-              <div className="section-voyage"><GuestbookSection newMessages={newMessages} /></div>
-              <div className="section-voyage"><GiftSection /></div>
-              <div className="section-voyage"><FooterSection /></div>
+              <HeroSection />
+              <CoupleSection />
+              <CountdownSection />
+              <EventSection />
+              <GallerySection />
+              <RSVPSection onNewMessage={handleNewMessage} />
+              <GuestbookSection newMessages={newMessages} />
+              <GiftSection />
+              <FooterSection />
             </motion.div>
           </motion.main>
         )}

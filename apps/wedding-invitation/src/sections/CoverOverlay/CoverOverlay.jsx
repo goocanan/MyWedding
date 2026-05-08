@@ -101,15 +101,15 @@ export default function CoverOverlay({ isOpen, onOpen }) {
 
             {/* CENTER: Couple & Guest */}
             <div className="cover-center">
-              <motion.div className="couple-name gold-metallic" variants={itemVariants}>
+              <motion.div className="couple-name gold-text drop-shadow-2xl px-4 text-center" variants={itemVariants}>
                 {couple.groom.name}
-                <span>&</span>
+                <span className="block my-2 text-bronze text-4xl">&</span>
                 {couple.bride.name}
               </motion.div>
 
-              <motion.div className="guest-box invite-box guest-card" variants={itemVariants}>
-                <span className="guest-label">To Our Dear Nakama</span>
-                <strong className="guest-name">{guestName}</strong>
+              <motion.div className="text-container overlay-strong mt-10 guest-card border border-gold-primary/30" variants={itemVariants}>
+                <span className="guest-label text-bronze uppercase tracking-[0.2em] text-xs font-bold block mb-2">To Our Dear Nakama</span>
+                <strong className="guest-name text-4xl gold-text block">{guestName}</strong>
               </motion.div>
             </div>
 

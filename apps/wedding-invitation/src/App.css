@@ -17,28 +17,7 @@
   }
 }
 
-.section-voyage {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: transparent !important;
-}
 
-@media (max-width: 768px) {
-  .section-voyage {
-    /* Center content within its allocated map space to maintain alignment */
-    align-items: center; 
-    padding-top: 0;
-  }
-}
-
-/* Ensure child sections are also transparent */
-.section-voyage > section {
-  background: transparent !important;
-  box-shadow: none !important;
-}
 
 @keyframes float-ship {
   0% { transform: translateY(0px) rotate(0deg); }
