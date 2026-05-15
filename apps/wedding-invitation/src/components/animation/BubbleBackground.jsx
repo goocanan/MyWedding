@@ -13,7 +13,7 @@ export default function BubbleBackground() {
   }));
 
   return (
-    <div className="bubble-container fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+    <div className="bubble-container fixed inset-0 z-[100] pointer-events-none overflow-hidden">
       {bubbles.map((bubble) => (
         <div
           key={bubble.id}
