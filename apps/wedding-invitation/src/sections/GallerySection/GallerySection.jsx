@@ -40,7 +40,7 @@ export default function GallerySection() {
                 role="button"
                 tabIndex={0}
               >
-                <div className={`w-full aspect-square overflow-hidden relative shadow-2xl border-4 border-gold-primary transition-all duration-500 hover:scale-105
+                <div className={`w-full aspect-[3/4] overflow-hidden relative shadow-2xl border-4 border-gold-primary transition-all duration-500 hover:scale-105
                   ${idx % 3 === 0 ? '-rotate-2' : idx % 3 === 1 ? 'rotate-1' : 'rotate-0'}`}>
                   {item.src ? (
                     <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
