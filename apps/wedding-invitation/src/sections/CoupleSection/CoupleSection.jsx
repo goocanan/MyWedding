@@ -28,7 +28,7 @@ export default function CoupleSection() {
               />
               <div className="text-center w-full mt-4">
                 <div className="section-title text-3xl md:text-5xl mb-2">{groom.name}</div>
-                <div className="section-subtitle text-sm">Son of {groom.parents}</div>
+                <div className="section-subtitle text-sm">The first son of {groom.parents}</div>
               </div>
             </div>
           </ScrollReveal>
@@ -49,7 +49,7 @@ export default function CoupleSection() {
               />
               <div className="text-center w-full mt-4">
                 <div className="section-title text-3xl md:text-5xl mb-2">{bride.name}</div>
-                <div className="section-subtitle text-sm">Daughter of {bride.parents}</div>
+                <div className="section-subtitle text-sm">The first daughter of {bride.parents}</div>
               </div>
             </div>
           </ScrollReveal>

@@ -1,7 +1,7 @@
 export const weddingConfig = {
   couple: {
     groom: {
-      name: "James William",
+      name: "James",
       fullName: "James William Jokanan, S.T.",
       birthDate: "04.10.1998",
       parents: "Putra pertama dari Bpk. Hendra & Ibu Debora",
@@ -9,7 +9,7 @@ export const weddingConfig = {
       label: "THE GROOM",
     },
     bride: {
-      name: "Krisda Yanti",
+      name: "Krisda",
       fullName: "Krisda Yanti Ndruru, S.E.",
       birthDate: "08.06.1998",
       parents: "Putri pertama dari Bpk. Minta Syukur Ndruru & Ibu Feniman Zai",
