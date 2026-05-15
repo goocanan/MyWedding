@@ -40,7 +40,7 @@ export default function GuestbookSection({ newMessages = [] }) {
         <ScrollReveal>
           <div className="mb-12">
             <h2 className="section-title text-4xl md:text-5xl">Captain's Log</h2>
-            <p className="section-title text-sm opacity-70 mt-2">Wishes from Nakama</p>
+            <p className="section-subtitle text-sm mt-2">Wishes from Nakama</p>
           </div>
         </ScrollReveal>
 

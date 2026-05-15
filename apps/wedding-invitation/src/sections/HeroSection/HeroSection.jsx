@@ -26,7 +26,7 @@ export default function HeroSection() {
             <p className="hero-verse text-center">
               "{quotes.religious.text}"
             </p>
-            <span className="section-title text-base md:text-lg">
+            <span className="section-subtitle text-base md:text-lg">
               — {quotes.religious.source} —
             </span>
           </motion.div>
@@ -38,7 +38,7 @@ export default function HeroSection() {
               "{quotes.theme.text}"
             </h1>
 
-            <span className="section-title text-lg md:text-xl">
+            <span className="section-subtitle text-lg md:text-xl">
               {quotes.theme.source}
             </span>
           </motion.div>

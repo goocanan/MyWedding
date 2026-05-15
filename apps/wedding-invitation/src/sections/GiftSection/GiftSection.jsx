@@ -26,7 +26,7 @@ export default function GiftSection() {
         <ScrollReveal>
           <div className="mb-12">
             <h2 className="section-title text-4xl md:text-5xl">Treasure Chest</h2>
-            <p className="section-title text-sm opacity-70 mt-2">Digital Envelope</p>
+            <p className="section-subtitle text-sm mt-2">Digital Envelope</p>
           </div>
         </ScrollReveal>
 

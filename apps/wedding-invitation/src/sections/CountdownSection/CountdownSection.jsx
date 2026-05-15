@@ -21,7 +21,7 @@ export default function CountdownSection() {
         <ScrollReveal>
           <div className="mb-12">
             <h2 className="section-title text-4xl md:text-5xl">The Voyage Begins In</h2>
-            <p className="section-title text-sm opacity-70 mt-2">Time until we reach the Grand Line</p>
+            <p className="section-subtitle text-sm mt-2">Time until we reach the Grand Line</p>
           </div>
         </ScrollReveal>
 

@@ -25,7 +25,7 @@ export default function FooterSection() {
         <ScrollReveal delay={0.2}>
           <div className="mb-12">
             <div className="flex flex-col items-center gap-4">
-              <p className="section-title text-[10px] opacity-70">With love and gratitude,</p>
+              <p className="section-subtitle text-[10px]">With love and gratitude,</p>
               <h2 className="section-title text-5xl md:text-7xl">
                 {couple.groom.name} <span className="italic">&</span> {couple.bride.name}
               </h2>
