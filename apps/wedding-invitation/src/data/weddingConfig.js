@@ -1,16 +1,18 @@
 export const weddingConfig = {
   couple: {
     groom: {
-      name: "James",
-      fullName: "James Goocanan, S.T.",
-      parents: "Putra ke-2 dari Bpk. Goocanan & Ibu Goocanan",
+      name: "James William",
+      fullName: "James William Jokanan, S.T.",
+      birthDate: "04.10.1998",
+      parents: "Putra pertama dari Bpk. Hendra & Ibu Debora",
       photo: "/assets/GROOM.JPG",
       label: "THE GROOM",
     },
     bride: {
-      name: "Krisda",
-      fullName: "Krisda, S.Pd.",
-      parents: "Putri ke-1 dari Bpk. Permata & Ibu Permata",
+      name: "Krisda Yanti",
+      fullName: "Krisda Yanti Ndruru, S.E.",
+      birthDate: "08.06.1998",
+      parents: "Putri pertama dari Bpk. Minta Syukur Ndruru & Ibu Feniman Zai",
       photo: "/assets/BRIDE.JPG",
       label: "THE BRIDE",
     },
@@ -18,36 +20,36 @@ export const weddingConfig = {
 
   events: [
     {
-      title: "Akad Nikah",
+      title: "Pemberkatan",
       icon: "⚓",
-      date: "2026-07-20",
-      displayDate: "Minggu, 20 Juli 2026",
-      time: "08:00 – 10:00 WIB",
-      venue: "Masjid Al-Ikhlas",
-      address: "Jl. Merdeka No. 10, Jakarta Selatan",
-      mapsUrl: "https://maps.google.com/?q=-6.200,106.800",
-      calendarTitle: "Akad Nikah James & Krisda",
+      date: "2026-08-16",
+      displayDate: "Minggu, 16 Agustus 2026",
+      time: "09:00 – 10:00 WIB",
+      venue: "LEVITICUS 11",
+      address: "Jl. Penyelesaian Tomang II No.1, Meruya Utara, Jakarta Barat",
+      mapsUrl: "https://maps.google.com/?q=LEVITICUS+11+Meruya+Utara",
+      calendarTitle: "Pemberkatan James & Krisda",
     },
     {
       title: "Resepsi",
       icon: "🎉",
-      date: "2026-07-20",
-      displayDate: "Minggu, 20 Juli 2026",
-      time: "11:00 – 14:00 WIB",
-      venue: "Gedung Serbaguna Mutiara",
-      address: "Jl. Sudirman No. 45, Jakarta Selatan",
-      mapsUrl: "https://maps.google.com/?q=-6.210,106.810",
+      date: "2026-08-16",
+      displayDate: "Minggu, 16 Agustus 2026",
+      time: "10:00 – 12:00 WIB",
+      venue: "LEVITICUS 11",
+      address: "Jl. Penyelesaian Tomang II No.1, Meruya Utara, Jakarta Barat",
+      mapsUrl: "https://maps.google.com/?q=LEVITICUS+11+Meruya+Utara",
       calendarTitle: "Resepsi Pernikahan James & Krisda",
     },
   ],
 
-  targetDate: "2026-07-20T08:00:00+07:00",
+  targetDate: "2026-08-16T09:00:00+07:00",
 
   gift: {
     bank: {
       name: "Bank BCA",
-      accountNumber: "1234567890",
-      accountHolder: "James Goocanan",
+      accountNumber: "4290747444",
+      accountHolder: "James William Jokanan",
     },
     qris: {
       image: null, // placeholder — set path when ready

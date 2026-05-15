@@ -23,6 +23,7 @@ export default function CoupleSection() {
                 name={groom.fullName}
                 parents={groom.parents}
                 photo={groom.photo}
+                bounty={groom.birthDate}
                 rotationClass="-rotate-2 hover:rotate-0 transition-transform duration-500"
               />
               <div className="text-center w-full mt-4">
@@ -43,6 +44,7 @@ export default function CoupleSection() {
                 name={bride.fullName}
                 parents={bride.parents}
                 photo={bride.photo}
+                bounty={bride.birthDate}
                 rotationClass="rotate-3 hover:rotate-0 transition-transform duration-500"
               />
               <div className="text-center w-full mt-4">
