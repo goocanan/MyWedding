@@ -93,25 +93,23 @@ export default function CoverOverlay({ isOpen, onOpen }) {
           >
             {/* TOP: Cinematic Title */}
             <motion.div className="cover-top" variants={itemVariants}>
-              <div className="hero-tagline">
-                <span>Let’s Sail to Our Wedding</span>
-                <h2>Through the Grand Line</h2>
+              <div className="hero-tagline flex flex-col items-center gap-2">
+                <span className="section-title text-sm md:text-base opacity-70">Let’s Sail to Our Wedding</span>
+                <h2 className="section-title text-3xl md:text-5xl">Through the Grand Line</h2>
               </div>
             </motion.div>
 
             {/* CENTER: Couple & Guest */}
-            <div className="cover-center">
-              <motion.div className="couple-name gold-text drop-shadow-2xl px-4 text-center" variants={itemVariants}>
+              <motion.div className="section-title text-5xl md:text-8xl drop-shadow-2xl px-4 text-center leading-tight" variants={itemVariants}>
                 {couple.groom.name}
-                <span className="block my-2 text-bronze text-4xl">&</span>
+                <span className="block my-4 text-bronze text-3xl md:text-5xl opacity-50 italic">&</span>
                 {couple.bride.name}
               </motion.div>
 
-              <motion.div className="text-container overlay-strong mt-10 guest-card border border-gold-primary/30" variants={itemVariants}>
-                <span className="guest-label text-bronze uppercase tracking-[0.2em] text-xs font-bold block mb-2">To Our Dear Nakama</span>
-                <strong className="guest-name text-4xl gold-text block">{guestName}</strong>
+              <motion.div className="mt-12 flex flex-col items-center gap-2" variants={itemVariants}>
+                <span className="section-title text-[10px] md:text-xs opacity-70">To Our Dear Nakama</span>
+                <strong className="section-title text-3xl md:text-5xl lowercase first-letter:uppercase">{guestName}</strong>
               </motion.div>
-            </div>
 
             {/* BOTTOM: Premium CTA */}
             <motion.div className="cover-bottom" variants={itemVariants}>

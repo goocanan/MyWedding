@@ -24,16 +24,16 @@ export default function GiftSection() {
     <section className="section" id="gift">
       <div className="content">
         <ScrollReveal>
-          <div className="text-container">
-            <h2 className="section-heading gold-text">Treasure Chest</h2>
-            <p className="font-pirate text-bronze tracking-widest uppercase text-sm">Digital Envelope</p>
+          <div className="mb-12">
+            <h2 className="section-title text-4xl md:text-5xl">Treasure Chest</h2>
+            <p className="section-title text-sm opacity-70 mt-2">Digital Envelope</p>
           </div>
         </ScrollReveal>
 
         <div className="flex flex-col gap-10 w-full">
           <ScrollReveal delay={0.1}>
-            <div className="text-container max-w-lg mx-auto">
-              <p className="text-center italic text-readable font-serif-readable text-xl">
+            <div className="max-w-lg mx-auto mb-10">
+              <p className="hero-verse text-center text-xl md:text-2xl">
                 "Your presence is our greatest treasure. However, if you wish to contribute to our journey, you may send your bounty here:"
               </p>
             </div>

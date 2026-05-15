@@ -9,9 +9,9 @@ export default function EventSection() {
     <section className="section" id="event">
       <div className="content">
         <ScrollReveal>
-          <div className="text-container">
-            <h2 className="section-heading gold-text">The Voyage Plan</h2>
-            <p className="font-pirate text-bronze tracking-widest uppercase text-sm">Wedding Itinerary</p>
+          <div className="mb-12">
+            <h2 className="section-title text-4xl md:text-5xl">The Voyage Plan</h2>
+            <p className="section-title text-sm opacity-70 mt-2">Wedding Itinerary</p>
           </div>
         </ScrollReveal>
 

@@ -13,32 +13,32 @@ export default function HeroSection() {
       
       <div className="content">
         <motion.div
-          className="text-container"
+          className="w-full flex flex-col items-center gap-12"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
           <motion.div className="flex flex-col items-center gap-6" variants={fadeInUp}>
-            <div className="w-16 h-16 border-2 border-gold-primary rounded-full flex items-center justify-center text-2xl bg-black/40 text-gold-primary">
+            <div className="w-16 h-16 border-2 border-gold-primary rounded-full flex items-center justify-center text-2xl bg-black/20 text-gold-primary shadow-[0_0_15px_rgba(212,175,55,0.3)]">
               📜
             </div>
-            <p className="font-serif-readable italic text-xl md:text-2xl text-readable">
+            <p className="hero-verse text-center">
               "{quotes.religious.text}"
             </p>
-            <span className="font-pirate text-gold-primary text-base md:text-lg tracking-widest uppercase">
+            <span className="section-title text-base md:text-lg">
               — {quotes.religious.source} —
             </span>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="w-2/3 h-px bg-gradient-to-r from-transparent via-gold-primary to-transparent opacity-50 mx-auto"></motion.div>
+          <motion.div variants={fadeInUp} className="w-1/3 h-px bg-gradient-to-r from-transparent via-gold-primary to-transparent opacity-30 mx-auto"></motion.div>
 
           <motion.div className="flex flex-col gap-4 items-center" variants={fadeInUp}>
-            <h1 className="font-script text-3xl md:text-5xl gold-text leading-tight">
+            <h1 className="hero-verse text-3xl md:text-5xl !font-normal">
               "{quotes.theme.text}"
             </h1>
 
-            <span className="font-pirate text-bronze text-lg md:text-xl uppercase tracking-[0.3em]">
+            <span className="section-title text-lg md:text-xl">
               {quotes.theme.source}
             </span>
           </motion.div>

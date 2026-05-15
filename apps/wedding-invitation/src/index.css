@@ -14,7 +14,9 @@
   --ivory-primary: #F3E7C9;
   --ivory-secondary: #E6D8B8;
   --bronze-accent: #B08A4A;
-  --text-shadow-premium: 0 2px 6px rgba(0,0,0,0.7), 0 0 12px rgba(0,0,0,0.35);
+  --text-shadow-premium: 0 2px 8px rgba(0,0,0,0.8), 0 0 24px rgba(0,0,0,0.35);
+  --text-shadow-cinematic: 0 2px 4px rgba(0,0,0,0.7), 0 0 12px rgba(0,0,0,0.35);
+  --text-shadow-gold: 0 2px 6px rgba(0,0,0,0.7), 0 0 18px rgba(0,0,0,0.3);
 }
 
 body {
@@ -80,13 +82,37 @@ h1, h2, h3, h4 {
   color: var(--bronze-accent);
 }
 
+.text-cinematic {
+  color: #f6e7b8;
+  text-shadow: var(--text-shadow-cinematic);
+}
+
+.hero-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.5;
+  color: #f3e7c9;
+  text-shadow: var(--text-shadow-premium);
+  max-width: 800px;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #d4af37;
+  text-shadow: var(--text-shadow-gold);
+}
+
 .text-container {
-  background: rgba(0,0,0,0.25);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.15); /* Reduced opacity for more subtlety */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 16px 20px;
   border-radius: 12px;
   width: 100%;
+  border: 1px solid rgba(212, 175, 55, 0.05); /* Subtle gold border hint */
 }
 
 .overlay-soft {

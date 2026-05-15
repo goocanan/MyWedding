@@ -10,10 +10,10 @@ export default function FooterSection() {
     <section className="section" id="footer">
       <div className="content">
         <ScrollReveal>
-          <div className="text-container">
+          <div className="mb-12">
             <div className="flex flex-col items-center gap-10">
-              <div className="w-16 h-16 border-2 border-gold-primary rounded-full flex items-center justify-center text-3xl bg-black/40 text-gold-primary">⚓</div>
-              <p className="font-serif-readable italic text-xl md:text-2xl text-readable leading-relaxed">
+              <div className="w-16 h-16 border-2 border-gold-primary rounded-full flex items-center justify-center text-3xl bg-black/20 text-gold-primary shadow-[0_0_15px_rgba(212,175,55,0.3)]">⚓</div>
+              <p className="hero-verse text-center">
                 "It is a great honor and happiness for us
                 if you would be willing to attend
                 and give your blessings to our journey."
@@ -23,11 +23,11 @@ export default function FooterSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <div className="text-container">
+          <div className="mb-12">
             <div className="flex flex-col items-center gap-4">
-              <p className="text-bronze tracking-[0.3em] uppercase text-[10px] font-bold">With love and gratitude,</p>
-              <h2 className="gold-text font-script text-5xl md:text-7xl leading-none">
-                {couple.groom.name} <span className="font-pirate text-3xl italic">&</span> {couple.bride.name}
+              <p className="section-title text-[10px] opacity-70">With love and gratitude,</p>
+              <h2 className="section-title text-5xl md:text-7xl">
+                {couple.groom.name} <span className="italic">&</span> {couple.bride.name}
               </h2>
             </div>
           </div>
@@ -36,8 +36,8 @@ export default function FooterSection() {
         <ScrollReveal delay={0.4} className="w-full h-px bg-gradient-to-r from-transparent via-gold-primary/30 to-transparent"></ScrollReveal>
 
         <ScrollReveal delay={0.5}>
-          <div className="text-container">
-            <p className="font-pirate text-2xl md:text-3xl gold-text tracking-widest uppercase animate-pulse">
+          <div className="mb-8">
+            <p className="section-title text-2xl md:text-3xl animate-pulse">
               The Adventure Begins... ⚓
             </p>
           </div>

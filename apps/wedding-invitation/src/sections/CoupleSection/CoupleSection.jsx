@@ -10,8 +10,8 @@ export default function CoupleSection() {
     <section className="section" id="couple">
       <div className="content">
         <ScrollReveal>
-          <div className="text-container">
-            <h2 className="section-heading gold-text">Nakama for Life</h2>
+          <div className="mb-12">
+            <h2 className="section-title text-4xl md:text-6xl">Nakama for Life</h2>
           </div>
         </ScrollReveal>
 
@@ -25,9 +25,9 @@ export default function CoupleSection() {
                 photo={groom.photo}
                 rotationClass="-rotate-2 hover:rotate-0 transition-transform duration-500"
               />
-              <div className="text-container text-center w-full">
-                <div className="font-script text-3xl md:text-5xl gold-text">{groom.name}</div>
-                <div className="font-serif-readable italic text-sm text-readable">Son of {groom.parents}</div>
+              <div className="text-center w-full mt-4">
+                <div className="section-title text-3xl md:text-5xl mb-2">{groom.name}</div>
+                <div className="text-cinematic italic text-sm">Son of {groom.parents}</div>
               </div>
             </div>
           </ScrollReveal>
@@ -45,9 +45,9 @@ export default function CoupleSection() {
                 photo={bride.photo}
                 rotationClass="rotate-3 hover:rotate-0 transition-transform duration-500"
               />
-              <div className="text-container text-center w-full">
-                <div className="font-script text-3xl md:text-5xl gold-text">{bride.name}</div>
-                <div className="font-serif-readable italic text-sm text-readable">Daughter of {bride.parents}</div>
+              <div className="text-center w-full mt-4">
+                <div className="section-title text-3xl md:text-5xl mb-2">{bride.name}</div>
+                <div className="text-cinematic italic text-sm">Daughter of {bride.parents}</div>
               </div>
             </div>
           </ScrollReveal>

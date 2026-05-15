@@ -16,9 +16,9 @@ export default function GallerySection() {
     <section className="section" id="gallery">
       <div className="content">
         <ScrollReveal>
-          <div className="text-container">
-            <h2 className="section-heading gold-text">Captured Memories</h2>
-            <p className="font-pirate text-bronze tracking-widest uppercase text-sm">Treasures of our Voyage</p>
+          <div className="mb-12">
+            <h2 className="section-title text-4xl md:text-5xl">Captured Memories</h2>
+            <p className="section-title text-sm opacity-70 mt-2">Treasures of our Voyage</p>
           </div>
         </ScrollReveal>
 
@@ -51,8 +51,8 @@ export default function GallerySection() {
                   )}
                 </div>
 
-                <div className="text-container py-2 px-4">
-                  <div className="font-script text-2xl text-center gold-text">
+                <div className="py-2 px-4">
+                  <div className="section-title text-xl text-center">
                     Log Entry #{idx + 1}
                   </div>
                 </div>

@@ -74,9 +74,9 @@ export default function RSVPSection({ onNewMessage }) {
     <section className="section" id="rsvp">
       <div className="content">
         <ScrollReveal>
-          <div className="text-container">
-            <h2 className="section-heading gold-text">Join the Crew</h2>
-            <p className="font-pirate text-bronze tracking-widest uppercase text-sm">Sign the Manifest</p>
+          <div className="mb-12">
+            <h2 className="section-title text-4xl md:text-5xl">Join the Crew</h2>
+            <p className="section-title text-sm opacity-70 mt-2">Sign the Manifest</p>
           </div>
         </ScrollReveal>
 
