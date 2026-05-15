@@ -4,14 +4,14 @@ export const weddingConfig = {
       name: "James",
       fullName: "James Goocanan, S.T.",
       parents: "Putra ke-2 dari Bpk. Goocanan & Ibu Goocanan",
-      photo: null, // placeholder — set path when ready
+      photo: "/assets/GROOM.JPG",
       label: "THE GROOM",
     },
     bride: {
       name: "Krisda",
       fullName: "Krisda, S.Pd.",
       parents: "Putri ke-1 dari Bpk. Permata & Ibu Permata",
-      photo: null,
+      photo: "/assets/BRIDE.JPG",
       label: "THE BRIDE",
     },
   },
@@ -60,12 +60,12 @@ export const weddingConfig = {
   },
 
   gallery: [
-    { id: 1, src: null, alt: "Moment 1" },
-    { id: 2, src: null, alt: "Moment 2" },
-    { id: 3, src: null, alt: "Moment 3" },
-    { id: 4, src: null, alt: "Moment 4" },
-    { id: 5, src: null, alt: "Moment 5" },
-    { id: 6, src: null, alt: "Moment 6" },
+    { id: 1, src: "/assets/LOG1.JPG", alt: "Moment 1" },
+    { id: 2, src: "/assets/LOG2.JPG", alt: "Moment 2" },
+    { id: 3, src: "/assets/LOG3.JPG", alt: "Moment 3" },
+    { id: 4, src: "/assets/LOG4.JPG", alt: "Moment 4" },
+    { id: 5, src: "/assets/LOG5.JPG", alt: "Moment 5" },
+    { id: 6, src: "/assets/LOG6.JPG", alt: "Moment 6" },
   ],
 
   quotes: {
