@@ -158,10 +158,11 @@
   font-family: 'Great Vibes', cursive;
   font-size: clamp(3.5rem, 15vw, 5.5rem);
   line-height: 1.2;
-  padding: 0.2em 0;
+  padding: 0.2em 0.5em; /* Added horizontal padding to fix left/right cropping */
   background: linear-gradient(to bottom, #f3e7c9, #d4af37);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  overflow: visible; /* Ensure swashes aren't clipped by the element's bounding box */
   filter: drop-shadow(0 4px 15px rgba(0,0,0,0.8));
 }
 
