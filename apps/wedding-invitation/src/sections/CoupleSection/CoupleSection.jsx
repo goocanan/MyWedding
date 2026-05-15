@@ -6,10 +6,6 @@ import './CoupleSection.css';
 export default function CoupleSection() {
   const { groom, bride } = weddingConfig.couple;
 
-  // Clean parent names for the English subtitle to avoid repetition
-  const groomParentsNames = groom.parents.replace(/Putra pertama dari /i, "");
-  const brideParentsNames = bride.parents.replace(/Putri pertama dari /i, "");
-
   return (
     <section className="section" id="couple">
       <div className="content">
@@ -31,8 +27,8 @@ export default function CoupleSection() {
                 rotationClass="-rotate-2 hover:rotate-0 transition-transform duration-500"
               />
               <div className="text-center w-full mt-4">
-                <div className="section-title text-3xl md:text-5xl mb-2">{groom.name}</div>
-                <div className="section-subtitle text-sm">The first son of {groomParentsNames}</div>
+                <div className="couple-name-highlight text-3xl md:text-5xl mb-2">{groom.name}</div>
+                <div className="section-subtitle text-sm">The first son of {groom.parents}</div>
               </div>
             </div>
           </ScrollReveal>
@@ -52,8 +48,8 @@ export default function CoupleSection() {
                 rotationClass="rotate-3 hover:rotate-0 transition-transform duration-500"
               />
               <div className="text-center w-full mt-4">
-                <div className="section-title text-3xl md:text-5xl mb-2">{bride.name}</div>
-                <div className="section-subtitle text-sm">The first daughter of {brideParentsNames}</div>
+                <div className="couple-name-highlight text-3xl md:text-5xl mb-2">{bride.name}</div>
+                <div className="section-subtitle text-sm">The first daughter of {bride.parents}</div>
               </div>
             </div>
           </ScrollReveal>

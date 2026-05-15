@@ -15,8 +15,7 @@ export default function WantedPosterFrame({ label, name, parents, photo, bounty 
         </div>
 
         <div className="wanted-poster__header w-full text-center pb-4 mb-6">
-          <div className="font-pirate text-6xl tracking-widest text-gold-gradient">WANTED</div>
-          <div className="text-sm font-bold tracking-[0.4em] text-[#3C2A1A] mt-2 opacity-80">DEAD OR ALIVE</div>
+          <div className="font-pirate text-6xl tracking-widest text-gold-gradient uppercase">{label}</div>
         </div>
 
         <div className="wanted-poster__photo w-full aspect-[4/5] overflow-hidden relative">
@@ -38,7 +37,6 @@ export default function WantedPosterFrame({ label, name, parents, photo, bounty 
             <span className="font-pirate text-3xl text-[#3C2A1A] tracking-widest">{bounty}</span>
           </div>
 
-          <div className="text-[10px] font-bold tracking-[0.2em] text-[#D4AF37] uppercase mb-1">{label}</div>
           <div className="font-serif italic text-sm text-[#3C2A1A]/70 leading-tight">{parents}</div>
         </div>
 
