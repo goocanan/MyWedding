@@ -36,8 +36,6 @@ export default function WantedPosterFrame({ label, name, parents, photo, bounty 
             <span className="font-pirate text-2xl text-gold-gradient">B</span>
             <span className="font-pirate text-3xl text-[#3C2A1A] tracking-widest">{bounty}</span>
           </div>
-
-          <div className="font-serif italic text-sm text-[#3C2A1A]/70 leading-tight">{parents}</div>
         </div>
 
         {/* Texture overlays */}

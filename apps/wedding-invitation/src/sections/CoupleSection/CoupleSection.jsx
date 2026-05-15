@@ -27,8 +27,7 @@ export default function CoupleSection() {
                 rotationClass="-rotate-2 hover:rotate-0 transition-transform duration-500"
               />
               <div className="text-center w-full mt-4">
-                <div className="couple-name-highlight text-3xl md:text-5xl mb-2">{groom.name}</div>
-                <div className="section-subtitle text-sm">The first son of {groom.parents}</div>
+                <div className="couple-name-highlight text-sm md:text-base">The first son of {groom.parents}</div>
               </div>
             </div>
           </ScrollReveal>
@@ -48,8 +47,7 @@ export default function CoupleSection() {
                 rotationClass="rotate-3 hover:rotate-0 transition-transform duration-500"
               />
               <div className="text-center w-full mt-4">
-                <div className="couple-name-highlight text-3xl md:text-5xl mb-2">{bride.name}</div>
-                <div className="section-subtitle text-sm">The first daughter of {bride.parents}</div>
+                <div className="couple-name-highlight text-sm md:text-base">The first daughter of {bride.parents}</div>
               </div>
             </div>
           </ScrollReveal>
