@@ -157,7 +157,8 @@
 .couple-name-text {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(3.5rem, 15vw, 5.5rem);
-  line-height: 1;
+  line-height: 1.2;
+  padding: 0.2em 0;
   background: linear-gradient(to bottom, #f3e7c9, #d4af37);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -169,7 +170,7 @@
   font-size: 1.5rem;
   color: #d4af37;
   opacity: 0.6;
-  margin: -10px 0;
+  margin: -5px 0;
   position: relative;
   display: flex;
   align-items: center;
