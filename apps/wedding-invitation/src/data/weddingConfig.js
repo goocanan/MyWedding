@@ -10,9 +10,9 @@ export const weddingConfig = {
     },
     bride: {
       name: "Krisda",
-      fullName: "Krisda Yanti Ndruru, S.E.",
+      fullName: "Krisda Yanti Ndruru, S.Ak.",
       birthDate: "08.06.1998",
-      parents: "Putri pertama dari Bpk. Minta Syukur Ndruru & Ibu Feniman Zai",
+      parents: "Putri pertama dari Alm. Bpk. Minta Syukur Ndruru & Ibu Feniman Zai",
       photo: "/assets/BRIDE.JPG",
       label: "THE BRIDE",
     },
