@@ -2,5 +2,8 @@
   "name": "@wedding/design-system",
   "version": "1.0.0",
   "private": true,
-  "main": "index.css"
+  "main": "index.css",
+  "scripts": {
+    "build": "echo 'no build needed'"
+  }
 }

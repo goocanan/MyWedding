@@ -17,10 +17,17 @@ import RSVPSection from './sections/RSVPSection/RSVPSection';
 import GuestbookSection from './sections/GuestbookSection/GuestbookSection';
 import GiftSection from './sections/GiftSection/GiftSection';
 import FooterSection from './sections/FooterSection/FooterSection';
+import CrewManifestDashboard from './sections/CrewManifest/CrewManifestDashboard';
 
 import './App.css';
 
 export default function App() {
+  const isManifestPage = window.location.pathname === '/manifest' || window.location.pathname === '/admin';
+
+  if (isManifestPage) {
+    return <CrewManifestDashboard />;
+  }
+
   const [isOpen, setIsOpen] = useState(false);
   const [newMessages, setNewMessages] = useState([]);
   const audioRef = useRef(null);

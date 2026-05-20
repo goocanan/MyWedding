@@ -5,6 +5,8 @@ import { toNodeHandler } from "better-auth/node";
 import { auth } from "./auth";
 import rsvpRoutes from "./routes/rsvp.routes";
 import configRoutes from "./routes/config.routes";
+import { authMiddleware } from "./middlewares/auth.middleware";
+import adminRoutes from "./routes/admin.routes";
 
 dotenv.config();
 
@@ -15,14 +17,14 @@ app.use(cors());
 app.use(express.json());
 
 // Better Auth handler
-app.all("/api/auth/*path", toNodeHandler(auth));
+app.all("/api/auth/*splat", toNodeHandler(auth));
 
 // Public Routes
 app.use("/api/rsvp", rsvpRoutes);
 app.use("/api/config", configRoutes);
 
-// Admin Routes (Add middleware later to check session)
-// app.use("/api/admin", authMiddleware, adminRoutes);
+// Admin Routes (Protected by Better Auth session check)
+app.use("/api/admin", authMiddleware, adminRoutes);
 
 app.get("/health", (req, res) => {
 	res.json({ status: "ok" });
