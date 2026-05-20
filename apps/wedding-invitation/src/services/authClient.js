@@ -7,7 +7,7 @@ if (API_HOST) {
 }
 
 export const authClient = createAuthClient({
-    baseURL: BASE_URL
+    baseURL: BASE_URL + '/auth'
 });
 
 export const { signIn, signUp, signOut, useSession } = authClient;
