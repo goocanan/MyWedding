@@ -1,9 +1,10 @@
 import { createAuthClient } from "better-auth/react";
 
 const API_HOST = import.meta.env.VITE_API_URL;
-const BASE_URL = API_HOST 
-  ? `https://${API_HOST}/api` 
-  : `${window.location.origin}/api`;
+let BASE_URL = window.location.origin + '/api';
+if (API_HOST) {
+  BASE_URL = API_HOST.startsWith('http') ? `${API_HOST}/api` : `https://${API_HOST}/api`;
+}
 
 export const authClient = createAuthClient({
     baseURL: BASE_URL
