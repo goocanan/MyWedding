@@ -1,5 +1,8 @@
 const API_HOST = import.meta.env.VITE_API_URL;
-const BASE_URL = API_HOST ? `https://${API_HOST}/api` : '/api';
+let BASE_URL = '/api';
+if (API_HOST) {
+  BASE_URL = API_HOST.startsWith('http') ? `${API_HOST}/api` : `https://${API_HOST}/api`;
+}
 
 export const apiClient = async (endpoint, options = {}) => {
   const { method = 'GET', body, headers = {}, ...rest } = options;
