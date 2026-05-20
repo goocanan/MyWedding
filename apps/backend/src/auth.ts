@@ -16,4 +16,9 @@ export const auth = betterAuth({
 	emailAndPassword: {
 		enabled: true,
 	},
+	trustedOrigins: [
+		"https://mywedding-iqv4.onrender.com",
+		"http://localhost:5173",
+		"http://localhost:3000"
+	]
 });

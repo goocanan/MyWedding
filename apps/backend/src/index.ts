@@ -13,7 +13,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(cors({
+	origin: true, // Echoes the origin of the request
+	credentials: true, // Allows cookies (required for Better Auth)
+}));
 app.use(express.json());
 
 // Better Auth handler
